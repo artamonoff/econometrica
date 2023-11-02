@@ -8,6 +8,7 @@
 |`План-семинаров.md`|[План семинарских занятий](https://github.com/artamonoff/econometrica/blob/main/econometrica2/План-семинаров.md)|
 |`exercises`|Листочки с заданиями|
 |`data-csv`| Наборы данных в формате CSV|
+|`python-notebooks`|Разбор примеров из листочков|
 
 ## Задачи
 
