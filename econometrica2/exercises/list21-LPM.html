@@ -3343,8 +3343,64 @@ F     Pr(&gt; F)
 </div>
 <div id="прогноз" class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Прогноз</h1>
-<div id="labour-force-equation" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> labour force
+<div id="approve-equation" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> approve equation</h2>
+<p>Для датасета <code>loanapp</code> рассморим регрессию <strong>approve
+на mortno, unem, dep, married</strong></p>
+<p>Результаты оценивания</p>
+<pre><code>
+===============================================
+                       Зависимая переменная    
+                    ---------------------------
+                              approve          
+-----------------------------------------------
+mortno                       0.071***          
+                              (0.016)          
+                                               
+unem                         -0.008**          
+                              (0.003)          
+                                               
+dep                          -0.019***         
+                              (0.007)          
+                                               
+married                      0.046***          
+                              (0.017)          
+                                               
+Constant                     0.867***          
+                              (0.018)          
+                                               
+-----------------------------------------------
+Observations                   1986            
+R2                             0.019           
+Adjusted R2                    0.017           
+Residual Std. Error            0.326           
+F Statistic                  9.445***          
+===============================================
+Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+<p>Рассморим трёх людей с характеристиками</p>
+<pre><code>
+=========================
+  mortno unem dep married
+-------------------------
+1   1     2    0     1   
+2   1     4    1     0   
+3   0     4    0     1   
+-------------------------</code></pre>
+<p>Вычислите прогноз для каждого человека по подогнанной модели.<br />
+<strong>Ответ округлите до 3-х десятичных знаков.</strong></p>
+<p>Ответ:</p>
+<pre><code>
+=========
+  Прогноз
+---------
+1  0.968 
+2  0.889 
+3  0.883 
+---------</code></pre>
+<p>Какая интерпретация прогнозов?</p>
+</div>
+<div id="labour-force-equation" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> labour force
 equation</h2>
 <p>Для датасета <a href="http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv">mroz_Greene</a>
 рассморим регрессию <strong>LFP на WA, WA^2, CIT, UN,
@@ -3408,7 +3464,7 @@ Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
 <div id="вопросы-адекватности" class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Вопросы
 адекватности</h1>
-<div id="approve-equation" class="section level2" number="6.1">
+<div id="approve-equation-4" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> approve equation</h2>
 <p>Для датасета <code>loanapp</code> рассморим регрессию <strong>approve
 на appinc, appinc^2, mortno, unem, dep, male, married, yjob,

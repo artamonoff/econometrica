@@ -629,6 +629,53 @@ if(testing.result[2,4]<sign.level) print('Гипотеза отвергаетс�
 
 # Прогноз
 
+## approve equation
+
+Для датасета `loanapp` рассморим регрессию **approve на mortno, unem, dep, married**
+
+Результаты оценивания
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+sign.level <- 0.05
+regr <- lm(formula=approve~mortno+unem+dep+married, data=loanapp)
+stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
+          dep.var.caption = 'Зависимая переменная', df=FALSE)
+```
+
+Рассморим трёх людей с характеристиками
+
+```{r, echo=FALSE, comment=''}
+new.df <- data.frame(mortno=c(1, 1, 0), unem=c(3.2, 3.9, 1.8), 
+                     dep=c(0, 1, 0), married=c(1, 0, 1) )
+stargazer(new.df, summary = FALSE, type = 'text', digit.separator = '')
+```
+
+Вычислите прогноз для каждого человека по подогнанной модели.  
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+Ответ:
+
+```{r, echo=FALSE, comment=''}
+# my.coef <- round(coef(regr), digits = my.digits.output)
+# new.df.to.predict <- data.frame(new.df$WA, (new.df$WA)^2, new.df$CIT, new.df$UN, 
+#                                 log(new.df$FAMINC) )
+# my.predict <- NULL
+# for(i in 1:nrow(new.df.to.predict)) {
+#   x <- c(1, as.numeric(new.df.to.predict[i,]))
+#   my.predict <- c(my.predict, sum(my.coef*x))
+# }
+# rm(x)
+# names(my.predict) <- 1:nrow(new.df)
+# round(my.predict, digits = my.digits )
+my.predict = predict(regr, newdata=new.df)
+stargazer(round(data.frame(Прогноз=my.predict), digits = my.digits ), 
+          type='text', summary=FALSE, digit.separator = '', digits=my.digits)
+```
+
+Какая интерпретация прогнозов?
+
 ## labour force equation
 
 Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
