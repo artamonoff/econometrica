@@ -106,7 +106,7 @@ my.digits <- 3
 my.digits.output <- 3
 # sign.level <- 0.10
 regr <- glm(formula=approve~appinc+mortno+unem+dep+male+married+yjob+self, data=loanapp, 
-            family = binomial(link='probit') )
+            family = binomial(link='logit') )
 ```
 
 Оцените модель на данных и укажите коэффициенты подогнанной модели. **Ответ округлите до `r my.digits`-х десятичных знаков.**
