@@ -12,8 +12,8 @@
 
 ## Задачи
 
-- [Листок 21](https://nbviewer.org/github/artamonoff/econometrica/blob/bd348f09caca6414fe507ce1836b4210fa388a6a/econometrica2/exercises/list21-LPM.html): LPM-модель
-- [Листок 22](https://nbviewer.org/github/artamonoff/econometrica/blob/bd348f09caca6414fe507ce1836b4210fa388a6a/econometrica2/exercises/list22-logit.html): logit/probit модели (оценка и тестирование основных гипотеза)
+- [Листок 21](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica2/exercises/list21-LPM.html): LPM-модель
+- [Листок 22](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica2/exercises/list22-logit.html): logit/probit модели (оценка и тестирование основных гипотеза)
 
 ## Необходимые библиотеки Python
 
