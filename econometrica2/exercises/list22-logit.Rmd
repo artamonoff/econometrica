@@ -106,7 +106,7 @@ my.digits <- 3
 my.digits.output <- 3
 # sign.level <- 0.10
 regr <- glm(formula=approve~appinc+mortno+unem+dep+male+married+yjob+self, data=loanapp, 
-            family = binomial(link='probit') )
+            family = binomial(link='logit') )
 ```
 
 Оцените модель на данных и укажите коэффициенты подогнанной модели. **Ответ округлите до `r my.digits`-х десятичных знаков.**
@@ -712,8 +712,7 @@ if(LR.stat>chi2.cr) print('Значимо') else print('Незначимо')
 
 ## approve equation #1 (logit)
 
-Для датасета `loanapp`
-рассморим несколько probit-регрессй. Результаты оценивания
+Для датасета `loanapp` рассмотрим probit-регрессию **approve на appinc, appinc^2, mortno, unem, dep, male, married, yjob, self**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
