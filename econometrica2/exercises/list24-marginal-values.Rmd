@@ -1,0 +1,209 @@
+---
+title: "Задачи по Эконометрике-2: Предельные значения"
+author: "Н.В. Артамонов (МГИМО МИД России)"
+output:
+  html_document:
+    toc: true
+    toc_float: 
+        collapsed: false
+    number_sections: true
+    df_print: paged
+---
+
+```{r, message=FALSE, echo=FALSE}
+library(stargazer)
+library(lmtest)
+library(car)
+library(sandwich)
+library(jtools)
+library(DescTools)
+library(erer)
+data(loanapp, SwissLabor, Mroz, package=c('wooldridge', 'AER', 'Ecdat'))
+# data(loanapp, package = 'wooldridge')
+# data(SwissLabor, package = 'AER')
+mroz_Greene <- read.csv('http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv')
+```
+
+# Предельные значения 
+
+## для probit
+
+Рассмотрим probit-модель $P(y=1)=\Phi(x'\beta)$, где
+$x'\beta=\beta_0+\beta_1x_1+\cdots+\beta_kx_k$
+
+Предельные значения $\frac{\partial P(y=1)}{\partial x_j}=\phi(x'\beta)\beta_j$,
+где $\phi(z)=\frac{1}{\sqrt{2\pi}}exp\{-z^2/2\}$
+
+## для logit
+
+Рассмотрим logit-модель $P(y=1)=\Lambda(x'\beta)$, где
+$x'\beta=\beta_0+\beta_1x_1+\cdots+\beta_kx_k$
+
+Предельные значения $\frac{\partial P(y=1)}{\partial x_j}=\lambda(x'\beta)\beta_j$,
+где $\lambda(z)=\frac{exp(z)}{(1+exp(z))^2}$
+
+## Средние предельные значения
+
+Обычно рассчитываются 
+
+- предельные значения для каждого регрессора в средней точке: \(\phi(\bar{x}'\beta)\beta_j\) для probit, \(\lambda(\bar{x}'\beta)\beta_j\) для logit
+- среднее по всей выборке предельное значения для каждого регрессора: \(\overline{\phi(x'\beta)\beta_j}\)  для probit, \(\overline{\lambda(x'\beta)\beta_j}\) для logit
+
+# labour force equation
+
+Для датасета [mroz_Green](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
+рассморим регрессию **LFP на WA, log(FAMINC), WE, KL6, K618, CIT, UN**
+трёх спецификаций:
+
+- LPM
+- logit
+- probit
+
+Результаты подгонки
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+spec <- formula(LFP~WA+log(FAMINC)+WE+KL6+K618+CIT+UN)
+my.df <- mroz_Greene
+regr.LPM <- lm(formula=spec, data=my.df)
+regr.logit <- glm(formula=spec, data=my.df, family=binomial(link='logit'), x=TRUE)
+regr.probit <- glm(formula=spec, data=my.df, family=binomial(link='probit'), x=TRUE)
+rm(my.df)
+stargazer(regr.LPM, regr.logit, regr.probit, type='text', digits=my.digits.output, digit.separator = '', 
+          dep.var.caption = 'Зависимая переменная', df=FALSE)
+```
+
+Вычислите предельное значение для каждого регрессора в средней точке для logit модели. 
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.logit, x.mean=TRUE, digits = my.digits)
+```
+
+Вычислите предельное значение для каждого регрессора в средней точке для probit модели. 
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.probit, x.mean=TRUE)
+```
+
+Вычислите среднее по выборке предельное значение для каждого регрессора для logit модели. 
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.logit, x.mean=FALSE, digits = my.digits)
+```
+
+Вычислите среднее по выборке предельное значение для каждого регрессора для probit модели. 
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.probit, x.mean=FALSE)
+```
+       
+# approve equation
+
+Для датасета `loanapp`
+рассморим регрессию **approve на appinc/100, mortno, unem, dep, male**
+трёх спецификаций:
+
+- LPM
+- logit
+- probit
+
+Результаты подгонки
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+spec <- formula(approve~I(appinc/100)+mortno+unem+dep+male)
+my.df <- loanapp
+regr.LPM <- lm(formula=spec, data=my.df)
+regr.logit <- glm(formula=spec, data=my.df, family=binomial(link='logit'), x=TRUE)
+regr.probit <- glm(formula=spec, data=my.df, family=binomial(link='probit'), x=TRUE)
+rm(my.df)
+stargazer(regr.LPM, regr.logit, regr.probit, type='text', digits=my.digits.output, digit.separator = '', 
+          dep.var.caption = 'Зависимая переменная', df=FALSE)
+```
+
+Вычислите предельное значение для каждого регрессора в средней точке для logit модели. 
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.logit, x.mean=TRUE, digits = my.digits)
+```
+
+Вычислите предельное значение для каждого регрессора в средней точке для probit модели. 
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.probit, x.mean=TRUE)
+```
+
+Вычислите среднее по выборке предельное значение для каждого регрессора для logit модели. 
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.logit, x.mean=FALSE, digits = my.digits)
+```
+
+Вычислите среднее по выборке предельное значение для каждого регрессора для probit модели. 
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.probit, x.mean=FALSE)
+```
+
+# swiss labour force equation
+
+Для датасета `SwissLabour`
+рассморим регрессию **participation на income, age, age^2, youngkids, oldkids**
+трёх спецификаций:
+
+- LPM
+- logit
+- probit
+
+Результаты подгонки
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+spec <- formula(as.numeric(participation)-1~income+age+I(age^2)+youngkids+oldkids)
+my.df <- SwissLabor
+regr.LPM <- lm(formula=spec, data=my.df)
+regr.logit <- glm(formula=spec, data=my.df, family=binomial(link='logit'), x=TRUE)
+regr.probit <- glm(formula=spec, data=my.df, family=binomial(link='probit'), x=TRUE)
+rm(my.df)
+stargazer(regr.LPM, regr.logit, regr.probit, type='text', digits=my.digits.output, digit.separator = '', 
+          dep.var.caption = 'Зависимая переменная', df=FALSE)
+```
+
+Вычислите предельное значение для каждого регрессора в средней точке для logit модели. 
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.logit, x.mean=TRUE, digits = my.digits)
+```
+
+Вычислите предельное значение для каждого регрессора в средней точке для probit модели. 
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.probit, x.mean=TRUE)
+```
+
+Вычислите среднее по выборке предельное значение для каждого регрессора для logit модели. 
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.logit, x.mean=FALSE, digits = my.digits)
+```
+
+Вычислите среднее по выборке предельное значение для каждого регрессора для probit модели. 
+**Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.probit, x.mean=FALSE)
+```
