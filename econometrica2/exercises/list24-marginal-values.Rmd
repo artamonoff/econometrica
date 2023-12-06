@@ -46,8 +46,12 @@ $x'\beta=\beta_0+\beta_1x_1+\cdots+\beta_kx_k$
 
 Обычно рассчитываются 
 
-- предельные значения для каждого регрессора в средней точке: \(\phi(\bar{x}'\beta)\beta_j\) для probit, \(\lambda(\bar{x}'\beta)\beta_j\) для logit
-- среднее по всей выборке предельное значения для каждого регрессора: \(\overline{\phi(x'\beta)\beta_j}\)  для probit, \(\overline{\lambda(x'\beta)\beta_j}\) для logit
+- предельные значения для каждого регрессора в средней точке: 
+  * \(\phi(\bar{x}'\beta)\beta_j\) для probit 
+  * \(\lambda(\bar{x}'\beta)\beta_j\) для logit
+- среднее по всей выборке предельное значения для каждого регрессора: 
+  * \(\overline{\phi(x'\beta)\beta_j}\)  для probit 
+  * \(\overline{\lambda(x'\beta)\beta_j}\) для logit
 
 # labour force equation
 
@@ -85,7 +89,7 @@ maBina(regr.logit, x.mean=TRUE, digits = my.digits)
 **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-maBina(regr.probit, x.mean=TRUE)
+maBina(regr.probit, x.mean=TRUE, digits = my.digits)
 ```
 
 Вычислите среднее по выборке предельное значение для каждого регрессора для logit модели. 
@@ -99,7 +103,7 @@ maBina(regr.logit, x.mean=FALSE, digits = my.digits)
 **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-maBina(regr.probit, x.mean=FALSE)
+maBina(regr.probit, x.mean=FALSE, digits = my.digits)
 ```
        
 # approve equation
@@ -138,7 +142,7 @@ maBina(regr.logit, x.mean=TRUE, digits = my.digits)
 **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-maBina(regr.probit, x.mean=TRUE)
+maBina(regr.probit, x.mean=TRUE, digits = my.digits)
 ```
 
 Вычислите среднее по выборке предельное значение для каждого регрессора для logit модели. 
@@ -152,7 +156,7 @@ maBina(regr.logit, x.mean=FALSE, digits = my.digits)
 **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-maBina(regr.probit, x.mean=FALSE)
+maBina(regr.probit, x.mean=FALSE, digits = my.digits)
 ```
 
 # swiss labour force equation
@@ -191,7 +195,7 @@ maBina(regr.logit, x.mean=TRUE, digits = my.digits)
 **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-maBina(regr.probit, x.mean=TRUE)
+maBina(regr.probit, x.mean=TRUE, digits = my.digits)
 ```
 
 Вычислите среднее по выборке предельное значение для каждого регрессора для logit модели. 
@@ -205,5 +209,5 @@ maBina(regr.logit, x.mean=FALSE, digits = my.digits)
 **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-maBina(regr.probit, x.mean=FALSE)
+maBina(regr.probit, x.mean=FALSE, digits = my.digits)
 ```
