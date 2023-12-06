@@ -14,6 +14,8 @@
 
 - [Листок 21](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica2/exercises/list21-LPM.html): LPM-модель
 - [Листок 22](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica2/exercises/list22-logit.html): logit/probit модели (оценка и тестирование основных гипотеза)
+- [Листок 23](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica2/exercises/list23-prediction.html): прогнозирование
+- [Листок 24](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica2/exercises/list24-marginal-values.html): предельные значения
 
 ## Необходимые библиотеки Python
 
