@@ -42,37 +42,43 @@ regr[[4]] <- update(regr[[1]], formula. = ~.-CIT-UN-K618-log(FAMINC) )
 stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 
-n <- nobs(regr[[1]])
+pseudo.R2 <- NULL
+adj.pseudo.R2 <-NULL
+CoxSnell <- NULL
+Nagelkerke <- NULL
+Efron <- NULL
+McKelvey <- NULL
 
-my.logL <- NULL
-my.k <- NULL
-my.Efron <- NULL
-my.McKelvey <- NULL
 for(i in 1:length(regr)) {
-  my.logL <- c(my.logL, -deviance(regr[[i]])/2 )
-  my.k <- c(my.k, regr[[i]]$rank-1)
+  n <- nobs(regr[[i]])
+  logL <- -deviance(regr[[i]])/2
+  logL.null <- -regr[[i]]$null.deviance/2
+  pseudo.R2 <- c(pseudo.R2, 1-logL/logL.null)
+  adj.pseudo.R2 <- c(adj.pseudo.R2, 1-(logL-(regr[[i]]$rank-1))/logL.null)
+  CoxSnell <- c(CoxSnell, 1-(exp(2*(logL.null-logL)/n)) )
+  Nagelkerke <- c(Nagelkerke, (1-(exp(2*(logL.null-logL)/n)))/(1-exp(2*logL.null/n)) )
   efron <- 1-sum( (regr[[i]]$y-regr[[i]]$fitted.values)^2 )/sum( (regr[[i]]$y-mean(regr[[i]]$y))^2 )
   mckelvey <- (var(regr[[i]]$fitted.values)*(n-1))/(var(regr[[i]]$fitted.values)*(n-1)+n)
-  my.Efron <- c(my.Efron, efron)
-  my.McKelvey <- c(my.McKelvey, mckelvey)
+  Efron <- c(Efron, efron)
+  McKelvey <- c(McKelvey, mckelvey)
 }
-rm(efron)
+rm(efron, n)
 my.logL.null <- -regr[[1]]$null.deviance/2
 ```
 
-Для каждой регрессии вычислитк следующие показатели качества подгонки модели: \(pseudoR^2\), 
-\(pseudoR^2_adj\), Cox & Snell, Nagelkerke/Cragg & Uhler, Efron, McKelvey & Zavoina. **Ответ округлите до `r my.digits`-х десятичных знаков.**
+Для каждой регрессии вычислитк следующие показатели качества подгонки модели: \(R^2_{pseudo}\), \(adj.R^2_{pseudo}\), 
+Cox & Snell, Nagelkerke/Cragg & Uhler, Efron, McKelvey & Zavoina. **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 Ответ: 
 
 ```{r, echo=FALSE, comment=''}
 goodness.of.fit <- data.frame(Model=1:length(regr),
-                              pseudoR2=1-my.logL/my.logL.null,
-                              pseudoR.2adj=1-(my.logL-my.k)/my.logL.null,
-                              CoxSnell=1-(exp(2*(my.logL.null-my.logL)/n)),
-                              Nagelkerke=(1-(exp(2*(my.logL.null-my.logL)/n)))/(1-exp(2*my.logL.null/n)),
-                              Efron = my.Efron,
-                              McKelveyZavoina = my.McKelvey
+                              pseudo.R2=1-pseudo.R2,
+                              adj.pseudo.R2=adj.pseudo.R2,
+                              CoxSnell=CoxSnell,
+                              Nagelkerke=Nagelkerke,
+                              Efron = Efron,
+                              McKelveyZavoina = McKelvey
                               )
 stargazer(goodness.of.fit, type='text', summary=FALSE, rownames=FALSE, digits = my.digits)
 ```
@@ -94,37 +100,44 @@ regr[[3]] <- update(regr[[1]], formula. = ~.-male-yjob-self )
 regr[[4]] <- update(regr[[1]], formula. = ~.-male-yjob-self-unem-married )
 stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
           dep.var.caption = 'Зависимая переменная', df=FALSE)
-n <- nobs(regr[[1]])
 
-my.logL <- NULL
-my.k <- NULL
-my.Efron <- NULL
-my.McKelvey <- NULL
+pseudo.R2 <- NULL
+adj.pseudo.R2 <-NULL
+CoxSnell <- NULL
+Nagelkerke <- NULL
+Efron <- NULL
+McKelvey <- NULL
+
 for(i in 1:length(regr)) {
-  my.logL <- c(my.logL, -deviance(regr[[i]])/2 )
-  my.k <- c(my.k, regr[[i]]$rank-1)
+  n <- nobs(regr[[i]])
+  logL <- -deviance(regr[[i]])/2
+  logL.null <- -regr[[i]]$null.deviance/2
+  pseudo.R2 <- c(pseudo.R2, 1-logL/logL.null)
+  adj.pseudo.R2 <- c(adj.pseudo.R2, 1-(logL-(regr[[i]]$rank-1))/logL.null)
+  CoxSnell <- c(CoxSnell, 1-(exp(2*(logL.null-logL)/n)) )
+  Nagelkerke <- c(Nagelkerke, (1-(exp(2*(logL.null-logL)/n)))/(1-exp(2*logL.null/n)) )
   efron <- 1-sum( (regr[[i]]$y-regr[[i]]$fitted.values)^2 )/sum( (regr[[i]]$y-mean(regr[[i]]$y))^2 )
-  mckelvey <- (var(regr[[i]]$fitted.values)*(n-1))/(var(regr[[i]]$fitted.values)*(n-1)+n*pi^2/3)
-  my.Efron <- c(my.Efron, efron)
-  my.McKelvey <- c(my.McKelvey, mckelvey)
+  mckelvey <- (var(regr[[i]]$fitted.values)*(n-1))/(var(regr[[i]]$fitted.values)*(n-1)+n)
+  Efron <- c(Efron, efron)
+  McKelvey <- c(McKelvey, mckelvey)
 }
-rm(efron)
+rm(efron, n)
 my.logL.null <- -regr[[1]]$null.deviance/2
 ```
 
-Для каждой регрессии вычислитк следующие показатели качества подгонки модели: \(pseudoR^2\), 
-\(pseudoR^2_adj\), Cox & Snell, Nagelkerke/Cragg & Uhler, Efron, McKelvey & Zavoina. **Ответ округлите до `r my.digits`-х десятичных знаков.**
+Для каждой регрессии вычислитк следующие показатели качества подгонки модели: \(R^2_{pseudo}\), \(adj.R^2_{pseudo}\), 
+Cox & Snell, Nagelkerke/Cragg & Uhler, Efron, McKelvey & Zavoina. **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 Ответ: 
 
 ```{r, echo=FALSE, comment=''}
 goodness.of.fit <- data.frame(Model=1:length(regr),
-                              pseudoR2=1-my.logL/my.logL.null,
-                              pseudoR.2adj=1-(my.logL-my.k)/my.logL.null,
-                              CoxSnell=1-(exp(2*(my.logL.null-my.logL)/n)),
-                              Nagelkerke=(1-(exp(2*(my.logL.null-my.logL)/n)))/(1-exp(2*my.logL.null/n)),
-                              Efron = my.Efron,
-                              McKelveyZavoina = my.McKelvey
+                              pseudo.R2=1-pseudo.R2,
+                              adj.pseudo.R2=adj.pseudo.R2,
+                              CoxSnell=CoxSnell,
+                              Nagelkerke=Nagelkerke,
+                              Efron = Efron,
+                              McKelveyZavoina = McKelvey
                               )
 stargazer(goodness.of.fit, type='text', summary=FALSE, rownames=FALSE, digits = my.digits)
 ```
