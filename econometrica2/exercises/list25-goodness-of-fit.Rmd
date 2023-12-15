@@ -66,7 +66,7 @@ rm(efron, n)
 my.logL.null <- -regr[[1]]$null.deviance/2
 ```
 
-Для каждой регрессии вычислитк следующие показатели качества подгонки модели: \(R^2_{pseudo}\), \(adj.R^2_{pseudo}\), 
+Для каждой регрессии вычислите следующие показатели качества подгонки модели: \(R^2_{pseudo}\), \(adj.R^2_{pseudo}\), 
 Cox & Snell, Nagelkerke/Cragg & Uhler, Efron, McKelvey & Zavoina. **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 Ответ: 
@@ -125,7 +125,7 @@ rm(efron, n)
 my.logL.null <- -regr[[1]]$null.deviance/2
 ```
 
-Для каждой регрессии вычислитк следующие показатели качества подгонки модели: \(R^2_{pseudo}\), \(adj.R^2_{pseudo}\), 
+Для каждой регрессии вычислите следующие показатели качества подгонки модели: \(R^2_{pseudo}\), \(adj.R^2_{pseudo}\), 
 Cox & Snell, Nagelkerke/Cragg & Uhler, Efron, McKelvey & Zavoina. **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 Ответ: 
