@@ -26,7 +26,7 @@ mroz_Greene <- read.csv('http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5
 
 ## labour force equation #1 (probit)
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
+Для датасета `TableF5-1.csv`
 рассморим несколько probit-регрессй. Результаты оценивания
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
@@ -146,8 +146,7 @@ stargazer(goodness.of.fit, type='text', summary=FALSE, rownames=FALSE, digits = 
 
 ## labour force equation #1 (probit)
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим несколько probit-регрессй. Результаты оценивания
+Для датасета `TableF5-1.csv` рассморим несколько probit-регрессй. Результаты оценивания
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -172,7 +171,7 @@ stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', keep
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 ```
 
-Для каждой модели вычислите показатели информационнвх критериев AIC & BIC и \(pseudoR^2_adj\). **Ответ округлите до `r my.digits`-х десятичных знаков.**
+Для каждой модели вычислите показатели информационнвх критериев AIC & BIC и \(adj.R^2_{pseudo}\). **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 Ответ
 
@@ -188,18 +187,18 @@ for(i in 1:length(regr)) {
   my.k <- c(my.k, regr[[i]]$rank-1)
 }
 
-info.criterion <- data.frame(Модель=1:length(regr), AIC=my.AIC, BIC=my.BIC, pseudoR.2adj=1-(my.logL-my.k)/my.logL.null)
+info.criterion <- data.frame(Модель=1:length(regr), AIC=my.AIC, BIC=my.BIC, adj.pseudo.R2=1-(my.logL-my.k)/my.logL.null)
 
 stargazer(info.criterion, type='text', summary = FALSE, rownames = FALSE, digit.separator = '', digits=my.digits)
 ```
 
-Какая модель предпочтительней по информационных критериям и \(pseudoR^2_adj\)?
+Какая модель предпочтительней по информационных критериям и \(adj.R^2_{pseudo}\)?
 
 Ответ: 
 
 ```{r, echo=FALSE, comment=''}
-df <- data.frame(Критерий=c('AIC', 'BIC', 'pseudoR.2adj'),
-                      Регрессия=c(which.min(my.AIC), which.min(my.BIC), which.max(info.criterion$pseudoR.2adj) ) )
+df <- data.frame(Критерий=c('AIC', 'BIC', 'adj.pseudo.R2'),
+                      Регрессия=c(which.min(my.AIC), which.min(my.BIC), which.max(info.criterion$adj.pseudo.R2) ) )
 stargazer(df, type='text', summary = FALSE, rownames = FALSE)
 ```
 
@@ -231,7 +230,7 @@ stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', keep
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 ```
 
-Для каждой модели вычислите показатели информационнвх критериев AIC & BIC и \(pseudoR^2_adj\). **Ответ округлите до `r my.digits`-х десятичных знаков.**
+Для каждой модели вычислите показатели информационнвх критериев AIC & BIC и \(adj.R^2_{pseudo}\). **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 Ответ
 
@@ -247,17 +246,17 @@ for(i in 1:length(regr)) {
   my.k <- c(my.k, regr[[i]]$rank-1)
 }
 
-info.criterion <- data.frame(Модель=1:length(regr), AIC=my.AIC, BIC=my.BIC, pseudoR.2adj=1-(my.logL-my.k)/my.logL.null)
+info.criterion <- data.frame(Модель=1:length(regr), AIC=my.AIC, BIC=my.BIC, adj.pseudo.R2=1-(my.logL-my.k)/my.logL.null)
 
 stargazer(info.criterion, type='text', summary = FALSE, rownames = FALSE, digit.separator = '', digits=my.digits)
 ```
 
-Какая модель предпочтительней по информационных критериям и \(pseudoR^2_adj\)?
+Какая модель предпочтительней по информационных критериям и \(adj.R^2_{pseudo}\)?
 
 Ответ: 
 
 ```{r, echo=FALSE, comment=''}
-df <- data.frame(Критерий=c('AIC', 'BIC', 'pseudoR.2adj'),
-                      Регрессия=c(which.min(my.AIC), which.min(my.BIC), which.max(info.criterion$pseudoR.2adj) ) )
+df <- data.frame(Критерий=c('AIC', 'BIC', 'adj.pseudo.R2'),
+                      Регрессия=c(which.min(my.AIC), which.min(my.BIC), which.max(info.criterion$adj.pseudo.R2) ) )
 stargazer(df, type='text', summary = FALSE, rownames = FALSE)
 ```
