@@ -23,3 +23,8 @@
 
 ## Установка библиотек Python
 
+В командной строке (Anaconda PowerShell Prompt в Windows, Terminal в MacOS) выполнить следующие команды (это нужно сделать только один раз!)
+
+- `conda install -c plotly plotly`
+- `conda install pandas numpy scipy statsmodels openpyxl`
+- `conda install -c conda-forge yfinance matplotlib sklearn seaborn arch-py pandas-datareader pmdarima`
