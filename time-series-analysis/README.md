@@ -20,3 +20,6 @@
 |[`seaborn`](https://seaborn.pydata.org)|Визуализация статистических данных|
 |[`matplotlib`](https://matplotlib.org)|Визуалиазция данных|
 |[`plotly`](https://plotly.com/python/)|Визуалиазция данных|
+
+## Установка библиотек Python
+
