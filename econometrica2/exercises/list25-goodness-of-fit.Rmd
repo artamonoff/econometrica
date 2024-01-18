@@ -73,7 +73,7 @@ Cox & Snell, Nagelkerke/Cragg & Uhler, Efron, McKelvey & Zavoina. **Ответ �
 
 ```{r, echo=FALSE, comment=''}
 goodness.of.fit <- data.frame(Model=1:length(regr),
-                              pseudo.R2=1-pseudo.R2,
+                              pseudo.R2=pseudo.R2,
                               adj.pseudo.R2=adj.pseudo.R2,
                               CoxSnell=CoxSnell,
                               Nagelkerke=Nagelkerke,
@@ -117,7 +117,7 @@ for(i in 1:length(regr)) {
   CoxSnell <- c(CoxSnell, 1-(exp(2*(logL.null-logL)/n)) )
   Nagelkerke <- c(Nagelkerke, (1-(exp(2*(logL.null-logL)/n)))/(1-exp(2*logL.null/n)) )
   efron <- 1-sum( (regr[[i]]$y-regr[[i]]$fitted.values)^2 )/sum( (regr[[i]]$y-mean(regr[[i]]$y))^2 )
-  mckelvey <- (var(regr[[i]]$fitted.values)*(n-1))/(var(regr[[i]]$fitted.values)*(n-1)+n)
+  mckelvey <- (var(regr[[i]]$fitted.values)*(n-1))/(var(regr[[i]]$fitted.values)*(n-1)+(pi^2)*n/3)
   Efron <- c(Efron, efron)
   McKelvey <- c(McKelvey, mckelvey)
 }
@@ -132,7 +132,7 @@ Cox & Snell, Nagelkerke/Cragg & Uhler, Efron, McKelvey & Zavoina. **Ответ �
 
 ```{r, echo=FALSE, comment=''}
 goodness.of.fit <- data.frame(Model=1:length(regr),
-                              pseudo.R2=1-pseudo.R2,
+                              pseudo.R2=pseudo.R2,
                               adj.pseudo.R2=adj.pseudo.R2,
                               CoxSnell=CoxSnell,
                               Nagelkerke=Nagelkerke,
