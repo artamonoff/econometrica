@@ -10,3 +10,7 @@
 |`scipy.stats`|Статистические методы (распределения и проч)|
 |`plotly`|Визуализация|
 |`seaborn`|Визуализация статистических данных|
+
+## Задачи
+
+- [Листок01](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica1/exercises/list01-OLS.html): Метод наименьших квадратов
