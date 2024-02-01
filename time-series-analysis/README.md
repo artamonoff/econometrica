@@ -18,8 +18,8 @@
 |[`scikit-learn`](https://scikit-learn.org/stable/index.html)|Методы машинного обучения|
 |[`scipy.stats`](https://docs.scipy.org/doc/scipy/reference/stats.html)|статистические методы (распределения и проч)|
 |[`seaborn`](https://seaborn.pydata.org)|Визуализация статистических данных|
-|[`matplotlib`](https://matplotlib.org)|Визуалиазция данных|
-|[`plotly`](https://plotly.com/python/)|Визуалиазция данных|
+|[`matplotlib`](https://matplotlib.org)|Визуализация данных|
+|[`plotly`](https://plotly.com/python/)|Визуализация данных|
 
 ## Установка библиотек Python
 
