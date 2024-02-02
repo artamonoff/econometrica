@@ -1,0 +1,695 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english, russian]{babel}
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsopn, amscd}
+\usepackage{enumerate, bm}
+\usepackage[mathscr]{eucal}
+
+\usepackage{hyperref}
+\hypersetup{unicode=true,final=true,colorlinks=true}
+
+\theoremstyle{remark}
+%\newtheorem{exercise}{Упражнение}
+\newtheorem{exercise}{}[subsection]
+\renewcommand{\theexercise}{\textbf{\#\arabic{exercise}}}
+
+\input{econometrics-defs.tex}
+
+\title{Задачи по Эконометрике временных рядов}
+
+\author{Н.В. Артамонов}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Работа с рядами в Python. Визуализация}
+
+Используемые библиотеки Python: \texttt{pandas}, \texttt{seaborn}, 
+\texttt{plotly}, \texttt{yfinance}, \texttt{pandas-datareader}
+
+\begin{exercise}
+Из БД FRED загрузите \textbf{квартальные} данные по ВВП США с 1990 Q1 по н.в. (ряд \(gdp\))
+\begin{enumerate}
+	\item Задайте квартальный временной индекс
+	\item Визуализируйте ряд \(gdp\)
+	\item Визуализируйте ряд \(\log(gdp)\)
+	\item Визуализируйте ряд \(\Delta\log(gdp)\)
+	\item Визуализируйте ряд \(\Delta^2\log(gdp)\)
+	\item Постройте гистограммы для \(\log(gdp),\Delta\log(gdp),\Delta^2\log(gdp)\)
+	\item Постройте диаграмму рассеяние \(\log(gdp_t)\) vs \(\log(gdp_{t-1})\)
+	\item Постройте диаграмму рассеяние \(\Delta\log(gdp_t)\) vs \(\Delta\log(gdp_{t-1})\)
+	\item вычислите \(\corr(\log(gdp_t), \log(gdp_{t-1}))\) и 
+	тестируйте его значимость (формально!)
+	\item вычислите \(\corr(\Delta\log(gdp_t), \Delta\log(gdp_{t-1}))\) и 
+	тестируйте его значимость (формально!) 
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Из БД FRED загрузите \textbf{месячные} данные по M2 США с 1990-01-01 по н.в. (ряд \(m2\))
+\begin{enumerate}
+	\item Задайте месячный временной индекс
+	\item Визуализируйте ряд \(m2\)
+	\item Визуализируйте ряд \(\log(m2)\)
+	\item Визуализируйте ряд \(\Delta\log(m2)\)
+	\item Визуализируйте ряд \(\Delta^2\log(m2)\)
+	\item Постройте гистограммы для \(\log(m2),\Delta\log(m2),\Delta^2\log(m2)\)
+	\item Постройте диаграмму рассеяние \(\log(m2_t)\) vs \(\log(m2_{t-1})\)
+	\item Постройте диаграмму рассеяние \(\Delta\log(m2_t)\) vs \(\Delta\log(m2_{t-1})\)
+	\item вычислите \(\corr(\log(m2_t), \log(m2_{t-1}))\) и 
+	тестируйте его значимость (формально!)
+	\item вычислите \(\corr(\Delta\log(m2_t), \Delta\log(m2_{t-1}))\) и 
+	тестируйте его значимость (формально!)
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Из БД FRED загрузите \textbf{недельные} данные по M2 США с 1990-01-01 по н.в.
+\begin{enumerate}
+	\item агрегируйте их в квартальные наблюдения (через усреднение)
+	\item задайте квартальный временной индекс
+	\item визуализируйте полученные наблюдения 
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Из БД FRED загрузите месячные данные краткосрочной (3-х мес, \(rate1\)) и долгосрочной (10-ти лет., \(rate2\)))
+ставкам для США с 1990-01-01 по н.в. как многомерный временной ряд \(rates\).
+\begin{enumerate}
+	\item Задайте месячный временной индекс
+	\item Визуализируйте ряд \(rates\) двумя способами
+	\begin{itemize}
+		\item раздельные графики
+		\item общий график (два ряда на одном графике)
+	\end{itemize}
+	\item Визуализируйте ряд \(\Delta\log(rates)\) двумя способами
+	\item Визуализируйте ряд \(\Delta^2\log(rates)\) двумя способами
+	\item Постройте гистограммы для \(rates,\Delta rates,\Delta^2 rates\) двумя способами
+	\item Постройте диаграмму рассеяние \(rate1\) vs \(rate2\)
+	\item Постройте диаграмму рассеяние \(\Delta rate1 \) vs \(\Delta rate2\)
+	\item вычислите \(\corr(rate1, rate2)\) и 
+	проверьте его значимость (формально!)
+	\item вычислите \(\corr(\Delta rate1, \Delta rate2)\) и 
+	проверьте его значимость (формально!)
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Из БД FRED загрузите месячные данные по США
+\begin{itemize}
+	\item краткосрочная (3-х мес) ставка
+	\item долгосрочная (10-ти лет) ставка
+	\item логарифм денежной массы M2
+\end{itemize}
+с 2000-01-01 по н.в. как многомерный временной ряд
+\begin{enumerate}
+	\item задайте месячный временной индекс
+	\item Визуализируйте многомерный ряд
+	\item Визуализируйте первую и вторую разность
+	\item Вычислите корреляционную матрицу для исходного ряда и визуализируйте её
+	\item Вычислите корреляционную матрицу для дифференцированного ряда и визуализируйте её
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Из finance.yahoo.com загрузите данные c 2005-01-01 по 2023-12-31 по S\&P500
+\begin{enumerate}
+	\item Сформируйте месячный временной ряд из цены закрытия на последний день каждого месяца
+	\item Задайте для него месячный временной индекс
+	\item Визуализируйте ряд
+	\item Визуализируйте первую и вторую логарифмические разности
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Из finance.yahoo.com загрузите данные c 2005-01-01 по 2023-12-31 по
+ценам закрытия S\&P500, Apple, Google
+\begin{enumerate}
+	\item Сформируйте многомерный ряд из цен закрытия на последний день каждого месяца
+	\item Визуализируйте многомерный ряд
+	\item Визуализируйте первую и вторую логарифмические разности
+	\item Вычислите корреляционную матрицу для исходного ряда и визуализируйте её
+	\item Вычислите корреляционную матрицу для лог-разности ряда и визуализируйте её
+\end{enumerate}
+\end{exercise}
+
+% \section{Стационарные ряды}
+
+% Во всех задачах по умолчанию уровень значимости 5\%.
+
+% \subsection{ACF \& PACF}
+
+% \begin{exercise}
+% Рассмотрим квартальные ряды
+% \begin{itemize}
+% 	\item \(x\): первая разность логарифма ВВП США с 1990 Q1 по
+% 	2019 Q4.
+% 	\item \(y\): вторая разность логарифма ВВП США с 1990 Q1 по
+% 	2019 Q4.
+% \end{itemize}
+% Для них
+% \begin{enumerate}
+% 	\item Постройте график ряда, ACF и PACF для каждого ряда
+% 	\item Значимы ли \(r(3),r_{part}(3)\)?
+% 	\item Тестируйте совместную значимость первых 5 коэффициентов
+% 	ACF.	
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Рассмотрим месячные ряды
+% \begin{itemize}
+% 	\item \(x\): первая разность 3-х месячной ставки США с 2000-01 по
+% 	н.в.
+% 	\item \(y\): вторая разность 3-х месячной ставки США с 2000-01 по
+% 	н.в.
+% \end{itemize}
+% Для них
+% \begin{enumerate}
+% 	\item Постройте график ряда, ACF и PACF для каждого ряда
+% 	\item Значимы ли \(r(4),r_{part}(4)\)?
+% 	\item Тестируйте совместную значимость первых 6 коэффициентов
+% 	ACF.	
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Рассмотрим месячные ряды
+% \begin{itemize}
+% 	\item \(x\): первая разность логарифма S \& P500 с 2000-01 по
+% 	н.в.
+% 	\item \(y\): вторая разность логарифма S \& P500 с 2000-01 по
+% 	н.в.
+% \end{itemize}
+% Для них
+% \begin{enumerate}
+% 	\item Постройте график ряда, ACF и PACF для каждого ряда
+% 	\item Значимы ли \(r(5),r_{part}(5)\)?
+% 	\item Тестируйте совместную значимость первых 7 коэффициентов
+% 	ACF.	
+% \end{enumerate}
+% \end{exercise}
+
+
+% \subsection{Модель ARMA (Практика)}
+
+% \begin{exercise}
+% Пусть \(y_t\) -- логарифмическая доходность US GDP (\textbf{квартальные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	\item Нарисуйте график ряда, ACF \& PACF для log-US GDP и для \(y_t\)
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Пусть \(y_t\) -- логарифмическая доходность US M2 (\textbf{квартальные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	\item Нарисуйте график ряда, ACF \& PACF для log-US M2 и для \(y_t\)
+% 	\item Подгоните модели
+% 	\begin{align*}
+% 		MA&(1) & MA&(2) & AR&(1) & AR&(2) \\ ARMA&(1,1) &
+% 		ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
+% 	\end{align*} 
+% 	и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Пусть \(y_t\) -- логарифмическая доходность US M2 (\textbf{месячные данные}) с 1995 по н.в.
+% \begin{enumerate}
+% 	\item Нарисуйте график ряда, ACF \& PACF для log-US M2 и для \(y_t\)
+% 	\item Подгоните модели
+% 	\begin{align*}
+% 		MA&(1) & MA&(2) & AR&(1) & AR&(2) \\ ARMA&(1,1) &
+% 		ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
+% 	\end{align*} 
+% 	и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Пусть \(y_t\) -- первая разность of 10-летней ставки (treasury securities  with constant maturity) 
+% (\textbf{квартальные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	\item Нарисуйте график ряда, ACF \& PACF  для ставки и для \(y_t\)
+% 	\item Подгоните модели
+% 	\begin{align*}
+% 		MA&(1) & MA&(2) & AR&(1) & AR&(2) \\ ARMA&(1,1) &
+% 		ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
+% 	\end{align*} 
+% 	и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Пусть \(y_t\) -- первая разность of 10-летней ставки (treasury securities  with constant maturity) 
+% (\textbf{месячные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	\item Нарисуйте график ряда, ACF \& PACF для ставки и для \(y_t\)
+% 	\item Подгоните модели
+% 	\begin{align*}
+% 		MA&(1) & MA&(2) & AR&(1) & AR&(2) \\ ARMA&(1,1) &
+% 		ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
+% 	\end{align*} 
+% 	и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Ряд \(y_t\) -- первая разность  3-месячной ставки (treasury bill, 
+% \textbf{квартальные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	\item Нарисуйте график ряда, ACF \& PACF  для ставки и для \(y_t\)
+% 	\item Подгоните модели
+% 	\begin{align*}
+% 		MA&(1) & MA&(2) & AR&(1) & AR&(2) \\ ARMA&(1,1) &
+% 		ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
+% 	\end{align*} 
+% 	и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Ряд \(y_t\) -- первая разность 3-месячной ставки (treasury bill, 
+% \textbf{месячные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	\item Нарисуйте график ряда, ACF \& PACF для ставки и для \(y_t\)
+% 	\item Подгоните модели
+% 	\begin{align*}
+% 		MA&(1) & MA&(2) & AR&(1) & AR&(2) \\ ARMA&(1,1) &
+% 		ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
+% 	\end{align*} 
+% 	и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
+
+% \subsection{Модель ARMA}
+
+% \begin{exercise}
+% Для каждой модели ARMA укажите её порядок, проверьте её стационарность и 
+% обратимость MA-части. В стационарном случае найдите \(\Exp x_t\). 
+% Во всех моделях \(u_t\sim WN(0,\sigma^2)\)
+% \begin{enumerate}
+% 	\item \(x_t=10-0.99x_{t-1}+u_t+1.2u_{t-1}\)
+% 	\item \(x_t=x_{t-1}-0.21x_{t-2}+u_t-u_{t-1}\)
+% 	\item \(x_t=-3+3x_{t-1}-3x_{t-2}+x_{t-3}+u_t-2u_{t-1}+u_{t-2}\)
+% 	\item \(x_t=2+2.2x_{t-1}-1.4x_{t-2}+0.2x_{t-3}+u_t-u_{t-1}-1.6x_{t-2}\)
+% 	\item \(x_t=1.5+0.7x_{t-1}-0.11x_{t-2}+0.005x_{t-3}+u_t+2.6u_{t-1}-1.2u_{t-2}\)
+% \end{enumerate}
+% Напишите модель для \(\Delta x_t\) и \(\Delta^2 x_t\) 
+% \end{exercise}
+
+% \begin{exercise}
+% По временному ряду длины $n=110$ были оценены следующие модели ARMA:
+% \begin{enumerate}
+% 	\item $y_t=16+0.67y_{t-1}+u_t-0.3u_{t-1}$, $s^2=1.63$;
+% 	\item $y_t=15.1+0.6y_{t-1}-0.1y_{t-2}+u_t$, $s^2=1.8$;
+% 	\item $y_t=17.1+0.71y_{t-1}+u_t-0.34u_{t-1}+0.12u_{t-2}$,
+% 	$s^2=1.86$.
+% \end{enumerate}
+% Какую модель вы выберете? %для прогнозирования?
+% \end{exercise}
+
+% \begin{exercise}
+% Для ряда из 200 наблюдения были оценены несколько ARMA-моде\-лей разного 
+% порядка. В таблице приведены результаты оценки дисперсии остатков
+% (т.е. $s^2$). Какой порядок модели можно назвать <<оптимальным>>?
+% \begin{center}
+% \begin{tabular}{l|l}
+% 	порядок ARMA & $s^2$ \\ \hline
+% 	(0,0) & 1.902 \\
+% 	(1,0) & 1.662 \\
+% 	(0,1) & 1.583 \\
+% 	(1,1) & 1.442 \\ 
+% 	(2,1) & 1.303 \\
+% 	(1,2) & 1.423 \\
+% 	(2,2) & 0.981 \\
+% 	(3,2) & 0.972 \\
+% 	(2,3) & 0.923 \\
+% 	(3,3) & 0.893
+% \end{tabular}
+% \end{center}
+% \end{exercise}
+
+% \begin{exercise}
+% Временной ряд $x_t$ -- первая разность логарифма реального ВВП США с 1984:2 по 2013:2. Для
+% этого ряда были оценены следующие модели (в таблице приведены значения информационных
+% критериев и $Q_{LB}$-статистики с лагом 4 для остатков):
+% \begin{center}{\scriptsize
+% \begin{tabular}{|l|c|c|c|c|c|c|c|}
+% 	\hline
+% 	модель & MA(1) & AR(1) & ARMA(1,1) & AR(2) & MA(2) & AR(3) & ARMA(2,1) \\ \hline
+% 	AIC & -870.85  & -880.17 & -883.55 & -885.54 & -882.83 & -884.10 & -884.54 \\
+% 	BIC & -862.57 & -871.88 & -872.50 & -874.49 & -871.78 & -870.29 & -870.73\\
+% 	$Q_{LB}$ & 21.5127 & 11.0688 & 3.68299 & 1.34523 & 4.21655 & 0.963561 & 0.494841 \\
+% 	\hline
+% \end{tabular} }
+% \end{center}
+% Какая модель предпочтительней? Ответ обоснуйте.
+% \end{exercise}
+
+% \begin{exercise}
+% По 100 наблюдениям была оценена модель 
+% \[
+% 	x_t=2+0.5x_{t-1}-0.06x_{t-2}+u_t.
+% \] 
+% и проверена её адекватность. Известно, что $x_{100}=3.1$, $x_{99}=2.5$,
+% $x_{98}=2.8$, $x_{97}=3.6$. Найдите $\widehat{x}_{102}$,  $\widehat{x}_{103}$
+% и $\widehat{x}_{104}$. 
+% \end{exercise}
+	
+% \begin{exercise}
+% Временной ряд $x_t$ -- первая разность логарифма реального ВВП США с 1984:2 по 2013:2
+% (квартальные данные). Была оценена модель ARMA(2,1)
+% \begin{center}
+%  \begin{tabular}{|c|c|c|c|c|} 
+% 	\hline
+% 	& const & $x_{t-1}$ & $x_{t-2}$ & $u_{t-1}$  \\ \hline
+% 	коэфф. & 0.007 & -0.026 & 0.397 & 0.378 \\ \hline
+% 	$\Prob$-значение & $1.02\cdot 10^{-10}$ & 0.9172 & 0.0006 & 0.1534  \\
+% 	\hline
+% \end{tabular}
+% \end{center}
+% Известны значения временного ряда и остатки %оценённые значения ошибки 
+% модели
+% \begin{center}
+% 	\begin{tabular}{|l|c|c|c|c|c|} \hline
+% 	$t$ & 2012:2 & 2012:3 & 2012:4 & 2013:1 & 2013:2 \\ \hline
+% 	$x_t$ & 0.003 & 0.007 & 0.0004 & 0.003 & 0.006 \\ \hline
+% 	$\hat{u}_t$ & –0.007 & 0.001 & –0.006 & –0.002 & 0.003 \\
+% 	\hline
+%  \end{tabular}
+% \end{center}
+% Постройте прогноз на четвёртый квартал 2013 года (2013:4).
+% \end{exercise}
+
+% \section{Ряды с единичным корнем}
+
+% \subsection{Модель ARIMA (практика)}
+
+% \begin{exercise}
+% Пусть \(y_t\) -- логарифм US GDP (\textbf{квартальные данные}) с 1995 по н.в.
+% \begin{enumerate}
+% 	\item Примените тесты единичного корня и найдите порядок интегрирования для \(y_t\). 
+% 	Значим ли снос/линейный тренд?
+% 	\item Подгоните модели (включение сноса зависит от предыдущего пункта)
+% 	\begin{align*}
+% 		ARIMA&(1,1,0) & ARIMA&(0,1,1) & ARIMA&(2,1,0) \\
+% 		ARIMA&(0,1,2) & ARIMA&(1,2,0) & ARIMA&(0,2,1)
+% 	\end{align*} 
+% 	и проведите их диагностику	
+% 	\item Подгоните <<оптимальную>> модель ARIMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Пусть \(y_t\) -- логарифм US M2 (\textbf{квартальные данные}) с 1995 по н.в.
+% \begin{enumerate}
+% 	\item Примените тесты единичного корня и найдите порядок интегрирования для \(y_t\)
+% 	Значим ли снос/линейный тренд?
+% 	\item Подгоните модели (включение сноса зависит от предыдущего пункта)
+% 	\begin{align*}
+% 		ARIMA&(1,1,0) & ARIMA&(0,1,1) & ARIMA&(2,1,0) \\
+% 		ARIMA&(0,1,2) & ARIMA&(1,2,0) & ARIMA&(0,2,1)
+% 	\end{align*} 
+% 	и проведите их диагностику	
+% 	\item Подгоните <<оптимальную>> модель ARIMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Пусть \(y_t\) -- логарифм US M2 (\textbf{месячные данные}) с 1995 по н.в.
+% \begin{enumerate}
+% 	\item Примените тесты единичного корня и найдите порядок интегрирования для \(y_t\)
+% 	Значим ли снос/линейный тренд?
+% 	\item Подгоните модели (включение сноса зависит от предыдущего пункта)
+% 	\begin{align*}
+% 		ARIMA&(1,1,0) & ARIMA&(0,1,1) & ARIMA&(2,1,0) \\
+% 		ARIMA&(0,1,2) & ARIMA&(1,2,0) & ARIMA&(0,2,1)
+% 	\end{align*} 
+% 	и проведите их диагностику	
+% 	\item Подгоните <<оптимальную>> модель ARIMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
+
+% \subsection{Модель ARIMA}
+
+% \begin{exercise}
+% Запишите спецификации следующих моделей
+% \begin{enumerate}
+% 	\item ARIMA(0,1,1) без сноса и со сносом
+% 	\item ARIMA(0,1,2) без сноса и со сносом
+% 	\item ARIMA(1,1,0) без сноса и со сносом
+% 	\item ARIMA(2,1,0) без сноса и со сносом
+% 	\item ARIMA(0,2,0) без сноса и со сносом
+% 	\item ARIMA(1,2,0) без сноса и со сносом
+% 	\item ARIMA(0,2,1) без сноса и со сносом
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% По 100 наблюдениям была оценена модель ARIMA(1,1,0) без сноса с параметрами
+% \(\phi=0.8\) и проверена её адекватность. 
+
+% Известно, что $x_{100}=8.2$, $x_{99}=7.9$,
+% $x_{98}=6.7$, $x_{97}=7.2$. Найдите $\widehat{x}_{102}$,  $\widehat{x}_{103}$
+% и $\widehat{x}_{104}$.
+% \end{exercise}
+
+% \begin{exercise}
+% По 100 наблюдениям была оценена модель ARIMA(1,1,0) со сносом с параметрами
+% \(\mu=0.2, \phi=-0.8\) и проверена её адекватность. 
+
+% Известно, что $x_{100}=12.3$, $x_{99}=10.2$,
+% $x_{98}=10.8$, $x_{97}=9.4$. Найдите $\widehat{x}_{102}$,  $\widehat{x}_{103}$
+% и $\widehat{x}_{104}$.
+% \end{exercise}
+
+% \begin{exercise}
+% По 100 наблюдениям была оценена модель ARIMA(1,1,1) без сноса с параметрами
+% \(\phi=0.3, \theta=0.6\) и проверена её адекватность. 
+
+% Известно, что $x_{100}=3.1$, $x_{99}=2.5$,
+% $x_{98}=2.8$, $x_{97}=3.6$. Найдите $\widehat{x}_{102}$,  $\widehat{x}_{103}$
+% и $\widehat{x}_{104}$.
+% \end{exercise}
+
+% \begin{exercise}
+% По 100 наблюдениям была оценена модель ARIMA(0,2,0) без сноса и проверена её адекватность. 
+
+% Известно, что $x_{100}=6.9$, $x_{99}=5.8$,
+% $x_{98}=7.3$, $x_{97}=6.5$. Найдите $\widehat{x}_{102}$,  $\widehat{x}_{103}$
+% и $\widehat{x}_{104}$.
+% \end{exercise}
+
+% \begin{exercise}
+% По 100 наблюдениям была оценена модель ARIMA(1,2,0) без сноса
+% с параметрами \(\phi=0.6\) и проверена её адекватность. 
+
+% Известно, что $x_{100}=6.9$, $x_{99}=5.8$,
+% $x_{98}=7.3$, $x_{97}=6.5$. Найдите $\widehat{x}_{102}$,  $\widehat{x}_{103}$
+% и $\widehat{x}_{104}$.
+% \end{exercise}
+
+% \section{Многомерные ряды. Коинтеграция}
+
+% \subsection{Модель VAR (Практика)}
+
+% \begin{exercise}
+% Рассмотрим многомерный ряд \texttt{Canada} из пакета \texttt{vars}.
+% \begin{enumerate}
+% 	\item нарисуйте график исходных уровней ряда и первой разности 
+% 	\item подгоните VAR модель для первой разности
+% 	\item тестируйте её на серийную корреляцию
+% 	\item постройте прогноз на 5 периодов. Постройте FEVD
+% 	\item Постройте IRFs использую исходное упорядочивание переменных
+% 	\item Проведите тест Гренджера на причинность
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Рассмотрим многомерный ряд для ставок: 3-month, 1-year, 10-year (месячные данные), 
+% с 2000 по н.в.)
+% \begin{enumerate}
+% 	\item нарисуйте график исходных уровней ряда и первой разности
+% 	\item Найдите порядок коинтеграции
+% 	\item подгоните VAR модель для уровней ряда. 
+% 	\item подгоните VAR модель для первой разности. 
+% 	\item тестируйте модель на серийную корреляцию 
+% 	\item постройте прогноз на 5 периодов для обоих моделей. Постройте FEVD
+% 	\item постройте IRFs использую исходное упорядочивание переменных
+% 	\item Проведите тест Гренджера на причинность
+% \end{enumerate}
+% \end{exercise}
+
+% \begin{exercise}
+% Рассмотрим многомерный ряд для ставок: 3-month, 10-year, AAA, BAA (месячные данные), 
+% с 2000 по н.в.)
+% \begin{enumerate}
+% 	\item нарисуйте график исходных уровней ряда и первой разности
+% 	\item Найдите порядок коинтеграции
+% 	\item подгоните VAR модель для уровней ряда. 
+% 	\item подгоните VAR модель для первой разности. 
+% 	\item тестируйте модель на серийную корреляцию 
+% 	\item постройте прогноз на 5 периодов для обоих моделей. Постройте FEVD
+% 	\item постройте IRFs использую исходное упорядочивание переменных
+% 	\item Проведите тест Гренджера на причинность
+% \end{enumerate}
+% \end{exercise}
+
+% \subsection{Модель VAR}
+
+% \begin{exercise}
+% Рассмотрим VAR(1)
+% \begin{align*}
+% 	\vectx_t&=\matrixA\vectx_{t-1}+\vectu_t &
+% 	\vectx_t&=\begin{pmatrix} x_t \\ y_t \end{pmatrix} &
+% 	\vectu_t&=\begin{pmatrix} u_t \\ v_t \end{pmatrix}
+% \end{align*}
+% где 
+% \begin{align*}
+% 	\vectu_t&\sim\WhiteNoise(0,\Sigma) &
+% 	\Sigma&=\begin{pmatrix}
+% 	\sigma^2_u & \sigma_{uv} \\ \sigma_{uv} & \sigma^2_v
+% 	\end{pmatrix}>0
+% \end{align*}
+% т.е. $u_t\sim\WhiteNoise(0,\sigma_u^2)$,   $v_t\sim\WhiteNoise(0,\sigma_v^2)$,
+% $\cov(u_t,v_t)=\sigma_{uv}$. 
+	
+% Проверить условие стационарности для следующих матриц
+% \begin{align*}
+% 	\matrixA&=\begin{pmatrix} 0.5 & 1 \\ 0 & 0.3 \end{pmatrix} &
+% 	&\begin{pmatrix} 0 & 0.5 \\ -0.5 & 0 \end{pmatrix} &
+% 	& \begin{pmatrix} 1 & 3 \\ 0 & 0.2  \end{pmatrix} &
+% 	& \begin{pmatrix} 0 & 1 \\ 0 & 1  \end{pmatrix} &
+% 	& \begin{pmatrix} 1 & 1 \\ 1 & 1  \end{pmatrix} &
+% 	& \begin{pmatrix} 0 & 1 \\ 1 & 1  \end{pmatrix}
+% \end{align*}
+% \end{exercise}
+	
+% \begin{exercise}
+% Рассмотрим VAR-модели
+% \begin{align*}
+% 	& \begin{cases} x_t=x_{t-1}+u_t \\ y_t=y_{t-1}+v_t \end{cases} &
+% 	& \begin{cases} x_t=x_{t-1}+u_t \\ y_t=cx_{t}+v_t \end{cases} \\
+% 	& \begin{cases} x_t=x_{t-1}+u_t \\ y_t=x_{t}+x_{t-1}+v_t \end{cases} &
+% 	& \begin{cases} x_t=3x_{t-1}-7y_{t-1}+u_t \\ y_t=x_{t-1}-2.5y_{t-1}+v_t \end{cases}
+% \end{align*}
+% \begin{enumerate}
+% 	\item Запишите в матричном виде.
+% 	\item Проверить условие стационарности.
+% 	\item Какие ряды коинтегрированы?
+% 	\begin{itemize}
+% 		\item Если ряды коинтегрированы, то запишите VECM модель
+% 		и найдите коинтеграционные соотношения
+% 		\item Если ряды не коинтегрированы, то запишите VAR-модель для дифференцированных рядов.
+% 	\end{itemize}
+% \end{enumerate}
+% \end{exercise}
+	
+% \begin{exercise}
+% Рассмотрим $\VAR(1)$
+% \begin{align*}
+% 	\vectx_t&=\matrixA\vectx_{t-1}+\vectu_t &
+% 	\vectx_t&=\begin{pmatrix} x_t \\ y_t \\ z_t \end{pmatrix} &
+% 	\vectu_t&=\begin{pmatrix} u_t \\ v_t \\ w_t \end{pmatrix}\sim\WhiteNoise(0,\Sigma)
+% \end{align*}
+% Проверьте условие стационарности для матриц
+% \begin{align*}
+% 	\matrixA&=\begin{pmatrix}
+% 	0 & 1 & 3 \\ -1 & 0 & -2 \\ 0 & 0 & 0.5 \end{pmatrix} &
+% 	&\begin{pmatrix}
+% 		0 & 0 & 0.5 \\ 0.5 & 0 & 0 \\0 & 0.5 & 0
+% 	\end{pmatrix}
+% \end{align*}
+% \end{exercise}
+	
+% \begin{exercise}
+% Рассмотрим $\VAR(2)$
+% \begin{align*}
+% 	\vectx_t&=\matrixA_1\vectx_{t-1}+\matrixA_2\vectx_{t-2}+\vectu_t &
+% 	\vectx_t&=\begin{pmatrix} x_t \\ y_t \end{pmatrix} &
+% 	\vectu_t&=\begin{pmatrix} u_t \\ v_t \end{pmatrix}\sim
+% 	\WhiteNoise(0,\Sigma)
+% \end{align*}
+% Проверьте условие стационарности для матриц
+% \begin{align*}
+% 	1)\,\,\matrixA_1&=\begin{pmatrix} 2 & 3 \\ 0 & 1 \end{pmatrix} &
+% 	\matrixA_2&=\begin{pmatrix} -1 & 3 \\ 0 & -0.25 \end{pmatrix} \\
+% 	2)\,\,\matrixA_1&=\begin{pmatrix} 0 & 0.5 \\ 0.5 & 0 \end{pmatrix} &
+% 	\matrixA_2&=\begin{pmatrix} 0 & -0.25 \\ -0.25 & 0 \end{pmatrix}
+% \end{align*}
+% \end{exercise}
+	
+% \begin{exercise}
+% Рассмотрим модели
+% \begin{align*}
+% 	& \begin{cases} x_t=2x_{t-1}-x_{t-2}+u_t \\ y_t=1.5y_{t-1}-0.5y_{t-2}+v_t \end{cases} \\
+% 	& \begin{cases} x_t=1.5x_{t-1}+y_{t-1}-0.5x_{t-2}-y_{t-2}+u_t \\
+% 	y_t=-x_{t-1}-0.5y_{t-1}+x_{t-2}+1.5y_{t-2}+v_t \end{cases} \\
+% 	& \begin{cases} x_t=x_{t-1}+u_t \\ y_t=x_{t}+x_{t-1}+v_t \\ z_t= x_{t}+y_{t-1}+w_t \end{cases} \\
+% 	& \begin{cases} x_t=y_{t-1}+u_t \\ y_t=z_{t-1}+v_t \\ z_t= x_{t-1}+w_t \end{cases}
+% \end{align*}
+% \begin{enumerate}
+% 	\item Запишите в матричном виде..
+% 	\item Проверить условие стационарности.
+% 	\item Какие ряды коинтегрированы?
+% 	\begin{itemize}
+% 		\item Если ряды коинтегрированы, то запишите VECM модель
+% 		и найдите коинтеграционные соотношения
+% 		\item Если ряды не коинтегрированы, то запишите VAR-модель для дифференцированных рядов.
+% 	\end{itemize}
+% \end{enumerate}
+% \end{exercise}
+
+\appendix
+
+\section{Библиотеки Python}
+
+\begin{table}%\footnotesize
+	\begin{tabular}{l|l}
+		Библиотека & Описание \\ \hline
+		\texttt{pandas} & Табличные данные \\
+		& (кросс-секции, панели, временные ряды) \\
+		\texttt{numpy} & Работа с массивами, преобразование данных \\
+		\texttt{yfinance} & Загрузка данных с \textcolor{blue}{finance.yahoo.com}\\
+		\texttt{pandas-datareader} & Загрузка данных из внешних БД \\
+		&  (FRED, \textcolor{blue}{finance.yahoo.com} etc) \\
+		\texttt{statsmodels} & Регрессионный анализ, \\
+		& базовые модели временных рядов \\
+		\texttt{arch} & Тесты и модели временных рядов \\
+		\texttt{pmdarima} & ARIMA-модель \\
+		\texttt{scikit-learn} & Методы машинного обучения \\
+		\texttt{scipy.stats} & Статистические методы (распределения и др) \\
+		\texttt{seaborn} & Визуализация статистических данных \\
+		\texttt{matplotlib} & Визуализация данных \\
+		\texttt{plotly} & Визуализация данных \\
+		\hline
+	\end{tabular}
+	\caption{Основные библиотеки Python для анализа временных рядов}
+\end{table}
+
+
+\end{document}
