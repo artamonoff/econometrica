@@ -131,16 +131,17 @@
 |`.t_test()`|t-тест для коэффициентов (общий)|
 |`.wald_test()`|Тест Вальда на линейные ограничения (аналогичен F-тесту)|
 |`.conf_int()`|Доверительные интервалы|
+|`.predict()`|Прогноз|
 
 ### Диагностика модели
 
-Основные тесты для диагностику линейно регрессии собраны в модуле [`.stats.diagnostic`](https://www.statsmodels.org/stable/stats.html)
+Основные тесты для диагностики линейной регрессии собраны в модуле [`.stats.diagnostic`](https://www.statsmodels.org/stable/stats.html)
 
 Базовые тесты:
 - на гетероскедастичность [`.het_arch()`](https://www.statsmodels.org/stable/generated/statsmodels.stats.diagnostic.het_arch.html#statsmodels.stats.diagnostic.het_arch), [`.het_breuschpagan()`](https://www.statsmodels.org/stable/generated/statsmodels.stats.diagnostic.het_breuschpagan.html#statsmodels.stats.diagnostic.het_breuschpagan), [`.het_goldfeldquandt()`](https://www.statsmodels.org/stable/generated/statsmodels.stats.diagnostic.het_goldfeldquandt.html#statsmodels.stats.diagnostic.het_goldfeldquandt), [`.het_white()`](https://www.statsmodels.org/stable/generated/statsmodels.stats.diagnostic.het_white.html#statsmodels.stats.diagnostic.het_white)
 - на серийную корреляцию [`.acorr_breusch_godfrey()`](https://www.statsmodels.org/stable/generated/statsmodels.stats.diagnostic.acorr_breusch_godfrey.html#statsmodels.stats.diagnostic.acorr_breusch_godfrey). [`.acorr_ljungbox()`](https://www.statsmodels.org/stable/generated/statsmodels.stats.diagnostic.acorr_ljungbox.html#statsmodels.stats.diagnostic.acorr_ljungbox), [`.acorr_lm()`](https://www.statsmodels.org/stable/generated/statsmodels.stats.diagnostic.acorr_lm.html#statsmodels.stats.diagnostic.acorr_lm)
 
-## Разное для (подогнанной) линейной регрессии
+## Разное для (подогнанной) линейной регрессии (объект класса `RegressionResults`)
 
 |Метод/Свойства|Описание|
 |-|-|
@@ -159,5 +160,6 @@
 |`.f_pvalue`|P-значение на значимость регрессии|
 |`.resid`|остатки|
 |`.fittedvalues`|предсказанные значения|
-|`.predict()`|Прогноз|
-
+|`.centered_tss`|TSS|
+|`.ess`|ESS|
+|`.ssr`|RSS|
