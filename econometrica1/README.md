@@ -4,12 +4,13 @@
 
 | Папка/Файл |Описание|
 |-|-|
-|`README.md`|Этот файл|
-|`syllabus.md`|Календарный план|
-|`exercises`|Листочки с заданиями|
 |`data-csv`| Наборы данных в формате CSV|
+|`exercises`|Листочки с заданиями (исходные файлы)|
 |`jupyter-notebooks`|Разбор примеров|
+|`jupyter-templates`|Шаблоны на Python|
+|`README.md`|Этот файл|
 |`linregression-with-Python.md`|Работа с регрессией в Python (пакет `statsmodels`)|
+|`syllabus.md`|Календарный план|
 
 ## Необходимые библиотеки Python
 
