@@ -8,21 +8,21 @@
 |`exercises`|Листочки с заданиями (исходные файлы)|
 |`jupyter-notebooks`|Разбор примеров|
 |`jupyter-templates`|Шаблоны на Python|
-|`README.md`|Этот файл|
-|`linregression-with-Python.md`|Работа с регрессией в Python (пакет `statsmodels`)|
-|`syllabus.md`|Календарный план|
+|`README`|Этот файл|
+|`linregression-with-Python`|Работа с регрессией в Python (пакет `statsmodels`)|
+|`syllabus`|Календарный план|
 
 ## Необходимые библиотеки Python
 
 |Библиотека|Описание|
 |-|-|
-|`pandas`|Табличные данные|
-|`numpy`|Работа с массивами данных, преобразование данных|
-|`statsmodels`|Регрессионный анализ|
-|`scipy.stats`|Статистические методы (распределения и проч)|
-|`seaborn`|Визуализация статистических данных|
-|`plotly`|Визуализация|
-|`matplotlib`|Визуализация|
+|[`pandas`](https://pandas.pydata.org)|Табличные данные|
+|[`numpy`](https://numpy.org)|Работа с массивами данных, преобразование данных|
+|[`statsmodels`](https://www.statsmodels.org/stable/index.html)|Регрессионный анализ|
+|[`scipy.stats`](https://docs.scipy.org/doc/scipy/reference/stats.html)|Статистические методы (распределения и проч)|
+|[`seaborn`](https://seaborn.pydata.org)|Визуализация статистических данных|
+|[`plotly`](https://plotly.com/python/)|Визуализация|
+|[`matplotlib`](https://matplotlib.org)|Визуализация|
 
 ## Задачи
 
