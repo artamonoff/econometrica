@@ -4,8 +4,8 @@
 
 | Папка/Файл |Содержание|
 |-|-|
-|`README.md`|Этот файл|
-|`План-семинаров.md`|[План семинарских занятий](https://github.com/artamonoff/econometrica/blob/main/econometrica2/syllabus.md)|
+|`README`|Этот файл|
+|`syllabus`|[План семинарских занятий](https://github.com/artamonoff/econometrica/blob/main/econometrica2/syllabus.md)|
 |`exercises`|Листочки с заданиями|
 |`data-csv`| Наборы данных в формате CSV|
 |`jupyter-notebooks`|Разбор примеров из листочков|
