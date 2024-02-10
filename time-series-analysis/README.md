@@ -2,7 +2,12 @@
 
 Материалы для курса
 
-Программа курса в файле `syllabus.md`
+Программа курса в файле `syllabus`
+
+## Источники (базы) данных
+
+* [`FRED`](https://fred.stlouisfed.org)
+* [`Yahoo Finance`](https://finance.yahoo.com)
 
 ## Необходимые библиотеки Python
 
