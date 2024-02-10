@@ -4,6 +4,8 @@
 
 Программа курса в файле `syllabus`
 
+Задачи для рабора в папке `exercises`
+
 ## Источники (базы) данных
 
 * [`FRED`](https://fred.stlouisfed.org)
