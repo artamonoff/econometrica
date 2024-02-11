@@ -23,6 +23,8 @@
 - `conda install -c anaconda jupyter jupyterlab pandas-datareader`
 - `conda install -c conda-forge yfinance matplotlib linearmodels seaborn sklearn`
 
+Альтернативно в Windows можно использовать `pip install`
+
 # Обновление установленных библиотек
 
 В командной строке (Anaconda PowerShell Prompt в Windows, Terminal в MacOS) выполнить `conda update --all`
