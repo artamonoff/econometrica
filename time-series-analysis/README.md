@@ -34,4 +34,4 @@
 
 - `conda install -c plotly plotly`
 - `conda install pandas numpy scipy statsmodels openpyxl`
-- `conda install -c conda-forge yfinance matplotlib sklearn seaborn arch-py pandas-datareader pmdarima`
+- `conda install -c conda-forge yfinance matplotlib seaborn arch-py pandas-datareader pmdarima`
