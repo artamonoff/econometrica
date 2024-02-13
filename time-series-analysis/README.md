@@ -23,6 +23,7 @@
 |[`arch`](https://arch.readthedocs.io/en/latest/index.html)|Тесты и модели временных рядов|
 |[`pmdarima`](https://alkaline-ml.com/pmdarima/index.html)|ARIMA-модель|
 |[`scikit-learn`](https://scikit-learn.org/stable/index.html)|Методы машинного обучения|
+|[`sktime`](https://www.sktime.net/en/stable/index.html)|Анализ временных рядов и Машинное обучение|
 |[`scipy.stats`](https://docs.scipy.org/doc/scipy/reference/stats.html)|статистические методы (распределения и проч)|
 |[`seaborn`](https://seaborn.pydata.org)|Визуализация статистических данных|
 |[`matplotlib`](https://matplotlib.org)|Визуализация данных|
@@ -34,4 +35,4 @@
 
 - `conda install -c plotly plotly`
 - `conda install pandas numpy scipy statsmodels openpyxl`
-- `conda install -c conda-forge yfinance matplotlib seaborn arch-py pandas-datareader pmdarima`
+- `conda install -c conda-forge yfinance matplotlib seaborn arch-py pandas-datareader pmdarima scikit-learn sktime`
