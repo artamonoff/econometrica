@@ -179,7 +179,7 @@ round(coef(regr), digits = my.digits)
 
 ## Задача (labour equation)
 
-Загрузите набор данных `Labour`. Постройте диаграммы для переменных 
+Загрузите набор данных `Labour`. Постройте гистограммы для переменных 
 **output, log(output), capital, log(capital), labour, log(labour)**
 
 ### Пример 1
