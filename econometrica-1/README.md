@@ -26,4 +26,4 @@
 
 ## Задачи
 
-- [Листок 01](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica1/exercises/list01-OLS.html): Метод наименьших квадратов
+- [Листок 01](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list01-OLS.html): Метод наименьших квадратов
