@@ -1,7 +1,7 @@
 
 .DS_Store
-econometrica2/.DS_Store
-econometrica2/.DS_Store
+econometrica-1/.DS_Store
+econometrica-2/.DS_Store
 
 .DS_Store
 .vscode/settings.json
@@ -13,4 +13,4 @@ time-series-analysis/exercises/exercises.synctex.gz
 time-series-analysis/exercises/exercises.out
 time-series-analysis/exercises/exercises.log
 time-series-analysis/exercises/exercises.fls
-econometrica1/jupyter-notebooks/sleep75.csv
+econometrica-1/jupyter-notebooks/sleep75.csv
