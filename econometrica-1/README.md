@@ -27,3 +27,4 @@
 ## Задачи
 
 - [Листок 01](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list01-OLS.html): Метод наименьших квадратов
+- [Листок 02](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list02-coefs.html): Интерпретация коэффициентов
