@@ -122,7 +122,7 @@ A dataset with 526 observations on 24 variables
 * expersq: exper^2
 * tenursq: tenure^2
 
-## wage3
+## wage2
 
 A dataset with 935 observations on 17 variables:
 
