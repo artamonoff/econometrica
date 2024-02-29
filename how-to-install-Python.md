@@ -20,8 +20,7 @@
 
 - `conda install -c plotly plotly`
 - `conda install pandas numpy scipy statsmodels openpyxl`
-- `conda install -c anaconda jupyter jupyterlab pandas-datareader`
-- `conda install -c conda-forge yfinance matplotlib seaborn scikit-learn`
+- `conda install -c conda-forge jupyter jupyterlab matplotlib seaborn scikit-learn`
 
 Альтернативно в Windows можно использовать `pip install`
 
