@@ -31,10 +31,8 @@
 
 ## Установка библиотек Python
 
-В командной строке (Anaconda PowerShell Prompt в Windows, Terminal в MacOS) выполнить следующие команды (это нужно сделать только один раз!)
+В командной строке (Anaconda PowerShell Prompt в Windows, Terminal в MacOS) выполнить следующие команды (в дополнении в основным библиотекам)
 
-- `conda install -c plotly plotly`
-- `conda install pandas numpy scipy statsmodels openpyxl`
-- `conda install -c conda-forge yfinance matplotlib seaborn arch-py pandas-datareader pmdarima scikit-learn sktime`
+- `conda install -c conda-forge yfinance pandas0datareader arch-py pmdarima sktime`
 
 Альтернативно в Windows можно использовать `pip install`
