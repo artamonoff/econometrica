@@ -17,6 +17,7 @@ library(car)
 library(sandwich)
 library(jtools)
 library(DescTools)
+library(performance)
 data(loanapp, package = 'wooldridge')
 data(SwissLabor, package = 'AER')
 mroz_Greene <- read.csv('http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv')
@@ -48,17 +49,18 @@ CoxSnell <- NULL
 Nagelkerke <- NULL
 Efron <- NULL
 McKelvey <- NULL
+Zavoina <- NULL
 
 for(i in 1:length(regr)) {
   n <- nobs(regr[[i]])
-  logL <- -deviance(regr[[i]])/2
+  logL <- -regr[[i]]$deviance/2
   logL.null <- -regr[[i]]$null.deviance/2
   pseudo.R2 <- c(pseudo.R2, 1-logL/logL.null)
   adj.pseudo.R2 <- c(adj.pseudo.R2, 1-(logL-(regr[[i]]$rank-1))/logL.null)
   CoxSnell <- c(CoxSnell, 1-(exp(2*(logL.null-logL)/n)) )
   Nagelkerke <- c(Nagelkerke, (1-(exp(2*(logL.null-logL)/n)))/(1-exp(2*logL.null/n)) )
   efron <- 1-sum( (regr[[i]]$y-regr[[i]]$fitted.values)^2 )/sum( (regr[[i]]$y-mean(regr[[i]]$y))^2 )
-  mckelvey <- (var(regr[[i]]$fitted.values)*(n-1))/(var(regr[[i]]$fitted.values)*(n-1)+n)
+  mckelvey <- (var(predict(regr[[i]]))*(n-1))/(var(predict(regr[[i]]))*(n-1)+n)
   Efron <- c(Efron, efron)
   McKelvey <- c(McKelvey, mckelvey)
 }
@@ -117,7 +119,7 @@ for(i in 1:length(regr)) {
   CoxSnell <- c(CoxSnell, 1-(exp(2*(logL.null-logL)/n)) )
   Nagelkerke <- c(Nagelkerke, (1-(exp(2*(logL.null-logL)/n)))/(1-exp(2*logL.null/n)) )
   efron <- 1-sum( (regr[[i]]$y-regr[[i]]$fitted.values)^2 )/sum( (regr[[i]]$y-mean(regr[[i]]$y))^2 )
-  mckelvey <- (var(regr[[i]]$fitted.values)*(n-1))/(var(regr[[i]]$fitted.values)*(n-1)+(pi^2)*n/3)
+  mckelvey <- (var(predict(regr[[i]]))*(n-1))/(var(predict(regr[[i]]))*(n-1)+n)
   Efron <- c(Efron, efron)
   McKelvey <- c(McKelvey, mckelvey)
 }
@@ -132,7 +134,7 @@ Cox & Snell, Nagelkerke/Cragg & Uhler, Efron, McKelvey & Zavoina. **Ответ �
 
 ```{r, echo=FALSE, comment=''}
 goodness.of.fit <- data.frame(Model=1:length(regr),
-                              pseudo.R2=pseudo.R2,
+                              pseudo.R2=1-pseudo.R2,
                               adj.pseudo.R2=adj.pseudo.R2,
                               CoxSnell=CoxSnell,
                               Nagelkerke=Nagelkerke,
