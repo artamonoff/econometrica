@@ -18,9 +18,8 @@
 
 В командной строке (Anaconda PowerShell Prompt в Windows, Terminal в MacOS) выполнить следующие команды (это нужно сделать только один раз!)
 
-- `conda install -c plotly plotly`
 - `conda install pandas numpy scipy statsmodels openpyxl`
-- `conda install -c conda-forge jupyter jupyterlab matplotlib seaborn scikit-learn`
+- `conda install -c conda-forge jupyter jupyterlab matplotlib seaborn plotly scikit-learn`
 
 Альтернативно в Windows можно использовать `pip install`
 

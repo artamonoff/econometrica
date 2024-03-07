@@ -47,7 +47,7 @@ round( coef(mod), digits = my.digits)
 Для наблюдений с индексом `r ind-1`  найдите фактическое значение зависимой переменной, предсказанное значение и остатки.
 
 ```{r, echo=FALSE, comment='', message=FALSE, warning=FALSE}
-answer <- data.frame( i=ind, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
+answer <- data.frame( i=ind-1, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
 stargazer(answer, type='text', summary = FALSE, rownames = FALSE, digit.separator = '')
 ```
 
@@ -96,7 +96,7 @@ round( coef(mod), digits = my.digits)
 Для наблюдений с индексом `r ind-1`  найдите фактическое значение зависимой переменной, предсказанное значение и остатки.
 
 ```{r, echo=FALSE, comment='', message=FALSE, warning=FALSE}
-answer <- data.frame( i=ind, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
+answer <- data.frame( i=ind-1, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
 stargazer(answer, type='text', summary = FALSE, rownames = FALSE, digit.separator = '')
 ```
 
@@ -145,7 +145,7 @@ round( coef(mod), digits = my.digits)
 Для наблюдений с индексом `r ind-1`  найдите фактическое значение зависимой переменной, предсказанное значение и остатки.
 
 ```{r, echo=FALSE, comment='', message=FALSE, warning=FALSE}
-answer <- data.frame( i=ind, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
+answer <- data.frame( i=ind-1, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
 stargazer(answer, type='text', summary = FALSE, rownames = FALSE, digit.separator = '')
 ```
 
@@ -194,7 +194,7 @@ round( coef(mod), digits = my.digits)
 Для наблюдений с индексом `r ind-1`  найдите фактическое значение зависимой переменной, предсказанное значение и остатки.
 
 ```{r, echo=FALSE, comment='', message=FALSE, warning=FALSE}
-answer <- data.frame( i=ind, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
+answer <- data.frame( i=ind-1, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
 stargazer(answer, type='text', summary = FALSE, rownames = FALSE, digit.separator = '')
 ```
 
@@ -243,7 +243,7 @@ round( coef(mod), digits = my.digits)
 Для наблюдений с индексом `r ind-1`  найдите фактическое значение зависимой переменной, предсказанное значение и остатки.
 
 ```{r, echo=FALSE, comment='', message=FALSE, warning=FALSE}
-answer <- data.frame( i=ind, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
+answer <- data.frame( i=ind-1, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
 stargazer(answer, type='text', summary = FALSE, rownames = FALSE, digit.separator = '')
 ```
 
@@ -292,7 +292,7 @@ round( coef(mod), digits = my.digits)
 Для наблюдений с индексом `r ind-1`  найдите фактическое значение зависимой переменной, предсказанное значение и остатки.
 
 ```{r, echo=FALSE, comment='', message=FALSE, warning=FALSE}
-answer <- data.frame( i=ind, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
+answer <- data.frame( i=ind-1, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
 stargazer(answer, type='text', summary = FALSE, rownames = FALSE, digit.separator = '')
 ```
 
@@ -341,7 +341,7 @@ round( coef(mod), digits = my.digits)
 Для наблюдений с индексом `r ind-1`  найдите фактическое значение зависимой переменной, предсказанное значение и остатки.
 
 ```{r, echo=FALSE, comment='', message=FALSE, warning=FALSE}
-answer <- data.frame( i=ind, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
+answer <- data.frame( i=ind-1, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
 stargazer(answer, type='text', summary = FALSE, rownames = FALSE, digit.separator = '')
 ```
 
@@ -390,7 +390,7 @@ round( coef(mod), digits = my.digits)
 Для наблюдений с индексом `r ind-1`  найдите фактическое значение зависимой переменной, предсказанное значение и остатки.
 
 ```{r, echo=FALSE, comment='', message=FALSE, warning=FALSE}
-answer <- data.frame( i=ind, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
+answer <- data.frame( i=ind-1, Факт = model.frame(mod)[ind, 1], Fitted=fitted(mod)[ind], Остаток=resid(mod)[ind] )
 stargazer(answer, type='text', summary = FALSE, rownames = FALSE, digit.separator = '')
 ```
 

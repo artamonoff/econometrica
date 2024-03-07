@@ -33,6 +33,6 @@
 
 В командной строке (Anaconda PowerShell Prompt в Windows, Terminal в MacOS) выполнить следующие команды (в дополнении в основным библиотекам)
 
-- `conda install -c conda-forge yfinance pandas0datareader arch-py pmdarima sktime`
+- `conda install -c conda-forge yfinance pandas-datareader arch-py pmdarima sktime`
 
 Альтернативно в Windows можно использовать `pip install`
