@@ -139,11 +139,9 @@
 \end{enumerate}
 \end{exercise}
 
-\section{Стационарные ряды}
+\section{ACF \& PACF}
 
 Во всех задачах по умолчанию уровень значимости 5\%.
-
-\subsection{ACF \& PACF}
 
 \begin{exercise}
 Рассмотрим квартальные ряды
@@ -193,10 +191,13 @@
 \end{enumerate}
 \end{exercise}
 
+\section{Стационарные ряды. Модель ARMA}
 
-\subsection{Модель ARMA (Подгонка, выбор порядка, диагностика, прогнозирование)}
+Во всех задачах по умолчанию уровень значимости 5\%.
 
-\subsubsection{Модель ARMA с константой}
+% \subsection{Модель ARMA (Подгонка, выбор порядка, диагностика, прогнозирование)}
+
+\subsection{Модель ARMA с константой}
 
 \begin{exercise}
 Пусть \(y_t\) -- логарифмическая доходность US GDP (\textbf{квартальные данные}) с 1990 по н.в.
@@ -267,7 +268,7 @@
 \end{exercise}
 
 \begin{exercise}
-Ряд \(y_t\) -- первая разность  3-месячной ставки (treasury bill, 
+Ряд \(y_t\) -- первая разность 3-месячной ставки (treasury bill, 
 \textbf{квартальные данные}) с 1990 по н.в.
 \begin{enumerate}
 	% \item Нарисуйте график ряда, ACF \& PACF  для ставки и для \(y_t\)
@@ -296,7 +297,7 @@
 \end{enumerate}
 \end{exercise}
 
-\subsubsection{Модель ARMA с тренддом}
+\subsection{Модель ARMA с трендом}
 
 \begin{exercise}
 Пусть \(y_t\) -- логарифм US GDP (\textbf{квартальные данные}) с 1990 по н.в.
@@ -322,7 +323,7 @@
 \end{enumerate}
 \end{exercise}
 
-% \subsection{Модель ARMA}
+% \section{Модель ARMA}
 
 % \begin{exercise}
 % Для каждой модели ARMA укажите её порядок, проверьте её стационарность и 
@@ -424,23 +425,38 @@
 
 % \section{Ряды с единичным корнем}
 
-% \subsection{Модель ARIMA (практика)}
+\section{Модель ARIMA}
 
-% \begin{exercise}
-% Пусть \(y_t\) -- логарифм US GDP (\textbf{квартальные данные}) с 1995 по н.в.
-% \begin{enumerate}
-% 	\item Примените тесты единичного корня и найдите порядок интегрирования для \(y_t\). 
-% 	Значим ли снос/линейный тренд?
-% 	\item Подгоните модели (включение сноса зависит от предыдущего пункта)
-% 	\begin{align*}
-% 		ARIMA&(1,1,0) & ARIMA&(0,1,1) & ARIMA&(2,1,0) \\
-% 		ARIMA&(0,1,2) & ARIMA&(1,2,0) & ARIMA&(0,2,1)
-% 	\end{align*} 
-% 	и проведите их диагностику	
-% 	\item Подгоните <<оптимальную>> модель ARIMA и проведите её диагностику
-% 	\item Постройте прогноз на 10 периодов
-% \end{enumerate}
-% \end{exercise}
+% \subsection{ARIMA в Python}
+
+\begin{exercise}
+Пусть \(y_t\) -- логарифм US GDP (\textbf{квартальные данные}) с 1995 по н.в.
+\begin{enumerate}
+	\item Подгонка модели заданного порядка
+	\begin{enumerate}
+		\item Подгоните модели
+		\begin{center}
+		\begin{tabular}{l|c}
+			Модель & drift/trend \\ \hline
+			ARIMA(1,0,1) & + \\
+			ARIMA(1,1,0) & + \\
+			ARIMA(1,1,1) & - \\
+			ARIMA(1,2,0) & - \\ \hline
+		\end{tabular}
+		\end{center} 
+		и постройте прогноз на 10 периодов. Значим ли снос/тренд?
+		\item Проведите диагностику каждой модели.
+		\item Проведите кросс-валидацию каждой модели. Какая предпочтительней?
+	\end{enumerate}
+	\item Примените тесты единичного корня и найдите порядок интегрирования для \(y_t\). 
+	\item Подгонка <<оптимальной модели>>
+	\begin{enumerate}
+		\item Подгоните <<оптимальную>> модель ARIMA
+		\item проведите её диагностику
+		\item Постройте прогноз на 10 периодов
+	\end{enumerate}
+\end{enumerate}
+\end{exercise}
 
 % \begin{exercise}
 % Пусть \(y_t\) -- логарифм US M2 (\textbf{квартальные данные}) с 1995 по н.в.
@@ -458,21 +474,185 @@
 % \end{enumerate}
 % \end{exercise}
 
-% \begin{exercise}
-% Пусть \(y_t\) -- логарифм US M2 (\textbf{месячные данные}) с 1995 по н.в.
-% \begin{enumerate}
-% 	\item Примените тесты единичного корня и найдите порядок интегрирования для \(y_t\)
-% 	Значим ли снос/линейный тренд?
-% 	\item Подгоните модели (включение сноса зависит от предыдущего пункта)
-% 	\begin{align*}
-% 		ARIMA&(1,1,0) & ARIMA&(0,1,1) & ARIMA&(2,1,0) \\
-% 		ARIMA&(0,1,2) & ARIMA&(1,2,0) & ARIMA&(0,2,1)
-% 	\end{align*} 
-% 	и проведите их диагностику	
-% 	\item Подгоните <<оптимальную>> модель ARIMA и проведите её диагностику
-% 	\item Постройте прогноз на 10 периодов
-% \end{enumerate}
-% \end{exercise}
+\begin{exercise}
+Пусть \(y_t\) -- логарифм US M2 (\textbf{месячные данные}) с 1995 по н.в.
+\begin{enumerate}
+	\item Подгонка модели заданного порядка
+	\begin{enumerate}
+		\item Подгоните модели
+		\begin{center}
+		\begin{tabular}{l|c}
+			Модель & drift/trend \\ \hline
+			ARIMA(2,0,2) & + \\
+			ARIMA(2,1,0) & + \\
+			ARIMA(2,1,1) & - \\
+			ARIMA(1,2,0) & - \\ \hline
+		\end{tabular}
+		\end{center} 
+		и постройте прогноз на 10 периодов. Значим ли снос/тренд?
+		\item Проведите диагностику каждой модели.
+		\item Проведите кросс-валидацию каждой модели. Какая предпочтительней?
+	\end{enumerate}
+	\item Примените тесты единичного корня и найдите порядок интегрирования для \(y_t\). 
+	\item Подгонка <<оптимальной модели>>
+	\begin{enumerate}
+		\item Подгоните <<оптимальную>> модель ARIMA
+		\item проведите её диагностику
+		\item Постройте прогноз на 10 периодов
+	\end{enumerate}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Пусть \(y_t\) -- логарифм US M2 (\textbf{недельные данные}) с 1995 по н.в.
+\begin{enumerate}
+	\item Подгонка модели заданного порядка
+	\begin{enumerate}
+		\item Подгоните модели
+		\begin{center}
+		\begin{tabular}{l|c}
+			Модель & drift/trend \\ \hline
+			ARIMA(3,0,2) & + \\
+			ARIMA(2,1,0) & + \\
+			ARIMA(2,1,1) & - \\
+			ARIMA(2,2,0) & - \\ \hline
+		\end{tabular}
+		\end{center} 
+		и постройте прогноз на 10 периодов. Значим ли снос/тренд?
+		\item Проведите диагностику каждой модели.
+		\item Проведите кросс-валидацию каждой модели. Какая предпочтительней?
+	\end{enumerate}
+	\item Примените тесты единичного корня и найдите порядок интегрирования для \(y_t\). 
+	\item Подгонка <<оптимальной модели>>
+	\begin{enumerate}
+		\item Подгоните <<оптимальную>> модель ARIMA
+		\item проведите её диагностику
+		\item Постройте прогноз на 10 периодов
+	\end{enumerate}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Пусть \(y_t\) -- 10-летняя ставка (treasury securities  with constant maturity 
+\textbf{месячные данные}) с 2000 по н.в.
+\begin{enumerate}
+	\item Подгонка модели заданного порядка
+	\begin{enumerate}
+		\item Подгоните модели
+		\begin{center}
+		\begin{tabular}{l|c}
+			Модель & drift/const \\ \hline
+			ARIMA(2,0,2) & - \\
+			ARIMA(2,0,2) & + \\
+			ARIMA(2,1,0) & + \\
+			ARIMA(2,1,1) & - \\
+			ARIMA(2,2,0) & - \\ \hline
+		\end{tabular}
+		\end{center} 
+		и постройте прогноз на 10 периодов. Значим ли снос/тренд?
+		\item Проведите диагностику каждой модели.
+		\item Проведите кросс-валидацию каждой модели. Какая предпочтительней?
+	\end{enumerate}
+	\item Примените тесты единичного корня и найдите порядок интегрирования для \(y_t\). 
+	\item Подгонка <<оптимальной модели>>
+	\begin{enumerate}
+		\item Подгоните <<оптимальную>> модель ARIMA
+		\item проведите её диагностику
+		\item Постройте прогноз на 10 периодов
+	\end{enumerate}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Пусть \(y_t\) -- 10-летняя ставка (treasury securities  with constant maturity) 
+(\textbf{дневные данные}) с 2010 по н.в.
+\begin{enumerate}
+	\item Подгонка модели заданного порядка
+	\begin{enumerate}
+		\item Подгоните модели
+		\begin{center}
+		\begin{tabular}{l|c}
+			Модель & drift/const \\ \hline
+			ARIMA(3,0,2) & - \\
+			ARIMA(3,0,2) & + \\
+			ARIMA(3,1,0) & + \\
+			ARIMA(3,1,1) & - \\
+			ARIMA(2,2,0) & - \\ \hline
+		\end{tabular}
+		\end{center} 
+		и постройте прогноз на 10 периодов. Значим ли снос/тренд?
+		\item Проведите диагностику каждой модели.
+		\item Проведите кросс-валидацию каждой модели. Какая предпочтительней?
+	\end{enumerate}
+	\item Примените тесты единичного корня и найдите порядок интегрирования для \(y_t\). 
+	\item Подгонка <<оптимальной модели>>
+	\begin{enumerate}
+		\item Подгоните <<оптимальную>> модель ARIMA
+		\item проведите её диагностику
+		\item Постройте прогноз на 10 периодов
+	\end{enumerate}
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Пусть \(y_t\) -- 3-месячная ставки (treasury bill, \textbf{месячные данные}) с 2000 по н.в.
+\begin{enumerate}
+	\item Подгонка модели заданного порядка
+	\begin{enumerate}
+		\item Подгоните модели
+		\begin{center}
+		\begin{tabular}{l|c}
+			Модель & drift/const \\ \hline
+			ARIMA(2,0,2) & - \\
+			ARIMA(2,0,2) & + \\
+			ARIMA(2,1,0) & + \\
+			ARIMA(2,1,1) & - \\
+			ARIMA(2,2,0) & - \\ \hline
+		\end{tabular}
+		\end{center} 
+		и постройте прогноз на 10 периодов. Значим ли снос/тренд?
+		\item Проведите диагностику каждой модели.
+		\item Проведите кросс-валидацию каждой модели. Какая предпочтительней?
+	\end{enumerate}
+	\item Примените тесты единичного корня и найдите порядок интегрирования для \(y_t\). 
+	\item Подгонка <<оптимальной модели>>
+	\begin{enumerate}
+		\item Подгоните <<оптимальную>> модель ARIMA
+		\item проведите её диагностику
+		\item Постройте прогноз на 10 периодов
+	\end{enumerate}
+\end{enumerate}
+\end{exercise}
+	
+\begin{exercise}
+Пусть \(y_t\) -- 3-месячная ставки (treasury bill, \textbf{дневные данные}) с 2010 по н.в.
+\begin{enumerate}
+	\item Подгонка модели заданного порядка
+	\begin{enumerate}
+		\item Подгоните модели
+		\begin{center}
+		\begin{tabular}{l|c}
+			Модель & drift/const \\ \hline
+			ARIMA(3,0,2) & - \\
+			ARIMA(3,0,2) & + \\
+			ARIMA(3,1,0) & + \\
+			ARIMA(3,1,1) & - \\
+			ARIMA(2,2,0) & - \\ \hline
+		\end{tabular}
+		\end{center} 
+		и постройте прогноз на 10 периодов. Значим ли снос/тренд?
+		\item Проведите диагностику каждой модели.
+		\item Проведите кросс-валидацию каждой модели. Какая предпочтительней?
+	\end{enumerate}
+	\item Примените тесты единичного корня и найдите порядок интегрирования для \(y_t\). 
+	\item Подгонка <<оптимальной модели>>
+	\begin{enumerate}
+		\item Подгоните <<оптимальную>> модель ARIMA
+		\item проведите её диагностику
+		\item Постройте прогноз на 10 периодов
+	\end{enumerate}
+\end{enumerate}
+\end{exercise}
 
 % \subsection{Модель ARIMA}
 
