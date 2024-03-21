@@ -30,3 +30,4 @@
 - [Листок 02](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list02-coefs.html): Интерпретация коэффициентов
 - [Листок 03](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list03-goodness-of-fit.html): Степень подгонки
 - [Листок 04](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list04-prediction.html): Прогнозирование
+- [Листок 06](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list06-t-test.html): t-тест, знавимость коэффициентов

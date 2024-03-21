@@ -435,13 +435,13 @@
 	\item Подгонка модели заданного порядка
 	\begin{enumerate}
 		\item Подгоните модели
-		\begin{center}
-		\begin{tabular}{l|c}
-			Модель & drift/trend \\ \hline
-			ARIMA(1,0,1) & + \\
-			ARIMA(1,1,0) & + \\
-			ARIMA(1,1,1) & - \\
-			ARIMA(1,2,0) & - \\ \hline
+		\begin{center}\small
+		\begin{tabular}{l|c|c}
+			Модель & drift/trend  & спецификация\\ \hline
+			ARIMA(1,0,1) & + & \(y_t=\alpha_0+\alpha_1t+\phi y_{t-1}+u_t+\theta u_{t-1}\)\\
+			ARIMA(1,1,0) & + & \(\diff y_t=\alpha_0+\phi\diff y_{t-1}+u_t+\theta u_{t-1}\)\\
+			ARIMA(1,1,1) & - & \(\diff y_t=\phi\diff y_{t-1}+u_t+\theta u_{t-1}\) \\
+			ARIMA(1,2,0) & - & \(\diff^2 y_t=\phi\diff^2 y_{t-1}+u_t\)\\ \hline
 		\end{tabular}
 		\end{center} 
 		и постройте прогноз на 10 периодов. Значим ли снос/тренд?
