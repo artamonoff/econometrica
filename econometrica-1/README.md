@@ -31,4 +31,4 @@
 - [Листок 03](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list03-goodness-of-fit.html): Степень подгонки
 - [Листок 04](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list04-prediction.html): Прогнозирование
 - [Листок 05](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list05-specification.html): Категориальные переменные, страктурные сдвиги
-- [Листок 06](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list06-t-test.html): t-тест, знавимость коэффициентов
+- [Листок 06](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list06-t-test.html): t-тест, значимость коэффициентов
