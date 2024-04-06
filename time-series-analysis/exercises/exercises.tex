@@ -30,9 +30,6 @@
 
 \section{Работа с рядами в Python. Визуализация}
 
-Используемые библиотеки Python: \texttt{pandas}, \texttt{seaborn}, 
-\texttt{plotly}, \texttt{yfinance}, \texttt{pandas-datareader}
-
 \begin{exercise}
 Из БД FRED загрузите \textbf{квартальные} данные по ВВП США с 1990 Q1 по н.в. (ряд \(gdp\))
 \begin{enumerate}
@@ -682,20 +679,97 @@
 	\end{enumerate}
 	\end{exercise}
 
-% \subsection{Модель ARIMA}
+\begin{exercise}
+Запишите спецификации следующих моделей
+\begin{enumerate}
+	\item ARIMA(0,1,1) без сноса и со сносом
+	\item ARIMA(0,1,2) без сноса и со сносом
+	\item ARIMA(1,1,0) без сноса и со сносом
+	\item ARIMA(2,1,0) без сноса и со сносом
+	\item ARIMA(0,2,0) без сноса и со сносом
+	\item ARIMA(1,2,0) без сноса и со сносом
+	\item ARIMA(0,2,1) без сноса и со сносом
+\end{enumerate}
+\end{exercise}
 
-% \begin{exercise}
-% Запишите спецификации следующих моделей
-% \begin{enumerate}
-% 	\item ARIMA(0,1,1) без сноса и со сносом
-% 	\item ARIMA(0,1,2) без сноса и со сносом
-% 	\item ARIMA(1,1,0) без сноса и со сносом
-% 	\item ARIMA(2,1,0) без сноса и со сносом
-% 	\item ARIMA(0,2,0) без сноса и со сносом
-% 	\item ARIMA(1,2,0) без сноса и со сносом
-% 	\item ARIMA(0,2,1) без сноса и со сносом
-% \end{enumerate}
-% \end{exercise}
+\section{Модель (*)ARCH}
+
+\begin{exercise}
+Пусть \(y_t\) -- лог-доходность US M2 (\textbf{недельные данные}) с 1995 по н.в.
+\begin{enumerate}
+	\item Подгоните модели AR-GARCH(p,o,q)
+	\begin{center}
+	\begin{tabular}{l|c}
+		Модель & \(\lambda\) \\ \hline
+		AR(1)-GARCH(1,0,1) & 2 \\
+		AR(1)-GARCH(1,0,1) & 1 \\
+		AR(2)-GARCH(1,0,1) & 2 \\
+		AR(2)-GARCH(1,0,1) & 1 \\ \hline
+	\end{tabular}
+	\end{center} 
+	и постройте прогноз на 10 периодов для раде и его волатильности.
+	\item Сравните модели по информационным критериям. Какая предпочтительней?
+	\item Проведите кросс-валидацию моделей. Какая предпочтительней?
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Пусть \(y_t\) -- 3-месячная ставки (treasury bill, \textbf{дневные данные}) с 2010 по н.в.
+\begin{enumerate}
+	\item Подгоните модели AR-GARCH(p,o,q)
+	\begin{center}
+	\begin{tabular}{l|c}
+		Модель & \(\lambda\) \\ \hline
+		AR(1)-GARCH(1,0,1) & 2 \\
+		AR(1)-GARCH(1,0,1) & 1 \\
+		AR(2)-GARCH(1,0,1) & 2 \\
+		AR(2)-GARCH(1,0,1) & 1 \\ \hline
+	\end{tabular}
+	\end{center} 
+	и постройте прогноз на 10 периодов для раде и его волатильности.
+	\item Сравните модели по информационным критериям. Какая предпочтительней?
+	\item Проведите кросс-валидацию моделей. Какая предпочтительней?
+\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+Пусть \(y_t\) -- 0-летняя ставка (treasury securities  with constant maturity, \textbf{дневные данные}) с 2010 по н.в.
+\begin{enumerate}
+	\item Подгоните модели AR-GARCH(p,o,q)
+	\begin{center}
+	\begin{tabular}{l|c}
+		Модель & \(\lambda\) \\ \hline
+		AR(1)-GARCH(1,0,1) & 2 \\
+		AR(1)-GARCH(1,0,1) & 1 \\
+		AR(2)-GARCH(1,0,1) & 2 \\
+		AR(2)-GARCH(1,0,1) & 1 \\ \hline
+	\end{tabular}
+	\end{center} 
+	и постройте прогноз на 10 периодов для раде и его волатильности.
+	\item Сравните модели по информационным критериям. Какая предпочтительней?
+	\item Проведите кросс-валидацию моделей. Какая предпочтительней?
+\end{enumerate}
+\end{exercise}
+
+
+\begin{exercise}
+Пусть \(y_t\) -- лог-доходность S\&P500 (\textbf{дневные данные}) с 2010 по н.в.
+\begin{enumerate}
+	\item Подгоните модели
+	\begin{center}
+	\begin{tabular}{l|c}
+		Модель & \(\lambda\) \\ \hline
+		AR(1)-GARCH(1,0,1) & 2 \\
+		AR(1)-GARCH(1,0,1) & 1 \\
+		AR(1)-GARCH(1,1,1) & 2 \\
+		AR(1)-GARCH(1,1,1) & 1 \\ \hline
+	\end{tabular}
+	\end{center} 
+	и постройте прогноз на 10 периодов для раде и его волатильности. 
+	\item Сравните модели по информационным критериям. Какая предпочтительней?
+	\item Проведите кросс-валидацию моделей. Какая предпочтительней?
+\end{enumerate}
+\end{exercise}
 
 % \begin{exercise}
 % По 100 наблюдениям была оценена модель ARIMA(1,1,0) без сноса с параметрами
