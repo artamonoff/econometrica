@@ -61,12 +61,12 @@ round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits )
 Какие коэффициенты значимы? Ответ
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-regressors <- row.names(t.test)
-sign.regressors <- NULL
+modessors <- row.names(t.test)
+sign.modessors <- NULL
 for(i in 1:nrow(t.test) ) {
-  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+  if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i])
 }
-print(sign.regressors)
+print(sign.modessors)
 ```
 
 ## Задача (sleep equation #1, robust s.e.)
@@ -109,12 +109,12 @@ round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits )
 Какие коэффициенты значимы? Ответ
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-regressors <- row.names(t.test)
-sign.regressors <- NULL
+modessors <- row.names(t.test)
+sign.modessors <- NULL
 for(i in 1:nrow(t.test) ) {
-  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+  if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i])
 }
-print(sign.regressors)
+print(sign.modessors)
 ```
 
 ## Задача (sleep equation #2, non robust s.e.)
@@ -157,12 +157,12 @@ round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits )
 Какие коэффициенты значимы? Ответ
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-regressors <- row.names(t.test)
-sign.regressors <- NULL
+modessors <- row.names(t.test)
+sign.modessors <- NULL
 for(i in 1:nrow(t.test) ) {
-  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+  if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i])
 }
-print(sign.regressors)
+print(sign.modessors)
 ```
 
 ## Задача (sleep equation #2, robust s.e.)
@@ -205,12 +205,12 @@ round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits )
 Какие коэффициенты значимы? Ответ
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-regressors <- row.names(t.test)
-sign.regressors <- NULL
+modessors <- row.names(t.test)
+sign.modessors <- NULL
 for(i in 1:nrow(t.test) ) {
-  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+  if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i])
 }
-print(sign.regressors)
+print(sign.modessors)
 ```
 
 ## Задача (output equation #1, non robust s.e.)
@@ -253,12 +253,12 @@ round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits )
 Какие коэффициенты значимы? Ответ
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-regressors <- row.names(t.test)
-sign.regressors <- NULL
+modessors <- row.names(t.test)
+sign.modessors <- NULL
 for(i in 1:nrow(t.test) ) {
-  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+  if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i])
 }
-print(sign.regressors)
+print(sign.modessors)
 ```
 
 ## Задача (output equation #1, robust s.e.)
@@ -301,12 +301,12 @@ round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits )
 Какие коэффициенты значимы? Ответ
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-regressors <- row.names(t.test)
-sign.regressors <- NULL
+modessors <- row.names(t.test)
+sign.modessors <- NULL
 for(i in 1:nrow(t.test) ) {
-  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+  if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i])
 }
-print(sign.regressors)
+print(sign.modessors)
 ```
 
 <!-- ## Задача (wage equation #1, non-robust s.e.) -->
@@ -349,12 +349,12 @@ print(sign.regressors)
 <!-- Какие коэффициенты значимы? Ответ -->
 
 <!-- ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''} -->
-<!-- regressors <- row.names(t.test) -->
-<!-- sign.regressors <- NULL -->
+<!-- modessors <- row.names(t.test) -->
+<!-- sign.modessors <- NULL -->
 <!-- for(i in 1:nrow(t.test) ) { -->
-<!--   if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i]) -->
+<!--   if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i]) -->
 <!-- } -->
-<!-- print(sign.regressors) -->
+<!-- print(sign.modessors) -->
 <!-- ``` -->
 
 <!-- ## Задача (wage equation #1, robust s.e.) -->
@@ -397,12 +397,12 @@ print(sign.regressors)
 <!-- Какие коэффициенты значимы? Ответ -->
 
 <!-- ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''} -->
-<!-- regressors <- row.names(t.test) -->
-<!-- sign.regressors <- NULL -->
+<!-- modessors <- row.names(t.test) -->
+<!-- sign.modessors <- NULL -->
 <!-- for(i in 1:nrow(t.test) ) { -->
-<!--   if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i]) -->
+<!--   if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i]) -->
 <!-- } -->
-<!-- print(sign.regressors) -->
+<!-- print(sign.modessors) -->
 <!-- ``` -->
 
 <!-- ## Задача (wage equation #1, non-robust s.e.) -->
@@ -445,12 +445,12 @@ print(sign.regressors)
 <!-- Какие коэффициенты значимы? Ответ -->
 
 <!-- ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''} -->
-<!-- regressors <- row.names(t.test) -->
-<!-- sign.regressors <- NULL -->
+<!-- modessors <- row.names(t.test) -->
+<!-- sign.modessors <- NULL -->
 <!-- for(i in 1:nrow(t.test) ) { -->
-<!--   if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i]) -->
+<!--   if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i]) -->
 <!-- } -->
-<!-- print(sign.regressors) -->
+<!-- print(sign.modessors) -->
 <!-- ``` -->
 
 <!-- ## Задача (wage equation #1, robust s.e.) -->
@@ -493,12 +493,12 @@ print(sign.regressors)
 <!-- Какие коэффициенты значимы? Ответ -->
 
 <!-- ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''} -->
-<!-- regressors <- row.names(t.test) -->
-<!-- sign.regressors <- NULL -->
+<!-- modessors <- row.names(t.test) -->
+<!-- sign.modessors <- NULL -->
 <!-- for(i in 1:nrow(t.test) ) { -->
-<!--   if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i]) -->
+<!--   if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i]) -->
 <!-- } -->
-<!-- print(sign.regressors) -->
+<!-- print(sign.modessors) -->
 <!-- ``` -->
 
 ## Задача (cost equation #1, non-robust s.e.)
@@ -541,12 +541,12 @@ round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits )
 Какие коэффициенты значимы? Ответ
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-regressors <- row.names(t.test)
-sign.regressors <- NULL
+modessors <- row.names(t.test)
+sign.modessors <- NULL
 for(i in 1:nrow(t.test) ) {
-  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+  if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i])
 }
-print(sign.regressors)
+print(sign.modessors)
 ```
 
 ## Задача (cost equation #1, robust s.e.)
@@ -589,12 +589,12 @@ round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits )
 Какие коэффициенты значимы? Ответ
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-regressors <- row.names(t.test)
-sign.regressors <- NULL
+modessors <- row.names(t.test)
+sign.modessors <- NULL
 for(i in 1:nrow(t.test) ) {
-  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+  if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i])
 }
-print(sign.regressors)
+print(sign.modessors)
 ```
 
 # t-тест: \(H_0:\beta=\theta\)
@@ -606,24 +606,45 @@ print(sign.regressors)
 Результаты оценивания:
 
 ```{r, echo=FALSE, comment=''}
+vcov.type <- 'HC3'
 my.digits.output <- 3
 sign.level <- 0.01
-regr <- lm(formula=log(output)~log(capital)+log(labour), data=Labour)
-stargazer(regr, type='text', digits = my.digits.output, digit.separator = '', 
+mod <- lm(formula=log(output)~log(capital)+log(labour), data=Labour)
+stargazer(mod, type='text', digits = my.digits.output, digit.separator = '', 
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 ```
 
 Тестируется гипотеза \(H_0:\beta_{capital}=0.5\). 
-<span style="color: blue">Уровень значимости `r 100*sign.level`%</span>.
+<span style="color: blue">Уровень значимости `r 100*sign.level`%</span>. Проведите результаты неробастного и робастного t-тест.
 Вычислите тестовую статистику и критическое значение.
 **Ответ округлите до двух десятичных знаков.**
 
+### Неробастный t-тест
+
 Ответ:
 ```{r, echo=FALSE, comment=''}
-t.test <- round(coeftest(regr), digits = my.digits.output)
+t.test <- coeftest(mod)
 my.digits <- 2
 t.stat <- round( (t.test['log(capital)',1]-0.5)/t.test['log(capital)',2], digits = my.digits)
-t.cr <- round( qt(p=1-sign.level/2, df=df.residual(regr)), digits = my.digits)
+t.cr <- round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits)
+print(paste0('t-stat=', t.stat) )
+print(paste0('t-cr=', t.cr) )
+```
+
+Значимо ли коэффицент отличается от числа? Ответ
+
+```{r, echo=FALSE, comment=''}
+if(abs(t.stat)>t.cr) print('Значимо') else print('Незначимо')
+```
+
+### Робастный t-тест (HC3 s.e.)
+
+Ответ:
+```{r, echo=FALSE, comment=''}
+t.test <- coeftest(mod, vcov. = vcovHC, type=vcov.type)
+my.digits <- 2
+t.stat <- round( (t.test['log(capital)',1]-0.5)/t.test['log(capital)',2], digits = my.digits)
+t.cr <- round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits)
 print(paste0('t-stat=', t.stat) )
 print(paste0('t-cr=', t.cr) )
 ```
@@ -641,24 +662,27 @@ if(abs(t.stat)>t.cr) print('Значимо') else print('Незначимо')
 Результаты оценивания:
 
 ```{r, echo=FALSE, comment=''}
+vcov.type <- 'HC3'
 my.digits.output <- 3
 sign.level <- 0.10
-regr <- lm(formula=log(output)~log(capital)+log(labour), data=Labour)
-stargazer(regr, type='text', digits = my.digits.output, digit.separator = '', 
+mod <- lm(formula=log(output)~log(capital)+log(labour), data=Labour)
+stargazer(mod, type='text', digits = my.digits.output, digit.separator = '', 
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 ```
 
 Тестируется гипотеза \(H_0:\beta_{labour}=0.7\). 
-<span style="color: blue">Уровень значимости `r 100*sign.level`%</span>.
+<span style="color: blue">Уровень значимости `r 100*sign.level`%</span>. Проведите результаты неробастного и робастного t-тест.
 Вычислите тестовую статистику и критическое значение.
 **Ответ округлите до двух десятичных знаков.**
 
+### Неробастный t-тест
+
 Ответ:
 ```{r, echo=FALSE, comment=''}
-t.test <- round(coeftest(regr), digits = my.digits.output)
+t.test <- coeftest(mod)
 my.digits <- 2
 t.stat <- round( (t.test['log(labour)',1]-0.7)/t.test['log(labour)',2], digits = my.digits)
-t.cr <- round( qt(p=1-sign.level/2, df=df.residual(regr)), digits = my.digits)
+t.cr <- round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits)
 print(paste0('t-stat=', t.stat) )
 print(paste0('t-cr=', t.cr) )
 ```
@@ -669,6 +693,23 @@ print(paste0('t-cr=', t.cr) )
 if(abs(t.stat)>t.cr) print('Значимо') else print('Незначимо')
 ```
 
+### Робастный t-тест (HC3 s.e.)
+
+Ответ:
+```{r, echo=FALSE, comment=''}
+t.test <- coeftest(mod, vcov. = vcovHC, type=vcov.type)
+my.digits <- 2
+t.stat <- round( (t.test['log(labour)',1]-0.7)/t.test['log(labour)',2], digits = my.digits)
+t.cr <- round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits)
+print(paste0('t-stat=', t.stat) )
+print(paste0('t-cr=', t.cr) )
+```
+
+Значимо ли коэффицент отличается от числа? Ответ
+
+```{r, echo=FALSE, comment=''}
+if(abs(t.stat)>t.cr) print('Значимо') else print('Незначимо')
+```
 
 ## Задача (cost equation 1)
 
@@ -678,23 +719,45 @@ if(abs(t.stat)>t.cr) print('Значимо') else print('Незначимо')
 Результаты оценивания:
 
 ```{r, echo=FALSE, comment=''}
+vcov.type <- 'HC3'
 my.digits.output <- 3
 sign.level <- 0.05
-regr <- lm(formula=log(cost)~log(q)+log(pl)+log(pk)+log(pf), data=Electricity)
-stargazer(regr, type='text', digits = my.digits.output, digit.separator = '', 
+mod <- lm(formula=log(cost)~log(q)+log(pl)+log(pk)+log(pf), data=Electricity)
+stargazer(mod, type='text', digits = my.digits.output, digit.separator = '', 
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 ```
 
 Тестируется гипотеза \(H_0:\beta_{q}=1\). <span style="color: blue">Уровень значимости `r 100*sign.level`%</span>.
+Проведите результаты неробастного и робастного t-тест.
 Вычислите тестовую статистику и критическое значение.
 **Ответ округлите до двух десятичных знаков.**
 
+### Неробастный t-тест
+
 Ответ:
 ```{r, echo=FALSE, comment=''}
-t.test <- round(coeftest(regr), digits = my.digits.output)
+t.test <- coeftest(mod)
 my.digits <- 2
 t.stat <- round( (t.test['log(q)',1]-1)/t.test['log(q)',2], digits = my.digits)
-t.cr <- round( qt(p=1-sign.level/2, df=df.residual(regr)), digits = my.digits)
+t.cr <- round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits)
+print(paste0('t-stat=', t.stat) )
+print(paste0('t-cr=', t.cr) )
+```
+
+Значимо ли коэффицент отличается от числа? Ответ
+
+```{r, echo=FALSE, comment=''}
+if(abs(t.stat)>t.cr) print('Значимо') else print('Незначимо')
+```
+
+### Робастный t-тест (HC3 s.e.)
+
+Ответ:
+```{r, echo=FALSE, comment=''}
+t.test <- coeftest(mod, vcov. = vcovHC, type=vcov.type)
+my.digits <- 2
+t.stat <- round( (t.test['log(q)',1]-1)/t.test['log(q)',2], digits = my.digits)
+t.cr <- round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits)
 print(paste0('t-stat=', t.stat) )
 print(paste0('t-cr=', t.cr) )
 ```
@@ -713,23 +776,45 @@ if(abs(t.stat)>t.cr) print('Значимо') else print('Незначимо')
 Результаты оценивания:
 
 ```{r, echo=FALSE, comment=''}
+vcov.type <- 'HC3'
 my.digits.output <- 3
 sign.level <- 0.10
-regr <- lm(formula=log(cost)~log(q)+log(pl)+log(pk)+log(pf), data=Electricity)
-stargazer(regr, type='text', digits = my.digits.output, digit.separator = '', 
+mod <- lm(formula=log(cost)~log(q)+log(pl)+log(pk)+log(pf), data=Electricity)
+stargazer(mod, type='text', digits = my.digits.output, digit.separator = '', 
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 ```
 
 Тестируется гипотеза \(H_0:\beta_{pf}=1\). <span style="color: blue">Уровень значимости `r 100*sign.level`%</span>.
+Проведите результаты неробастного и робастного t-тест.
 Вычислите тестовую статистику и критическое значение.
 **Ответ округлите до двух десятичных знаков.**
 
+### Неробастный t-тест
+
 Ответ:
 ```{r, echo=FALSE, comment=''}
-t.test <- round(coeftest(regr), digits = my.digits.output)
+t.test <- coeftest(mod)
 my.digits <- 2
 t.stat <- round( (t.test['log(pf)',1]-1)/t.test['log(pf)',2], digits = my.digits)
-t.cr <- round( qt(p=1-sign.level/2, df=df.residual(regr)), digits = my.digits)
+t.cr <- round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits)
+print(paste0('t-stat=', t.stat) )
+print(paste0('t-cr=', t.cr) )
+```
+
+Значимо ли коэффицент отличается от числа? Ответ
+
+```{r, echo=FALSE, comment=''}
+if(abs(t.stat)>t.cr) print('Значимо') else print('Незначимо')
+```
+
+### Робастный t-тест (HC3 s.e.)
+
+Ответ:
+```{r, echo=FALSE, comment=''}
+t.test <- coeftest(mod, vcov. = vcovHC, type=vcov.type)
+my.digits <- 2
+t.stat <- round( (t.test['log(pf)',1]-1)/t.test['log(pf)',2], digits = my.digits)
+t.cr <- round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits)
 print(paste0('t-stat=', t.stat) )
 print(paste0('t-cr=', t.cr) )
 ```
@@ -748,24 +833,47 @@ if(abs(t.stat)>t.cr) print('Значимо') else print('Незначимо')
 Результаты оценивания:
 
 ```{r, echo=FALSE, comment=''}
+vcov.type <- 'HC3'
 my.digits.output <- 3
 my.digits <- 2
 sign.level <- 0.01
 theta <- 90
-regr <- lm(formula=sleep~totwrk+age+south+male+smsa+yngkid+marr+union, data=sleep75)
-stargazer(regr, type='text', digits = my.digits.output, digit.separator = '', 
+mod <- lm(formula=sleep~totwrk+age+south+male+smsa+yngkid+marr+union, data=sleep75)
+stargazer(mod, type='text', digits = my.digits.output, digit.separator = '', 
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 ```
 
 Тестируется гипотеза \(H_0:\beta_{male}=\) `r theta`. <span style="color: blue">Уровень значимости `r 100*sign.level`%</span>.
+Проведите результаты неробастного и робастного t-тест.
 Вычислите тестовую статистику и критическое значение.
 **Ответ округлите до `r my.digits` десятичных знаков.**
 
+### Неробастный t-тест
+
 Ответ:
 ```{r, echo=FALSE, comment=''}
-t.test <- round(coeftest(regr), digits = my.digits.output)
+t.test <- coeftest(mod)
+my.digits <- 2
 t.stat <- round( (t.test['male',1]-theta)/t.test['male',2], digits = my.digits)
-t.cr <- round( qt(p=1-sign.level/2, df=df.residual(regr)), digits = my.digits)
+t.cr <- round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits)
+print(paste0('t-stat=', t.stat) )
+print(paste0('t-cr=', t.cr) )
+```
+
+Значимо ли коэффицент отличается от числа? Ответ
+
+```{r, echo=FALSE, comment=''}
+if(abs(t.stat)>t.cr) print('Значимо') else print('Незначимо')
+```
+
+### Робастный t-тест (HC3 s.e.)
+
+Ответ:
+```{r, echo=FALSE, comment=''}
+t.test <- coeftest(mod, vcov. = vcovHC, type=vcov.type)
+my.digits <- 2
+t.stat <- round( (t.test['male',1]-theta)/t.test['male',2], digits = my.digits)
+t.cr <- round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits)
 print(paste0('t-stat=', t.stat) )
 print(paste0('t-cr=', t.cr) )
 ```
@@ -784,24 +892,47 @@ if(abs(t.stat)>t.cr) print('Значимо') else print('Незначимо')
 Результаты оценивания:
 
 ```{r, echo=FALSE, comment=''}
+vcov.type <- 'HC3'
 my.digits.output <- 3
 my.digits <- 2
 sign.level <- 0.01
 theta <- 100
-regr <- lm(formula=sleep~totwrk+age+south+male+smsa+yngkid+marr+union, data=sleep75)
-stargazer(regr, type='text', digits = my.digits.output, digit.separator = '', 
+mod <- lm(formula=sleep~totwrk+age+south+male+smsa+yngkid+marr+union, data=sleep75)
+stargazer(mod, type='text', digits = my.digits.output, digit.separator = '', 
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 ```
 
 Тестируется гипотеза \(H_0:\beta_{south}=\) `r theta`. <span style="color: blue">Уровень значимости `r 100*sign.level`%</span>.
+Проведите результаты неробастного и робастного t-тест.
 Вычислите тестовую статистику и критическое значение.
 **Ответ округлите до `r my.digits` десятичных знаков.**
 
+### Неробастный t-тест
+
 Ответ:
 ```{r, echo=FALSE, comment=''}
-t.test <- round(coeftest(regr), digits = my.digits.output)
+t.test <- coeftest(mod)
+my.digits <- 2
 t.stat <- round( (t.test['south',1]-theta)/t.test['south',2], digits = my.digits)
-t.cr <- round( qt(p=1-sign.level/2, df=df.residual(regr)), digits = my.digits)
+t.cr <- round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits)
+print(paste0('t-stat=', t.stat) )
+print(paste0('t-cr=', t.cr) )
+```
+
+Значимо ли коэффицент отличается от числа? Ответ
+
+```{r, echo=FALSE, comment=''}
+if(abs(t.stat)>t.cr) print('Значимо') else print('Незначимо')
+```
+
+### Робастный t-тест (HC3 s.e.)
+
+Ответ:
+```{r, echo=FALSE, comment=''}
+t.test <- coeftest(mod, vcov. = vcovHC, type=vcov.type)
+my.digits <- 2
+t.stat <- round( (t.test['south',1]-theta)/t.test['south',2], digits = my.digits)
+t.cr <- round( qt(p=1-sign.level/2, df=df.residual(mod)), digits = my.digits)
 print(paste0('t-stat=', t.stat) )
 print(paste0('t-cr=', t.cr) )
 ```

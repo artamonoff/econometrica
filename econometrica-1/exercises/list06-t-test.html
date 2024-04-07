@@ -2993,12 +2993,12 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <!-- ``` -->
 <!-- Какие коэффициенты значимы? Ответ -->
 <!-- ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''} -->
-<!-- regressors <- row.names(t.test) -->
-<!-- sign.regressors <- NULL -->
+<!-- modessors <- row.names(t.test) -->
+<!-- sign.modessors <- NULL -->
 <!-- for(i in 1:nrow(t.test) ) { -->
-<!--   if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i]) -->
+<!--   if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i]) -->
 <!-- } -->
-<!-- print(sign.regressors) -->
+<!-- print(sign.modessors) -->
 <!-- ``` -->
 <!-- ## Задача (wage equation #1, robust s.e.) -->
 <!-- ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''} -->
@@ -3029,12 +3029,12 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <!-- ``` -->
 <!-- Какие коэффициенты значимы? Ответ -->
 <!-- ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''} -->
-<!-- regressors <- row.names(t.test) -->
-<!-- sign.regressors <- NULL -->
+<!-- modessors <- row.names(t.test) -->
+<!-- sign.modessors <- NULL -->
 <!-- for(i in 1:nrow(t.test) ) { -->
-<!--   if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i]) -->
+<!--   if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i]) -->
 <!-- } -->
-<!-- print(sign.regressors) -->
+<!-- print(sign.modessors) -->
 <!-- ``` -->
 <!-- ## Задача (wage equation #1, non-robust s.e.) -->
 <!-- ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''} -->
@@ -3065,12 +3065,12 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <!-- ``` -->
 <!-- Какие коэффициенты значимы? Ответ -->
 <!-- ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''} -->
-<!-- regressors <- row.names(t.test) -->
-<!-- sign.regressors <- NULL -->
+<!-- modessors <- row.names(t.test) -->
+<!-- sign.modessors <- NULL -->
 <!-- for(i in 1:nrow(t.test) ) { -->
-<!--   if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i]) -->
+<!--   if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i]) -->
 <!-- } -->
-<!-- print(sign.regressors) -->
+<!-- print(sign.modessors) -->
 <!-- ``` -->
 <!-- ## Задача (wage equation #1, robust s.e.) -->
 <!-- ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''} -->
@@ -3101,12 +3101,12 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <!-- ``` -->
 <!-- Какие коэффициенты значимы? Ответ -->
 <!-- ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''} -->
-<!-- regressors <- row.names(t.test) -->
-<!-- sign.regressors <- NULL -->
+<!-- modessors <- row.names(t.test) -->
+<!-- sign.modessors <- NULL -->
 <!-- for(i in 1:nrow(t.test) ) { -->
-<!--   if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i]) -->
+<!--   if(t.test[i,4]<sign.level) sign.modessors <- c(sign.modessors, modessors[i]) -->
 <!-- } -->
-<!-- print(sign.regressors) -->
+<!-- print(sign.modessors) -->
 <!-- ``` -->
 </div>
 <div id="задача-cost-equation-1-non-robust-s.e." class="section level2" number="1.7">
@@ -3205,14 +3205,28 @@ Residual Std. Error            0.478
 F Statistic                 1462.078***        
 ===============================================
 Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
-<p>Тестируется гипотеза <span class="math inline">\(H_0:\beta_{capital}=0.5\)</span>. <span style="color: blue">Уровень значимости 1%</span>. Вычислите тестовую
-статистику и критическое значение. <strong>Ответ округлите до двух
-десятичных знаков.</strong></p>
+<p>Тестируется гипотеза <span class="math inline">\(H_0:\beta_{capital}=0.5\)</span>. <span style="color: blue">Уровень значимости 1%</span>. Проведите результаты
+неробастного и робастного t-тест. Вычислите тестовую статистику и
+критическое значение. <strong>Ответ округлите до двух десятичных
+знаков.</strong></p>
+<div id="неробастный-t-тест" class="section level3" number="2.1.1">
+<h3><span class="header-section-number">2.1.1</span> Неробастный
+t-тест</h3>
 <p>Ответ:</p>
-<pre><code>[1] &quot;t-stat=-17.18&quot;</code></pre>
+<pre><code>[1] &quot;t-stat=-17.01&quot;</code></pre>
 <pre><code>[1] &quot;t-cr=2.58&quot;</code></pre>
 <p>Значимо ли коэффицент отличается от числа? Ответ</p>
 <pre><code>[1] &quot;Значимо&quot;</code></pre>
+</div>
+<div id="робастный-t-тест-hc3-s.e." class="section level3" number="2.1.2">
+<h3><span class="header-section-number">2.1.2</span> Робастный t-тест
+(HC3 s.e.)</h3>
+<p>Ответ:</p>
+<pre><code>[1] &quot;t-stat=-9.26&quot;</code></pre>
+<pre><code>[1] &quot;t-cr=2.58&quot;</code></pre>
+<p>Значимо ли коэффицент отличается от числа? Ответ</p>
+<pre><code>[1] &quot;Значимо&quot;</code></pre>
+</div>
 </div>
 <div id="задача-output-equation-2" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Задача (output
@@ -3243,14 +3257,28 @@ Residual Std. Error            0.478
 F Statistic                 1462.078***        
 ===============================================
 Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
-<p>Тестируется гипотеза <span class="math inline">\(H_0:\beta_{labour}=0.7\)</span>. <span style="color: blue">Уровень значимости 10%</span>. Вычислите тестовую
-статистику и критическое значение. <strong>Ответ округлите до двух
-десятичных знаков.</strong></p>
+<p>Тестируется гипотеза <span class="math inline">\(H_0:\beta_{labour}=0.7\)</span>. <span style="color: blue">Уровень значимости 10%</span>. Проведите результаты
+неробастного и робастного t-тест. Вычислите тестовую статистику и
+критическое значение. <strong>Ответ округлите до двух десятичных
+знаков.</strong></p>
+<div id="неробастный-t-тест-1" class="section level3" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Неробастный
+t-тест</h3>
 <p>Ответ:</p>
-<pre><code>[1] &quot;t-stat=0.65&quot;</code></pre>
+<pre><code>[1] &quot;t-stat=0.64&quot;</code></pre>
 <pre><code>[1] &quot;t-cr=1.65&quot;</code></pre>
 <p>Значимо ли коэффицент отличается от числа? Ответ</p>
 <pre><code>[1] &quot;Незначимо&quot;</code></pre>
+</div>
+<div id="робастный-t-тест-hc3-s.e.-1" class="section level3" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Робастный t-тест
+(HC3 s.e.)</h3>
+<p>Ответ:</p>
+<pre><code>[1] &quot;t-stat=0.34&quot;</code></pre>
+<pre><code>[1] &quot;t-cr=1.65&quot;</code></pre>
+<p>Значимо ли коэффицент отличается от числа? Ответ</p>
+<pre><code>[1] &quot;Незначимо&quot;</code></pre>
+</div>
 </div>
 <div id="задача-cost-equation-1" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> Задача (cost equation
@@ -3288,14 +3316,28 @@ Residual Std. Error            0.209
 F Statistic                 2106.934***        
 ===============================================
 Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
-<p>Тестируется гипотеза <span class="math inline">\(H_0:\beta_{q}=1\)</span>. <span style="color: blue">Уровень значимости 5%</span>. Вычислите тестовую
-статистику и критическое значение. <strong>Ответ округлите до двух
-десятичных знаков.</strong></p>
+<p>Тестируется гипотеза <span class="math inline">\(H_0:\beta_{q}=1\)</span>. <span style="color: blue">Уровень значимости 5%</span>. Проведите результаты
+неробастного и робастного t-тест. Вычислите тестовую статистику и
+критическое значение. <strong>Ответ округлите до двух десятичных
+знаков.</strong></p>
+<div id="неробастный-t-тест-2" class="section level3" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> Неробастный
+t-тест</h3>
 <p>Ответ:</p>
-<pre><code>[1] &quot;t-stat=-18&quot;</code></pre>
+<pre><code>[1] &quot;t-stat=-17.25&quot;</code></pre>
 <pre><code>[1] &quot;t-cr=1.98&quot;</code></pre>
 <p>Значимо ли коэффицент отличается от числа? Ответ</p>
 <pre><code>[1] &quot;Значимо&quot;</code></pre>
+</div>
+<div id="робастный-t-тест-hc3-s.e.-2" class="section level3" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Робастный t-тест
+(HC3 s.e.)</h3>
+<p>Ответ:</p>
+<pre><code>[1] &quot;t-stat=-7.9&quot;</code></pre>
+<pre><code>[1] &quot;t-cr=1.98&quot;</code></pre>
+<p>Значимо ли коэффицент отличается от числа? Ответ</p>
+<pre><code>[1] &quot;Значимо&quot;</code></pre>
+</div>
 </div>
 <div id="задача-cost-equation-2" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Задача (cost equation
@@ -3333,14 +3375,28 @@ Residual Std. Error            0.209
 F Statistic                 2106.934***        
 ===============================================
 Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
-<p>Тестируется гипотеза <span class="math inline">\(H_0:\beta_{pf}=1\)</span>. <span style="color: blue">Уровень значимости 10%</span>. Вычислите тестовую
-статистику и критическое значение. <strong>Ответ округлите до двух
-десятичных знаков.</strong></p>
+<p>Тестируется гипотеза <span class="math inline">\(H_0:\beta_{pf}=1\)</span>. <span style="color: blue">Уровень значимости 10%</span>. Проведите результаты
+неробастного и робастного t-тест. Вычислите тестовую статистику и
+критическое значение. <strong>Ответ округлите до двух десятичных
+знаков.</strong></p>
+<div id="неробастный-t-тест-3" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Неробастный
+t-тест</h3>
 <p>Ответ:</p>
-<pre><code>[1] &quot;t-stat=-4.48&quot;</code></pre>
+<pre><code>[1] &quot;t-stat=-4.46&quot;</code></pre>
 <pre><code>[1] &quot;t-cr=1.65&quot;</code></pre>
 <p>Значимо ли коэффицент отличается от числа? Ответ</p>
 <pre><code>[1] &quot;Значимо&quot;</code></pre>
+</div>
+<div id="робастный-t-тест-hc3-s.e.-3" class="section level3" number="2.4.2">
+<h3><span class="header-section-number">2.4.2</span> Робастный t-тест
+(HC3 s.e.)</h3>
+<p>Ответ:</p>
+<pre><code>[1] &quot;t-stat=-3.52&quot;</code></pre>
+<pre><code>[1] &quot;t-cr=1.65&quot;</code></pre>
+<p>Значимо ли коэффицент отличается от числа? Ответ</p>
+<pre><code>[1] &quot;Значимо&quot;</code></pre>
+</div>
 </div>
 <div id="задача-sleep-equation-1" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Задача (sleep
@@ -3390,14 +3446,28 @@ Residual Std. Error           416.565
 F Statistic                  13.176***         
 ===============================================
 Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
-<p>Тестируется гипотеза <span class="math inline">\(H_0:\beta_{male}=\)</span> 90. <span style="color: blue">Уровень значимости 1%</span>. Вычислите тестовую
-статистику и критическое значение. <strong>Ответ округлите до 2
-десятичных знаков.</strong></p>
+<p>Тестируется гипотеза <span class="math inline">\(H_0:\beta_{male}=\)</span> 90. <span style="color: blue">Уровень значимости 1%</span>. Проведите результаты
+неробастного и робастного t-тест. Вычислите тестовую статистику и
+критическое значение. <strong>Ответ округлите до 2 десятичных
+знаков.</strong></p>
+<div id="неробастный-t-тест-4" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Неробастный
+t-тест</h3>
 <p>Ответ:</p>
 <pre><code>[1] &quot;t-stat=-0.08&quot;</code></pre>
 <pre><code>[1] &quot;t-cr=2.58&quot;</code></pre>
 <p>Значимо ли коэффицент отличается от числа? Ответ</p>
 <pre><code>[1] &quot;Незначимо&quot;</code></pre>
+</div>
+<div id="робастный-t-тест-hc3-s.e.-4" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Робастный t-тест
+(HC3 s.e.)</h3>
+<p>Ответ:</p>
+<pre><code>[1] &quot;t-stat=-0.08&quot;</code></pre>
+<pre><code>[1] &quot;t-cr=2.58&quot;</code></pre>
+<p>Значимо ли коэффицент отличается от числа? Ответ</p>
+<pre><code>[1] &quot;Незначимо&quot;</code></pre>
+</div>
 </div>
 <div id="задача-sleep-equation-2" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> Задача (sleep
@@ -3447,14 +3517,28 @@ Residual Std. Error           416.565
 F Statistic                  13.176***         
 ===============================================
 Note:               *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
-<p>Тестируется гипотеза <span class="math inline">\(H_0:\beta_{south}=\)</span> 100. <span style="color: blue">Уровень значимости 1%</span>. Вычислите тестовую
-статистику и критическое значение. <strong>Ответ округлите до 2
-десятичных знаков.</strong></p>
+<p>Тестируется гипотеза <span class="math inline">\(H_0:\beta_{south}=\)</span> 100. <span style="color: blue">Уровень значимости 1%</span>. Проведите результаты
+неробастного и робастного t-тест. Вычислите тестовую статистику и
+критическое значение. <strong>Ответ округлите до 2 десятичных
+знаков.</strong></p>
+<div id="неробастный-t-тест-5" class="section level3" number="2.6.1">
+<h3><span class="header-section-number">2.6.1</span> Неробастный
+t-тест</h3>
 <p>Ответ:</p>
 <pre><code>[1] &quot;t-stat=0.05&quot;</code></pre>
 <pre><code>[1] &quot;t-cr=2.58&quot;</code></pre>
 <p>Значимо ли коэффицент отличается от числа? Ответ</p>
 <pre><code>[1] &quot;Незначимо&quot;</code></pre>
+</div>
+<div id="робастный-t-тест-hc3-s.e.-5" class="section level3" number="2.6.2">
+<h3><span class="header-section-number">2.6.2</span> Робастный t-тест
+(HC3 s.e.)</h3>
+<p>Ответ:</p>
+<pre><code>[1] &quot;t-stat=0.05&quot;</code></pre>
+<pre><code>[1] &quot;t-cr=2.58&quot;</code></pre>
+<p>Значимо ли коэффицент отличается от числа? Ответ</p>
+<pre><code>[1] &quot;Незначимо&quot;</code></pre>
+</div>
 </div>
 </div>
 
