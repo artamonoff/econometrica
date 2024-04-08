@@ -32,3 +32,4 @@
 - [Листок 04](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list04-prediction.html): Прогнозирование
 - [Листок 05](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list05-specification.html): Категориальные переменные, структурные сдвиги
 - [Листок 06](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list06-t-test.html): t-тест, значимость коэффициентов
+- [Листок 07](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list07-F-test.html): F-тест для коэффициентов
