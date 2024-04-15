@@ -861,7 +861,28 @@
 
 % \section{Многомерные ряды. Коинтеграция}
 
-% \subsection{Модель VAR (Практика)}
+\section{Многомерные ряды. Модель VAR/VECM. Коинтеграция}
+
+\begin{exercise}
+Рассмотрим \textbf{недельные} данные с 2000 г по н.в. по следующим переменными
+\begin{itemize}
+	\item первая разность 3-месячной ставки (treasury bill)
+	\item первая разность 6-месячной ставки (treasury bill)
+	\item первая разность 10-летней ставки (treasury securities  with constant maturity)
+\end{itemize}
+Сформируйте многомерный ряд и
+\begin{enumerate}
+	\item Подгоните модели VAR(1), VAR(2), VAR(3) и постройте прогноз на 10 периодов
+	\item <<Оптимизация>> порядка
+	\begin{enumerate}
+		\item Подгоните модель VAR <<оптимального>> порядка
+		\item Проведите её диагностику
+		\item Постройте прогноз на 5 периодов. Постройте FEVD
+		\item Постройте IRFs использую исходное упорядочивание переменных
+		\item Проведите тест Гренджера на причинность
+	\end{enumerate}
+\end{enumerate}
+\end{exercise}
 
 % \begin{exercise}
 % Рассмотрим многомерный ряд \texttt{Canada} из пакета \texttt{vars}.
@@ -905,7 +926,7 @@
 % \end{enumerate}
 % \end{exercise}
 
-% \subsection{Модель VAR}
+% \section{Модель VAR}
 
 % \begin{exercise}
 % Рассмотрим VAR(1)
