@@ -544,7 +544,7 @@ if(F.stat>F.cr) print('Значимо') else print('Незначимо')
 ## sleep equation #3
 
 Для датасета `sleep75` рассмотрим регрессию 
-**sleep на totwrk, age, age^2, male, south, male\(\star\)totwrk**
+**sleep на totwrk, age, age^2, male, south, totwrk:male**
 
 Результаты подгонки (коэффициенты)
 
@@ -567,7 +567,7 @@ for(i in 2:nrow(t.test) ) {
 print(sign.regressors)
 ```
 
-Потестируем значимость влияния гендерной переменной, т.е. гипотезу $H_0:\beta_{male}=\beta_{male*totwrk}=0$
+Потестируем значимость влияния гендерной переменной, т.е. гипотезу $H_0:\beta_{male}=\beta_{totwrk:male}=0$
 
 Вычислите критическое значение. **Ответ округлите до `r my.digits`-х десятичных знаков.**
 

@@ -3297,7 +3297,7 @@ F-тест</h3>
 <h2><span class="header-section-number">2.3</span> sleep equation
 #3</h2>
 <p>Для датасета <code>sleep75</code> рассмотрим регрессию <strong>sleep
-на totwrk, age, age^2, male, south, male<span class="math inline">\(\star\)</span>totwrk</strong></p>
+на totwrk, age, age^2, male, south, totwrk:male</strong></p>
 <p>Результаты подгонки (коэффициенты)</p>
 <pre><code>
 t test of coefficients:
@@ -3316,7 +3316,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 коэффициенты значимы? Ответ</p>
 <pre><code>[1] &quot;totwrk&quot; &quot;south&quot; </code></pre>
 <p>Потестируем значимость влияния гендерной переменной, т.е. гипотезу
-<span class="math inline">\(H_0:\beta_{male}=\beta_{male*totwrk}=0\)</span></p>
+<span class="math inline">\(H_0:\beta_{male}=\beta_{totwrk:male}=0\)</span></p>
 <p>Вычислите критическое значение. <strong>Ответ округлите до 3-х
 десятичных знаков.</strong></p>
 <pre><code>[1] 4.636</code></pre>
