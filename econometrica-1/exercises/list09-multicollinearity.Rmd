@@ -1,0 +1,386 @@
+---
+title: "Задачи по Эконометрике: Мультиколлинеарность"
+author: "Н.В. Артамонов (МГИМО МИД России)"
+output:
+  html_document:
+    toc: true
+    toc_float: 
+        collapsed: false
+    number_sections: true
+    df_print: paged
+---
+
+```{r, message=FALSE, echo=FALSE}
+library(stargazer)
+library(lmtest)
+library(car)
+library(ggplot2)
+library(corrplot)
+library(ggcorrplot)
+library(sandwich)
+data(sleep75,wage1, wage2, Labour, Electricity, package = c('wooldridge', 'Ecdat') )
+sleep75$gender <- factor(sleep75$male, labels = c('female', 'male') )
+wage1$gender <- factor(wage1$female, labels = c('male', 'female') )
+```
+
+# sleep equation #1
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits.output <- 3
+my.digits <- 2
+sign.level <- 0.05
+
+df.name <- 'sleep75'
+df <- get(df.name)
+spec <- formula('sleep~1+I(totwrk/100)+I(totwrk^2/10000)+age+smsa+male')
+
+mod <- lm(formula=spec, data=df)
+```
+
+Для набора данных ` `r df.name` ` рассмотрим линейную регрессию
+**`r format(spec)`**.
+
+Вычислите на VIF для регрессоров
+
+```{r, echo=FALSE, comment=''}
+vif(mod)
+```
+
+Вычислите корреляционную матриц для регрессоров
+
+```{r, echo=FALSE, comment=''}
+round(cor(model.frame(mod)[,-1]), digits = my.digits.output )
+```
+
+и визуализируйте её
+
+```{r, echo=FALSE, comment=''}
+ggcorrplot(cor(model.frame(mod)[,-1]), method = "square", lab=TRUE)
+```
+
+<span style="color: blue">Уровень значимости `r 100*sign.level`%</span>. Какие коэффициенты значимы (неробастный t-тест)?
+Ответ
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+t.test <- coeftest(mod)
+regressors <- row.names(t.test)
+sign.regressors <- NULL
+for(i in 2:nrow(t.test) ) {
+  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+}
+print(sign.regressors)
+```
+
+Тестируется значимость влияния занятости, т.е. гипотеза \(H_0:\beta_{totwrk/100}=\beta_{totwrk^2/10000}=0\).
+Результаты тестирования (неробастный тест):
+
+```{r,comment='', echo=FALSE}
+testing.result <- linearHypothesis(mod, c('I(totwrk/100)=0', 'I(totwrk^2/10000)=0'))
+# testing.result
+stargazer(testing.result[2,5:6], summary = FALSE, type = 'text', rownames=FALSE)
+```
+
+Вычислите необходимое критическое значение. **Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, comment=''}
+F.cr <- qf(p=1-sign.level, df1 = testing.result[2,3], df2 = df.residual(mod))
+round(F.cr, digits = my.digits)
+```
+
+Какие результаты тестирования? Ответ
+
+```{r,comment='', echo=FALSE}
+if(testing.result[2,6]<sign.level) print('Гипотеза отвергается') else print('Гипотеза не отвергается')
+```
+
+**На первый взгляд противоречие.** Оно объясняется мультиколлинеарностью
+
+# sleep equation #2
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits.output <- 3
+my.digits <- 2
+sign.level <- 0.05
+
+df.name <- 'sleep75'
+df <- get(df.name)
+spec <- formula('sleep~totwrk+age+I(age^2)+smsa+male+union')
+
+mod <- lm(formula=spec, data=df)
+```
+
+Для набора данных ` `r df.name` ` рассмотрим линейную регрессию
+**`r format(spec)`**.
+
+Вычислите на VIF для регрессоров
+
+```{r, echo=FALSE, comment=''}
+vif(mod)
+```
+
+Вычислите корреляционную матриц для регрессоров
+
+```{r, echo=FALSE, comment=''}
+round(cor(model.frame(mod)[,-1]), digits = my.digits.output )
+```
+
+и визуализируйте её
+
+```{r, echo=FALSE, comment=''}
+ggcorrplot(cor(model.frame(mod)[,-1]), method = "square", lab=TRUE)
+```
+
+<span style="color: blue">Уровень значимости `r 100*sign.level`%</span>. Какие коэффициенты значимы (неробастный t-тест)?
+Ответ
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+t.test <- coeftest(mod)
+regressors <- row.names(t.test)
+sign.regressors <- NULL
+for(i in 2:nrow(t.test) ) {
+  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+}
+print(sign.regressors)
+```
+
+Тестируется значимость влияния возраста, т.е. гипотеза \(H_0:\beta_{age}=\beta_{age^2}=0\).
+Результаты тестирования (неробастный тест):
+
+```{r,comment='', echo=FALSE}
+testing.result <- linearHypothesis(mod, c('age=0', 'I(age^2)=0'))
+# testing.result
+stargazer(testing.result[2,5:6], summary = FALSE, type = 'text', rownames=FALSE)
+```
+
+Вычислите необходимое критическое значение. **Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, comment=''}
+F.cr <- qf(p=1-sign.level, df1 = testing.result[2,3], df2 = df.residual(mod))
+round(F.cr, digits = my.digits)
+```
+
+Какие результаты тестирования? Ответ
+
+```{r,comment='', echo=FALSE}
+if(testing.result[2,6]<sign.level) print('Гипотеза отвергается') else print('Гипотеза не отвергается')
+```
+
+**На первый взгляд противоречие.** Оно объясняется мультиколлинеарностью
+
+# sleep equation #3
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits.output <- 3
+my.digits <- 2
+sign.level <- 0.05
+
+df.name <- 'sleep75'
+df <- get(df.name)
+# spec <- formula('sleep~totwrk+south+I(totwrk*south)+age+male+smsa+marr')
+spec <- formula('sleep~totwrk+age+smsa+south+I(totwrk*south)+I(age*south)+I(smsa*south)')
+
+mod <- lm(formula=spec, data=df)
+```
+
+Для набора данных ` `r df.name` ` рассмотрим линейную регрессию
+**`r format(spec)`**.
+
+Вычислите на VIF для регрессоров
+
+```{r, echo=FALSE, comment=''}
+vif(mod, term = 'term')
+```
+
+Вычислите корреляционную матриц для регрессоров
+
+```{r, echo=FALSE, comment=''}
+round(cor(model.frame(mod)[,-1]), digits = my.digits.output )
+```
+
+и визуализируйте её
+
+```{r, echo=FALSE, comment=''}
+ggcorrplot(cor(model.frame(mod)[,-1]), method = "square", lab=TRUE)
+```
+
+<span style="color: blue">Уровень значимости `r 100*sign.level`%</span>. Какие коэффициенты значимы (неробастный t-тест)?
+Ответ
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+t.test <- coeftest(mod)
+regressors <- row.names(t.test)
+sign.regressors <- NULL
+for(i in 2:nrow(t.test) ) {
+  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+}
+print(sign.regressors)
+```
+
+Тестируется значимость влияния влияния географической бинарной переменной, т.е. гипотеза \(H_0:\beta_{south}=\beta_{totwrk*south}=0\).
+Результаты тестирования (неробастный тест):
+
+```{r,comment='', echo=FALSE}
+testing.result <- linearHypothesis(mod, c('south=0', 'I(totwrk * south)=0', 'I(age * south)=0', 'I(smsa * south)=0'))
+# testing.result
+stargazer(testing.result[2,5:6], summary = FALSE, type = 'text', rownames=FALSE)
+```
+
+Вычислите необходимое критическое значение. **Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, comment=''}
+F.cr <- qf(p=1-sign.level, df1 = testing.result[2,3], df2 = df.residual(mod))
+round(F.cr, digits = my.digits)
+```
+
+Какие результаты тестирования? Ответ
+
+```{r,comment='', echo=FALSE}
+if(testing.result[2,6]<sign.level) print('Гипотеза отвергается') else print('Гипотеза не отвергается')
+```
+
+**На первый взгляд противоречие.** Оно объясняется мультиколлинеарностью
+
+# wage equation #1
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits.output <- 3
+my.digits <- 2
+sign.level <- 0.05
+
+df.name <- 'wage2'
+df <- get(df.name)
+spec <- formula('log(wage)~age+I(age^2)+IQ+married+south+urban')
+
+mod <- lm(formula=spec, data=df)
+```
+
+Для набора данных ` `r df.name` ` рассмотрим линейную регрессию
+**`r format(spec)`**.
+
+Вычислите на VIF для регрессоров
+
+```{r, echo=FALSE, comment=''}
+vif(mod)
+```
+
+Вычислите корреляционную матриц для регрессоров
+
+```{r, echo=FALSE, comment=''}
+round(cor(model.frame(mod)[,-1]), digits = my.digits.output )
+```
+
+и визуализируйте её
+
+```{r, echo=FALSE, comment=''}
+ggcorrplot(cor(model.frame(mod)[,-1]), method = "square", lab=TRUE)
+```
+
+<span style="color: blue">Уровень значимости `r 100*sign.level`%</span>. Какие коэффициенты значимы (неробастный t-тест)?
+Ответ
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+t.test <- coeftest(mod)
+regressors <- row.names(t.test)
+sign.regressors <- NULL
+for(i in 2:nrow(t.test) ) {
+  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+}
+print(sign.regressors)
+```
+
+Тестируется значимость влияния возраста, т.е. гипотеза \(H_0:\beta_{age}=\beta_{age^2}=0\).
+Результаты тестирования (неробастный тест):
+
+```{r,comment='', echo=FALSE}
+testing.result <- linearHypothesis(mod, c('age=0', 'I(age^2)=0'))
+# testing.result
+stargazer(testing.result[2,5:6], summary = FALSE, type = 'text', rownames=FALSE)
+```
+
+Вычислите необходимое критическое значение. **Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, comment=''}
+F.cr <- qf(p=1-sign.level, df1 = testing.result[2,3], df2 = df.residual(mod))
+round(F.cr, digits = my.digits)
+```
+
+Какие результаты тестирования? Ответ
+
+```{r,comment='', echo=FALSE}
+if(testing.result[2,6]<sign.level) print('Гипотеза отвергается') else print('Гипотеза не отвергается')
+```
+
+**На первый взгляд противоречие.** Оно объясняется мультиколлинеарностью
+
+# wage equation #2 (структурные сдвиги)
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits.output <- 3
+my.digits <- 2
+sign.level <- 0.01
+
+df.name <- 'wage2'
+df <- get(df.name)
+spec <- formula('log(wage)~age+IQ+south+urban+I(age*urban)+I(IQ*urban)+I(south*urban)')
+
+mod <- lm(formula=spec, data=df)
+```
+
+Для набора данных ` `r df.name` ` рассмотрим линейную регрессию
+**`r format(spec)`**.
+
+Вычислите на VIF для регрессоров
+
+```{r, echo=FALSE, comment=''}
+vif(mod)
+```
+
+Вычислите корреляционную матриц для регрессоров
+
+```{r, echo=FALSE, comment=''}
+round(cor(model.frame(mod)[,-1]), digits = my.digits.output )
+```
+
+и визуализируйте её
+
+```{r, echo=FALSE, comment=''}
+ggcorrplot(cor(model.frame(mod)[,-1]), method = "square", lab=TRUE)
+```
+
+<span style="color: blue">Уровень значимости `r 100*sign.level`%</span>. Какие коэффициенты значимы (неробастный t-тест)?
+Ответ
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+t.test <- coeftest(mod)
+regressors <- row.names(t.test)
+sign.regressors <- NULL
+for(i in 2:nrow(t.test) ) {
+  if(t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+}
+print(sign.regressors)
+```
+
+Тестируется значимость влияния места жительства, т.е. гипотеза 
+\(H_0:\beta_{urban}=\beta_{age*urban}=\beta_{IQ*urban}=\beta_{south*urban}=0\)
+Результаты тестирования (неробастный тест):
+
+```{r,comment='', echo=FALSE}
+testing.result <- linearHypothesis(mod, c('urban=0', 'I(age * urban)=0', 'I(IQ * urban)=0', 'I(south * urban)=0'))
+# testing.result
+stargazer(testing.result[2,5:6], summary = FALSE, type = 'text', rownames=FALSE)
+```
+
+Вычислите необходимое критическое значение. **Ответ округлите до `r my.digits`-х десятичных знаков.**
+
+```{r, echo=FALSE, comment=''}
+F.cr <- qf(p=1-sign.level, df1 = testing.result[2,3], df2 = df.residual(mod))
+round(F.cr, digits = my.digits)
+```
+
+Какие результаты тестирования? Ответ
+
+```{r,comment='', echo=FALSE}
+if(testing.result[2,6]<sign.level) print('Гипотеза отвергается') else print('Гипотеза не отвергается')
+```
+
+**На первый взгляд противоречие.** Оно объясняется мультиколлинеарностью
