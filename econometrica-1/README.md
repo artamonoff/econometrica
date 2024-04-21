@@ -33,3 +33,5 @@
 - [Листок 05](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list05-specification.html): Категориальные переменные, структурные сдвиги
 - [Листок 06](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list06-t-test.html): t-тест, значимость коэффициентов
 - [Листок 07](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list07-F-test.html): F-тест для коэффициентов
+- [Листок 08](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list08-ci.html): Доверительные интервалы
+- [Листок 09](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list09-multicollinearity.html): Мультиколлинеарность
