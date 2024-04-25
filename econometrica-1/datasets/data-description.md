@@ -145,6 +145,24 @@ A dataset with 935 observations on 17 variables:
 
 *Источник*: M. Blackburn and D. Neumark (1992), “Unobserved Ability, Efficiency Wages, and Interindustry Wage Differentials,” Quarterly Journal of Economics 107, 1421-1436.
 
+## Student Performance
+
+The Student Performance Dataset is a dataset designed to examine the factors influencing academic student performance. The dataset consists of 10,000 student records, with each record containing information about various predictors and a performance index.
+
+__Variables:__
+* __Hours Studied:__ The total number of hours spent studying by each student.
+* __Previous Scores:__ The scores obtained by students in previous tests.
+* __Extracurricular Activities:__ Whether the student participates in extracurricular activities (Yes or No).
+* __Sleep Hours:__ The average number of hours of sleep the student had per day.
+* __Sample Question Papers Practiced:__ The number of sample question papers the student practiced.
+
+__Target Variable:__
+* __Performance Index:__ A measure of the overall performance of each student. The performance index represents the student's academic performance and has been rounded to the nearest integer. The index ranges from 10 to 100, with higher values indicating better performance.
+
+*Источник*: [Kaggle](https://www.kaggle.com/datasets/nikhil7280/student-performance-multiple-linear-regression)
+
+__P.S:__ Please note that this dataset is synthetic and created for illustrative purposes. The relationships between the variables and the performance index may not reflect real-world scenarios
+
 ## Mishkin
 
 monthly observations from 1950-2 to 1990-12
