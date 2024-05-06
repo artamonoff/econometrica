@@ -35,3 +35,4 @@
 - [Листок 07](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list07-F-test.html): F-тест для коэффициентов
 - [Листок 08](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list08-ci.html): Доверительные интервалы
 - [Листок 09](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list09-multicollinearity.html): Мультиколлинеарность
+- [Листок 10](https://nbviewer.org/github/artamonoff/econometrica/blob/main/econometrica-1/exercises/list10-diagnostic-het.html): Диагностика модели регрессии: гетероскедастичность
