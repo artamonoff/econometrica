@@ -190,3 +190,67 @@ monthly observations from 1950-2 to 1990-12
 - r: the 91-day treasury bill rate
 - y: the log of real GDP
 - pi: the inflation rate
+
+## Icecream
+
+*four–weekly observations* from 1951–03–18 to 1953–07–11
+
+*number of observations* : 30
+
+*country* : United States
+
+- cons: consumption of ice cream per head (in pints);
+- income: average family income per week (in US Dollars);
+- price: price of ice cream (per pint);
+- temp: average temperature (in Fahrenheit);
+
+*Источник*: Hildreth, C. and J. Lu (1960) Demand relations with autocorrelated disturbances, Technical Bulletin No 2765, Michigan State University.
+
+## Consumption
+
+*quarterly observations8 from 1947-1 to 1996-4
+
+*number of observations* : 200
+
+*country* : Canada
+
+- yd: personal disposable income, 1986 dollars
+- ce: personal consumption expenditure, 1986 dollars
+
+*Источник*: Davidson, R. and James G. MacKinnon (2004) Econometric Theory and Methods, New York, Ox-
+ford University Press, chapter 1, 3, 4, 6, 9, 10, 14 and 15.
+
+## MoneyUS
+
+*quarterly observations* from 1954–01 to 1994–12
+
+*number of observations* : 164
+
+*country* : United States
+
+- m: log of real M1 money stock
+- infl: quarterly inflation rate (change in log prices), % per year
+- cpr: commercial paper rate, % per year
+- y: log real GDP (in billions of 1987 dollars)
+- tbr: treasury bill rate
+
+*Источник*: Hoffman, D.L. and R.H. Rasche (1996) “Assessing forecast performance in a cointegrated system”,
+Journal of Applied Econometrics, 11, 495–517.
+
+## Macrodat
+
+*quarterly observations* from 1959-1 to 2000-4
+
+*number of observations* : 168
+
+*country* : United States
+
+- lhur: unemployment rate (average of months in quarter)
+- punew: CPI (Average of Months in Quarter)
+- fyff: federal funds interest rate (last month in quarter)
+- fygm3: 3 month treasury bill interest rate (last month in quarter)
+- fygt1: 1 year treasury bond interest rate (last month in quarter)
+- exruk: dollar / Pound exchange rate (last month in quarter)
+- gdpjp: real GDP for Japan
+
+*Источник*: Bureau of Labor Statistics, OECD, Federal Reserve.

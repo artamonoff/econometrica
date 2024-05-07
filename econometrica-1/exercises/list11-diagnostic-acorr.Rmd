@@ -10,14 +10,14 @@ output:
     df_print: paged
 ---
 
-```{r, message=FALSE, echo=FALSE,warning=FALSE,results='hide'}
+```{r, message=FALSE, echo=FALSE, warning=FALSE,results='hide'}
 library(lmtest)
 library(sandwich)
 library(Ecdat)
 library(jtools)
 library(quantmod)
 library(zoo)
-data(Icecream, Consumption, Mishkin, MoneyUS, Macrodat, package = c('wooldridge', 'Ecdat', 'ggplot2') )
+data(Icecream, Consumption, Mishkin, MoneyUS, Macrodat, Tbrate, package = 'Ecdat')
 
 getSymbols(Symbols = c('TB3MS', 'GS10', 'M2SL'), src='FRED', return.class='zoo')
 TB3MS <- zooreg(TB3MS, start = c(1934,1), frequency = 12)
@@ -34,6 +34,8 @@ d.rate.10y <- window(diff(GS10), start = as.yearmon('1995-1'), end = as.yearmon(
 dl.M2 <-  window(diff(log(M2SL)), start = as.yearmon('1995-1'), end = as.yearmon('2019-12'))
 d.Rates <- cbind(d.rate.3m, d.rate.10y, dl.M2)
 ```
+
+# Диагностика модели: тесты на серийную корреляцию
 
 # DW-тест
 

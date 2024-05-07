@@ -10,7 +10,7 @@ output:
     df_print: paged
 ---
 
-```{r, message=FALSE, echo=FALSE}
+```{r, message=FALSE, echo=FALSE, warning=FALSE}
 library(stargazer)
 library(lmtest)
 library(car)
@@ -21,7 +21,7 @@ sleep75$gender <- factor(sleep75$male, labels = c('female', 'male') )
 wage1$gender <- factor(wage1$female, labels = c('male', 'female') )
 ```
 
-# Тесты
+# Диагностика модели: тесты на гетероскедастичность
 
 ## sleep equation
 
