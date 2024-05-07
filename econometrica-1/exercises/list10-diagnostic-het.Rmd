@@ -1,7 +1,13 @@
 ---
 title: "Задачи по Эконометрике: Гетероскедастичность"
 author: "Н.В. Артамонов (МГИМО МИД России)"
+fontenc: T2A
+lang: ru-RU
+babel-lang: russian
 output:
+  pdf_document:
+    toc: yes
+    latex_engine: pdflatex
   html_document:
     toc: true
     toc_float: 
