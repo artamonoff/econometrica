@@ -1,9 +1,6 @@
 ---
 title: "Задачи по Эконометрике: Серийная корреляция"
 author: "Н.В. Артамонов (МГИМО МИД России)"
-fontenc: T2A
-lang: ru-RU
-babel-lang: russian
 output:
   html_document:
     toc: true
@@ -14,8 +11,19 @@ output:
   pdf_document:
     toc: yes
     number_sections: true
-    df_print: tibble
-    latex_engine: pdflatex
+    df_print: default
+    latex_engine: xelatex
+header-includes:
+   - \usepackage{xltxtra}
+   - \usepackage{fontspec}
+   - \setmainfont{Times New Roman}
+   - \setsansfont{Arial}
+   - \setmonofont{Courier New}
+   - \newfontfamily{\cyrillicfont}{Times New Roman}
+   - \newfontfamily{\cyrillicfonttt}{Courier New} 
+   - \newfontfamily{\cyrillicfontsf}{Arial}
+   - \usepackage{xcolor}
+   - \usepackage[english,russian]{babel}
 ---
 
 ```{r, message=FALSE, echo=FALSE, warning=FALSE,results='hide'}
@@ -666,7 +674,8 @@ for(i in 1:nrow(robust.t.test) ) {
   if(robust.t.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, 'Значим') else sign.regressors <- c(sign.regressors, 'Незначим')
 }
 # names(sign.regressors) <- rownames(t.test)
-print(data.frame(regressors, sign.regressors))
+# print(data.frame(regressors, sign.regressors))
+data.frame(regressors, sign.regressors)
 ```
 
 # M2 и спреды
