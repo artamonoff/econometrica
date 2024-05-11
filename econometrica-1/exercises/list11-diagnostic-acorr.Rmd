@@ -31,8 +31,9 @@ library(lmtest)
 library(sandwich)
 library(Ecdat)
 library(jtools)
-library(quantmod)
-library(zoo)
+library(car)
+# library(quantmod)
+# library(zoo)
 data(Icecream, Consumption, Mishkin, MoneyUS, Macrodat, Tbrate, package = 'Ecdat')
 ```
 
