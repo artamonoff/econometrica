@@ -7,6 +7,8 @@ econometrica-2/.DS_Store
 economerrica-1/exercises/.Rhistory
 econometrica-1/jupyter-notebooks/sleep75.csv
 econometrica-1/jupyter-notebooks/Labour.csv
+econometrica-1/jupyter-notebooks/diamonds.csv
+econometrica-1/jupyter-notebooks/Mishkin.csv
 econometrica-1/exercises/.Rhistory
 econometrica-2/exercises/.Rhistory
 time-series-analysis/jupyter-notebooks/lightning_logs/version_0/events.out.tfevents.1711459865.237--LMV
@@ -19,4 +21,3 @@ time-series-analysis/jupyter-notebooks/lightning_logs/version_2/events.out.tfeve
 time-series-analysis/jupyter-notebooks/lightning_logs/version_1/hparams.yaml
 time-series-analysis/jupyter-notebooks/lightning_logs/version_1/events.out.tfevents.1711459997.237--LMV
 time-series-analysis/jupyter-notebooks/lightning_logs/version_0/hparams.yaml
-econometrica-1/jupyter-notebooks/diamonds.csv
