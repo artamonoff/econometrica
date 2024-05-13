@@ -1044,108 +1044,108 @@
 
 % \section{Модель VAR}
 
-% \begin{exercise}
-% Рассмотрим VAR(1)
-% \begin{align*}
-% 	\vectx_t&=\matrixA\vectx_{t-1}+\vectu_t &
-% 	\vectx_t&=\begin{pmatrix} x_t \\ y_t \end{pmatrix} &
-% 	\vectu_t&=\begin{pmatrix} u_t \\ v_t \end{pmatrix}
-% \end{align*}
-% где 
-% \begin{align*}
-% 	\vectu_t&\sim\WhiteNoise(0,\Sigma) &
-% 	\Sigma&=\begin{pmatrix}
-% 	\sigma^2_u & \sigma_{uv} \\ \sigma_{uv} & \sigma^2_v
-% 	\end{pmatrix}>0
-% \end{align*}
-% т.е. $u_t\sim\WhiteNoise(0,\sigma_u^2)$,   $v_t\sim\WhiteNoise(0,\sigma_v^2)$,
-% $\cov(u_t,v_t)=\sigma_{uv}$. 
+\begin{exercise}
+Рассмотрим VAR(1)
+\begin{align*}
+	\vectx_t&=\matrixA\vectx_{t-1}+\vectu_t &
+	\vectx_t&=\begin{pmatrix} x_t \\ y_t \end{pmatrix} &
+	\vectu_t&=\begin{pmatrix} u_t \\ v_t \end{pmatrix}
+\end{align*}
+где 
+\begin{align*}
+	\vectu_t&\sim WN(0,\Sigma) &
+	\Sigma&=\begin{pmatrix}
+	\sigma^2_u & \sigma_{uv} \\ \sigma_{uv} & \sigma^2_v
+	\end{pmatrix}>0
+\end{align*}
+т.е. $u_t\sim WN(0,\sigma_u^2)$,   $v_t\sim WN(0,\sigma_v^2)$,
+$\cov(u_t,v_t)=\sigma_{uv}$. 
 	
-% Проверить условие стационарности для следующих матриц
-% \begin{align*}
-% 	\matrixA&=\begin{pmatrix} 0.5 & 1 \\ 0 & 0.3 \end{pmatrix} &
-% 	&\begin{pmatrix} 0 & 0.5 \\ -0.5 & 0 \end{pmatrix} &
-% 	& \begin{pmatrix} 1 & 3 \\ 0 & 0.2  \end{pmatrix} &
-% 	& \begin{pmatrix} 0 & 1 \\ 0 & 1  \end{pmatrix} &
-% 	& \begin{pmatrix} 1 & 1 \\ 1 & 1  \end{pmatrix} &
-% 	& \begin{pmatrix} 0 & 1 \\ 1 & 1  \end{pmatrix}
-% \end{align*}
-% \end{exercise}
+Проверить условие стационарности для следующих матриц
+\begin{align*}
+	\matrixA&=\begin{pmatrix} 0.5 & 1 \\ 0 & 0.3 \end{pmatrix} &
+	&\begin{pmatrix} 0 & 0.5 \\ -0.5 & 0 \end{pmatrix} &
+	& \begin{pmatrix} 1 & 3 \\ 0 & 0.2  \end{pmatrix} &
+	& \begin{pmatrix} 0 & 1 \\ 0 & 1  \end{pmatrix} &
+	& \begin{pmatrix} 1 & 1 \\ 1 & 1  \end{pmatrix} &
+	& \begin{pmatrix} 0 & 1 \\ 1 & 1  \end{pmatrix}
+\end{align*}
+\end{exercise}
 	
-% \begin{exercise}
-% Рассмотрим VAR-модели
-% \begin{align*}
-% 	& \begin{cases} x_t=x_{t-1}+u_t \\ y_t=y_{t-1}+v_t \end{cases} &
-% 	& \begin{cases} x_t=x_{t-1}+u_t \\ y_t=cx_{t}+v_t \end{cases} \\
-% 	& \begin{cases} x_t=x_{t-1}+u_t \\ y_t=x_{t}+x_{t-1}+v_t \end{cases} &
-% 	& \begin{cases} x_t=3x_{t-1}-7y_{t-1}+u_t \\ y_t=x_{t-1}-2.5y_{t-1}+v_t \end{cases}
-% \end{align*}
-% \begin{enumerate}
-% 	\item Запишите в матричном виде.
-% 	\item Проверить условие стационарности.
-% 	\item Какие ряды коинтегрированы?
-% 	\begin{itemize}
-% 		\item Если ряды коинтегрированы, то запишите VECM модель
-% 		и найдите коинтеграционные соотношения
-% 		\item Если ряды не коинтегрированы, то запишите VAR-модель для дифференцированных рядов.
-% 	\end{itemize}
-% \end{enumerate}
-% \end{exercise}
+\begin{exercise}
+Рассмотрим VAR-модели
+\begin{align*}
+	& \begin{cases} x_t=x_{t-1}+u_t \\ y_t=y_{t-1}+v_t \end{cases} &
+	& \begin{cases} x_t=x_{t-1}+u_t \\ y_t=cx_{t}+v_t \end{cases} \\
+	& \begin{cases} x_t=x_{t-1}+u_t \\ y_t=x_{t}+x_{t-1}+v_t \end{cases} &
+	& \begin{cases} x_t=3x_{t-1}-7y_{t-1}+u_t \\ y_t=x_{t-1}-2.5y_{t-1}+v_t \end{cases}
+\end{align*}
+\begin{enumerate}
+	\item Запишите в матричном виде.
+	\item Проверить условие стационарности.
+	\item Какие ряды коинтегрированы?
+	\begin{itemize}
+		\item Если ряды коинтегрированы, то запишите VECM модель
+		и найдите коинтеграционные соотношения
+		\item Если ряды не коинтегрированы, то запишите VAR-модель для дифференцированных рядов.
+	\end{itemize}
+\end{enumerate}
+\end{exercise}
 	
-% \begin{exercise}
-% Рассмотрим $\VAR(1)$
-% \begin{align*}
-% 	\vectx_t&=\matrixA\vectx_{t-1}+\vectu_t &
-% 	\vectx_t&=\begin{pmatrix} x_t \\ y_t \\ z_t \end{pmatrix} &
-% 	\vectu_t&=\begin{pmatrix} u_t \\ v_t \\ w_t \end{pmatrix}\sim\WhiteNoise(0,\Sigma)
-% \end{align*}
-% Проверьте условие стационарности для матриц
-% \begin{align*}
-% 	\matrixA&=\begin{pmatrix}
-% 	0 & 1 & 3 \\ -1 & 0 & -2 \\ 0 & 0 & 0.5 \end{pmatrix} &
-% 	&\begin{pmatrix}
-% 		0 & 0 & 0.5 \\ 0.5 & 0 & 0 \\0 & 0.5 & 0
-% 	\end{pmatrix}
-% \end{align*}
-% \end{exercise}
+\begin{exercise}
+Рассмотрим $\VAR(1)$
+\begin{align*}
+	\vectx_t&=\matrixA\vectx_{t-1}+\vectu_t &
+	\vectx_t&=\begin{pmatrix} x_t \\ y_t \\ z_t \end{pmatrix} &
+	\vectu_t&=\begin{pmatrix} u_t \\ v_t \\ w_t \end{pmatrix}\sim WN(0,\Sigma)
+\end{align*}
+Проверьте условие стационарности для матриц
+\begin{align*}
+	\matrixA&=\begin{pmatrix}
+	0 & 1 & 3 \\ -1 & 0 & -2 \\ 0 & 0 & 0.5 \end{pmatrix} &
+	&\begin{pmatrix}
+		0 & 0 & 0.5 \\ 0.5 & 0 & 0 \\0 & 0.5 & 0
+	\end{pmatrix}
+\end{align*}
+\end{exercise}
 	
-% \begin{exercise}
-% Рассмотрим $\VAR(2)$
-% \begin{align*}
-% 	\vectx_t&=\matrixA_1\vectx_{t-1}+\matrixA_2\vectx_{t-2}+\vectu_t &
-% 	\vectx_t&=\begin{pmatrix} x_t \\ y_t \end{pmatrix} &
-% 	\vectu_t&=\begin{pmatrix} u_t \\ v_t \end{pmatrix}\sim
-% 	\WhiteNoise(0,\Sigma)
-% \end{align*}
-% Проверьте условие стационарности для матриц
-% \begin{align*}
-% 	1)\,\,\matrixA_1&=\begin{pmatrix} 2 & 3 \\ 0 & 1 \end{pmatrix} &
-% 	\matrixA_2&=\begin{pmatrix} -1 & 3 \\ 0 & -0.25 \end{pmatrix} \\
-% 	2)\,\,\matrixA_1&=\begin{pmatrix} 0 & 0.5 \\ 0.5 & 0 \end{pmatrix} &
-% 	\matrixA_2&=\begin{pmatrix} 0 & -0.25 \\ -0.25 & 0 \end{pmatrix}
-% \end{align*}
-% \end{exercise}
+\begin{exercise}
+Рассмотрим $\VAR(2)$
+\begin{align*}
+	\vectx_t&=\matrixA_1\vectx_{t-1}+\matrixA_2\vectx_{t-2}+\vectu_t &
+	\vectx_t&=\begin{pmatrix} x_t \\ y_t \end{pmatrix} &
+	\vectu_t&=\begin{pmatrix} u_t \\ v_t \end{pmatrix}\sim
+	WN(0,\Sigma)
+\end{align*}
+Проверьте условие стационарности для матриц
+\begin{align*}
+	1)\,\,\matrixA_1&=\begin{pmatrix} 2 & 3 \\ 0 & 1 \end{pmatrix} &
+	\matrixA_2&=\begin{pmatrix} -1 & 3 \\ 0 & -0.25 \end{pmatrix} \\
+	2)\,\,\matrixA_1&=\begin{pmatrix} 0 & 0.5 \\ 0.5 & 0 \end{pmatrix} &
+	\matrixA_2&=\begin{pmatrix} 0 & -0.25 \\ -0.25 & 0 \end{pmatrix}
+\end{align*}
+\end{exercise}
 	
-% \begin{exercise}
-% Рассмотрим модели
-% \begin{align*}
-% 	& \begin{cases} x_t=2x_{t-1}-x_{t-2}+u_t \\ y_t=1.5y_{t-1}-0.5y_{t-2}+v_t \end{cases} \\
-% 	& \begin{cases} x_t=1.5x_{t-1}+y_{t-1}-0.5x_{t-2}-y_{t-2}+u_t \\
-% 	y_t=-x_{t-1}-0.5y_{t-1}+x_{t-2}+1.5y_{t-2}+v_t \end{cases} \\
-% 	& \begin{cases} x_t=x_{t-1}+u_t \\ y_t=x_{t}+x_{t-1}+v_t \\ z_t= x_{t}+y_{t-1}+w_t \end{cases} \\
-% 	& \begin{cases} x_t=y_{t-1}+u_t \\ y_t=z_{t-1}+v_t \\ z_t= x_{t-1}+w_t \end{cases}
-% \end{align*}
-% \begin{enumerate}
-% 	\item Запишите в матричном виде..
-% 	\item Проверить условие стационарности.
-% 	\item Какие ряды коинтегрированы?
-% 	\begin{itemize}
-% 		\item Если ряды коинтегрированы, то запишите VECM модель
-% 		и найдите коинтеграционные соотношения
-% 		\item Если ряды не коинтегрированы, то запишите VAR-модель для дифференцированных рядов.
-% 	\end{itemize}
-% \end{enumerate}
-% \end{exercise}
+\begin{exercise}
+Рассмотрим модели
+\begin{align*}
+	& \begin{cases} x_t=2x_{t-1}-x_{t-2}+u_t \\ y_t=1.5y_{t-1}-0.5y_{t-2}+v_t \end{cases} \\
+	& \begin{cases} x_t=1.5x_{t-1}+y_{t-1}-0.5x_{t-2}-y_{t-2}+u_t \\
+	y_t=-x_{t-1}-0.5y_{t-1}+x_{t-2}+1.5y_{t-2}+v_t \end{cases} \\
+	& \begin{cases} x_t=x_{t-1}+u_t \\ y_t=x_{t}+x_{t-1}+v_t \\ z_t= x_{t}+y_{t-1}+w_t \end{cases} \\
+	& \begin{cases} x_t=y_{t-1}+u_t \\ y_t=z_{t-1}+v_t \\ z_t= x_{t-1}+w_t \end{cases}
+\end{align*}
+\begin{enumerate}
+	\item Запишите в матричном виде.
+	\item Проверить условие стационарности.
+	\item Какие ряды коинтегрированы?
+	\begin{itemize}
+		\item Если ряды коинтегрированы, то запишите VECM модель
+		и найдите коинтеграционные соотношения
+		\item Если ряды не коинтегрированы, то запишите VAR-модель для дифференцированных рядов.
+	\end{itemize}
+\end{enumerate}
+\end{exercise}
 
 \newpage
 
