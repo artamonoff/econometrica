@@ -2,12 +2,28 @@
 title: "Задачи по Эконометрике-2: logit/probit-модель"
 author: "Н.В. Артамонов (МГИМО МИД России)"
 output:
+  pdf_document:
+    toc: yes
+    number_sections: true
+    df_print: default
+    latex_engine: xelatex
   html_document:
     toc: true
     toc_float: 
         collapsed: false
     number_sections: true
     df_print: paged
+header-includes:
+   - \usepackage{xltxtra}
+   - \usepackage{fontspec}
+   - \setmainfont{Times New Roman}
+   - \setsansfont{Arial}
+   - \setmonofont{Courier New}
+   - \newfontfamily{\cyrillicfont}{Times New Roman}
+   - \newfontfamily{\cyrillicfonttt}{Courier New} 
+   - \newfontfamily{\cyrillicfontsf}{Arial}
+   - \usepackage{xcolor}
+   - \usepackage[english,russian]{babel}
 ---
 
 ```{r, message=FALSE, echo=FALSE}
