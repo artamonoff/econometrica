@@ -344,25 +344,26 @@ print(data.frame(regressors, sign.regressors))
 ## output equation
 
 Для набора данных `Labour` рассмотрим линейную регрессию
-**log(output) на log(capital), log(labour), log(capital)^2, log(labour)^2**.
+**log(output) на log(capital), log(labour), log(wage), log(capital)^2, log(labour)^2, log(wage)^2**.
 
 Результаты t-теста (робастный, HC-s.e.)
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits.output <- 3
 my.digits <- 2
-sign.level <- 0.01
-mod <- lm(formula=log(output)~log(capital)+log(labour)+I(log(capital)^2)+I(log(labour)^2), data=Labour)
+sign.level <- 0.05
+mod <- lm(formula=log(output)~log(capital)+log(labour)+log(wage)+I(log(capital)^2)+I(log(labour)^2)+I(log(wage)^2), data=Labour)
 robust.t.test <- coeftest(mod, vcov. = vcovHC)
 robust.t.test
 ```
 <span style="color: blue">Уровень значимости `r 100*sign.level`%</span>. Число налюдений `r nobs(mod)`
 
-Потестируем значимость влияния **labour**, т.е. \(H_0:\beta_{\log(labour)}=\beta_{\log^2(labour)}=0\)
+Потестируем значимость влияния квадратов переменных, т.е.
+\(H_0:\beta_{\log^2(capital)}=\beta_{\log^2(labour)}=\beta_{\log^2(wage)}=0\)
 
 Результаты F-теста (неробастный):
 ```{r,comment='', echo=FALSE}
-testing.hypothesis <- c('log(labour)=0', 'I(log(labour)^2)=0')
+testing.hypothesis <- c('I(log(capital)^2)=0', 'I(log(labour)^2)=0', 'I(log(wage)^2)=0')
 F.test <- linearHypothesis(mod, testing.hypothesis )
 # testing.result
 stargazer(F.test[2,5:6], summary = FALSE, type = 'text', rownames=FALSE)
@@ -383,7 +384,7 @@ F.cr <- qf(p=1-sign.level, df1 = robust.F.test[2,2], df2 = df.residual(mod))
 round(F.cr, digits = my.digits)
 ```
 
-Значимо ли влияние **labour**?
+Значимо ли влияние квадратов переенных?
 
 ```{r,comment='', echo=FALSE}
 if(robust.F.test[2,4]<sign.level) print('Значимо') else print('Незначимо')

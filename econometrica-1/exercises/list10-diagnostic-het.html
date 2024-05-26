@@ -2954,42 +2954,44 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <div id="output-equation-2" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> output equation</h2>
 <p>Для набора данных <code>Labour</code> рассмотрим линейную регрессию
-<strong>log(output) на log(capital), log(labour), log(capital)^2,
-log(labour)^2</strong>.</p>
+<strong>log(output) на log(capital), log(labour), log(wage),
+log(capital)^2, log(labour)^2, log(wage)^2</strong>.</p>
 <p>Результаты t-теста (робастный, HC-s.e.)</p>
 <pre><code>
 t test of coefficients:
 
                     Estimate Std. Error t value  Pr(&gt;|t|)    
-(Intercept)       -1.3039430  0.4932710 -2.6435  0.008435 ** 
-log(capital)       0.1831076  0.0294634  6.2148 9.999e-10 ***
-log(labour)        0.5152974  0.2064002  2.4966  0.012823 *  
-I(log(capital)^2)  0.0227484  0.0083099  2.7375  0.006386 ** 
-I(log(labour)^2)   0.0202628  0.0209889  0.9654  0.334755    
+(Intercept)       -3.5683184  1.6513289 -2.1609   0.03113 *  
+log(capital)       0.1403975  0.0297480  4.7196 2.987e-06 ***
+log(labour)        0.4715615  0.1975373  2.3872   0.01731 *  
+log(wage)          0.4762297  0.8951744  0.5320   0.59494    
+I(log(capital)^2)  0.0070992  0.0085390  0.8314   0.40611    
+I(log(labour)^2)   0.0275443  0.0200107  1.3765   0.16922    
+I(log(wage)^2)     0.0515629  0.1256752  0.4103   0.68175    
 ---
 Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p><span style="color: blue">Уровень значимости 1%</span>. Число
+<p><span style="color: blue">Уровень значимости 5%</span>. Число
 налюдений 569</p>
-<p>Потестируем значимость влияния <strong>labour</strong>, т.е. <span class="math inline">\(H_0:\beta_{\log(labour)}=\beta_{\log^2(labour)}=0\)</span></p>
+<p>Потестируем значимость влияния квадратов переменных, т.е. <span class="math inline">\(H_0:\beta_{\log^2(capital)}=\beta_{\log^2(labour)}=\beta_{\log^2(wage)}=0\)</span></p>
 <p>Результаты F-теста (неробастный):</p>
 <pre><code>
-===============
-F       Pr(&gt; F)
----------------
-478.024    0   
----------------</code></pre>
+==============
+F      Pr(&gt; F)
+--------------
+13.297 0.00000
+--------------</code></pre>
 <p>Результаты F-теста (робастный):</p>
 <pre><code>
-===============
-F       Pr(&gt; F)
----------------
-261.735    0   
----------------</code></pre>
+=============
+F     Pr(&gt; F)
+-------------
+2.064  0.104 
+-------------</code></pre>
 <p>Какое критическое значение? <strong>Ответ округлите до 2-х десятичных
 знаков.</strong></p>
-<pre><code>[1] 4.64</code></pre>
-<p>Значимо ли влияние <strong>labour</strong>?</p>
-<pre><code>[1] &quot;Значимо&quot;</code></pre>
+<pre><code>[1] 2.62</code></pre>
+<p>Значимо ли влияние квадратов переенных?</p>
+<pre><code>[1] &quot;Незначимо&quot;</code></pre>
 </div>
 <div id="cost-equation-3" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> cost equation</h2>
