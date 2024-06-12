@@ -9,9 +9,4 @@
 *.fls
 *.fdb_latexmk
 
-econometrica-1/jupyter-notebooks/diamonds.csv
-econometrica-1/jupyter-notebooks/Labour.csv
-econometrica-1/jupyter-notebooks/Mishkin.csv
-econometrica-1/jupyter-notebooks/sleep75.csv
-econometrica-1/jupyter-notebooks/wage1.csv
-econometrica-1/jupyter-notebooks/wage2.csv
+econometrica-1/jupyter-notebooks/*.csv
