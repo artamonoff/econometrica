@@ -34,7 +34,7 @@ library(sandwich)
 library(jtools)
 data(loanapp, package = 'wooldridge')
 data(SwissLabor, package = 'AER')
-mroz_Greene <- read.csv('http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv')
+mroz_Greene <- read.csv('https://raw.githubusercontent.com/artamonoff/econometrica/refs/heads/main/econometrica-2/datasets/TableF5-1.csv')
 ```
 
 # Нормальное и логистическое распределение
@@ -48,7 +48,7 @@ mroz_Greene <- read.csv('http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5
 Плотности на одном графике
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-curve(dnorm, from=-6, to=6, col='blue', ylab='phi(x), lambda(x)', main='phi (синяя), lambda (красная)')
+curve(dnorm, from=-6, to=6, col='blue', ylab='phi(x), lambda(x)', main='phi (blue), lambda (red)')
 curve(dlogis, from=-6, to=6, col='red', add = TRUE)
 abline(v=0)
 ```
@@ -56,7 +56,7 @@ abline(v=0)
 Функции распределения на одном графике
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-curve(pnorm, from=-6, to=6, col='blue', ylab='Phi(x), Lambda(x)', main='Phi (синяя), Lambda (красная)')
+curve(pnorm, from=-6, to=6, col='blue', ylab='Phi(x), Lambda(x)', main='Phi (blue), Lambda (red)')
 curve(plogis, from=-6, to=6, col='red', add = TRUE)
 abline(v=0)
 ```
@@ -67,7 +67,7 @@ abline(v=0)
 Их графики
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
-curve(qnorm, from=0, to=1, col='blue', ylab='probit/logit', main='probit (синяя), logit (красная)', ylim=c(-5,5))
+curve(qnorm, from=0, to=1, col='blue', ylab='probit/logit', main='probit (blue), logit (red)', ylim=c(-5,5))
 curve(qlogis, from=0, to=1, col='red', add = TRUE)
 abline(v=0, h=0);abline(v=1)
 ```
