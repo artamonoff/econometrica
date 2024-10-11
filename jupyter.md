@@ -9,14 +9,14 @@
 |OS|Команда|
 |-|-|
 |Windows|`jupyter notebook`|
-|Mac OS|`~/miniconda3/bin/jupyter notebook`|
+|Mac OS|`jupyter notebook`|
 
 Запуск Jupyter Lab из командной строки (Anaconda PowerShell Prompt в Windows, Terminal в MacOS) 
 
 |OS|Команда|
 |-|-|
 |Windows|`jupyter lab`|
-|Mac OS|`~/miniconda3/bin/jupyter lab`|
+|Mac OS|`jupyter lab`|
 
 ## Jupyter Notebook
 
