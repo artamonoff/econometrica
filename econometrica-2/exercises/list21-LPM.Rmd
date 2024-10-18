@@ -2,17 +2,17 @@
 title: "Задачи по Эконометрике-2: LPM-модель"
 author: "Н.В. Артамонов (МГИМО МИД России)"
 output:
-  pdf_document:
-    toc: yes
-    number_sections: true
-    df_print: default
-    latex_engine: xelatex
   html_document:
     toc: true
     toc_float: 
         collapsed: false
     number_sections: true
     df_print: paged
+  pdf_document:
+    toc: yes
+    number_sections: true
+    df_print: default
+    latex_engine: xelatex
 header-includes:
    - \usepackage{xltxtra}
    - \usepackage{fontspec}
@@ -40,7 +40,7 @@ mroz_Greene <- read.csv('https://raw.githubusercontent.com/artamonoff/econometri
 ## approve equation #1
 
 Для датасета `loanapp`
-рассморим регрессию **approve на mortno, unem, dep, male, married, yjob, self**
+рассмотрим регрессию **approve на mortno, unem, dep, male, married, yjob, self**
 
 Спецификация: 
 \[
@@ -91,17 +91,17 @@ round(coef(regr), digits = my.digits)
 
 ## labour force equation #1
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
+Для датасета `TableF5-1`
+рассмотрим регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
 
 Спецификация: 
 \[
-  LFP=\beta_0+\beta_1WA+\beta_2WA^2+\beta_3WE+\beta_4KL6+\beta_5K618+\beta_5CIT+\beta_7UN+\beta_8\log(FAMINC)+u
+	LFP=\beta_0+\beta_1WA+\beta_2WA^2+\beta_3WE+\beta_4KL6+\beta_5K618+\beta_5CIT+\beta_7UN+\beta_8\log(FAMINC)+u
 \]
 
 Альтернативная спецификация:
 \[
-  P(LFP=1)=\beta_0+\beta_1WA+\beta_2WA^2+\beta_3WE+\beta_4KL6+\beta_5K618+\beta_5CIT+\beta_7UN+\beta_8\log(FAMINC)
+	P(LFP=1)=\beta_0+\beta_1WA+\beta_2WA^2+\beta_3WE+\beta_4KL6+\beta_5K618+\beta_5CIT+\beta_7UN+\beta_8\log(FAMINC)
 \]
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
@@ -122,8 +122,8 @@ round(coef(regr), digits = my.digits)
 
 ## labour force equation #2
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим регрессию **LFP на WA, WE, CIT, UN, log(FAMINC)**
+Для датасета `TableF5-1`
+рассмотрим регрессию **LFP на WA, WE, CIT, UN, log(FAMINC)**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -163,7 +163,7 @@ curve(dnorm(x, mean(log(FAMINC)), sd(log(FAMINC)) ), add = TRUE, col='red')
 ## approve equation #1
 
 Для датасета `loanapp`
-рассморим регрессию **approve на mortno, unem, dep, male, married, yjob, self**
+рассмотрим регрессию **approve на mortno, unem, dep, male, married, yjob, self**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -221,7 +221,7 @@ print(sign.regressors)
 ## approve equation #2
 
 Для датасета `loanapp`
-рассморим регрессию **approve на appinc, appinc^2, mortno, unem, dep, male, married, yjob, self**
+рассмотрим регрессию **approve на appinc, appinc^2, mortno, unem, dep, male, married, yjob, self**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -278,8 +278,7 @@ print(sign.regressors)
 
 ## labour force equation #1
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
+Для датасета `TableF5-1` рассмотрим регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -336,8 +335,7 @@ print(sign.regressors)
 
 ## labour force equation #2
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим регрессию **LFP на WA, WE, CIT, UN, log(FAMINC)**
+Для датасета `TableF5-1` рассмотрим регрессию **LFP на WA, WE, CIT, UN, log(FAMINC)**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -396,8 +394,7 @@ print(sign.regressors)
 
 ## approve equation #1
 
-Для датасета `loanapp`
-рассморим регрессию **approve на unem, male, yjob, self**
+Для датасета `loanapp` рассмотрим регрессию **approve на unem, male, yjob, self**
 
 Результаты оценивания
 
@@ -446,8 +443,7 @@ if(testing.result[2,4]<sign.level) print('Регрессия значима') el
 
 ## approve equation #2
 
-Для датасета `loanapp`
-рассморим регрессию **approve на appinc, appinc^2, mortno, dep**
+Для датасета `loanapp` рассмотрим регрессию **approve на appinc, appinc^2, mortno, dep**
 
 Результаты оценивания
 
@@ -495,8 +491,7 @@ if(testing.result[2,4]<sign.level) print('Регрессия значима') el
 
 ## approve equation #3
 
-Для датасета `loanapp`
-рассморим регрессию **approve на dep, male, married**
+Для датасета `loanapp` рассмотрим регрессию **approve на dep, male, married**
 
 Результаты оценивания
 
@@ -546,8 +541,7 @@ if(testing.result[2,4]<sign.level) print('Регрессия значима') el
 
 ## approve equation #1
 
-Для датасета `loanapp`
-рассморим регрессию **approve на appinc, appinc^2, mortno, unem, dep, male, married, yjob, self**
+Для датасета `loanapp` рассмотрим регрессию **approve на appinc, appinc^2, mortno, unem, dep, male, married, yjob, self**
 
 Результаты оценивания
 
@@ -645,7 +639,7 @@ if(testing.result[2,4]<sign.level) print('Гипотеза отвергаетс�
 
 ## approve equation
 
-Для датасета `loanapp` рассморим регрессию **approve на mortno, unem, dep, married**
+Для датасета `loanapp` рассмотрим регрессию **approve на mortno, unem, dep, married**
 
 Результаты оценивания
 
@@ -658,7 +652,7 @@ stargazer(regr, type='text', digits=my.digits.output, digit.separator = '',
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 ```
 
-Рассморим трёх людей с характеристиками
+Рассмотрим трёх людей с характеристиками
 
 ```{r, echo=FALSE, comment=''}
 new.df <- data.frame(mortno=c(1, 1, 0), unem=c(3.2, 3.9, 1.8), 
@@ -692,8 +686,8 @@ stargazer(round(data.frame(Прогноз=my.predict), digits = my.digits ),
 
 ## labour force equation
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим регрессию **LFP на WA, WA^2, CIT, UN, log(FAMINC)**
+Для датасета `TableF5-1`
+рассмотрим регрессию **LFP на WA, WA^2, CIT, UN, log(FAMINC)**
 
 Результаты оценивания
 
@@ -706,7 +700,7 @@ stargazer(regr, type='text', digits=my.digits.output, digit.separator = '',
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 ```
 
-Рассморим трёх людей с характеристиками
+Расстроим трёх людей с характеристиками
 
 ```{r, echo=FALSE, comment=''}
 new.df <- data.frame(WA=c(34, 36, 42), CIT=c(1, 0, 0), 
@@ -742,8 +736,7 @@ stargazer(round(data.frame(Прогноз=my.predict), digits = my.digits ),
 
 ## approve equation
 
-Для датасета `loanapp`
-рассморим регрессию **approve на appinc, appinc^2, mortno, unem, dep, male, married, yjob, self**
+Для датасета `loanapp` рассмотрим регрессию **approve на appinc, appinc^2, mortno, unem, dep, male, married, yjob, self**
 
 Построим графики фактических наблюдений м прогнозов
 
@@ -765,8 +758,8 @@ rm(appinc, dep)
 
 ## labour force equation
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
+Для датасета `TableF5-1`
+рассмотрим регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
 
 Построим графики фактических наблюдений м прогнозов
 
