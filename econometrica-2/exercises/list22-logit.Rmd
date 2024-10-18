@@ -76,8 +76,7 @@ abline(v=0, h=0);abline(v=1)
 
 ## approve equation #1 (probit)
 
-Для датасета `loanapp`
-рассморим probit-регрессию **approve на appinc, mortno, unem, dep, male, married, yjob, self**
+Для датасета `loanapp` рассмотрим probit-регрессию **approve на appinc, mortno, unem, dep, male, married, yjob, self**
 
 Спецификация: 
 $P(approve=1)=\Phi(\beta_0+\beta_1appinc+\beta_2mortno+\beta_3unem+\beta_4dep+\beta_5male+\beta_6married+\beta_7yjob+\beta_8self)$
@@ -106,8 +105,7 @@ round( coef(regr), digits = 3)
 
 ## approve equation #2 (logit)
 
-Для датасета `loanapp`
-рассморим logit-регрессию **approve на appinc, mortno, unem, dep, male, married, yjob, self**
+Для датасета `loanapp` рассмотрим logit-регрессию **approve на appinc, mortno, unem, dep, male, married, yjob, self**
 
 Спецификация: 
 $P(approve=1)=\Lambda(\beta_0+\beta_1appinc+\beta_2mortno+\beta_3unem+\beta_4dep+\beta_5male+\beta_6married+\beta_7yjob+\beta_8self)$
@@ -137,8 +135,7 @@ round( coef(regr), digits = my.digits)
 
 ## labour force equation #1 (probit)
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим probit-регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
+Для датасета `TableF5-1` рассмотрим probit-регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
 
 Спецификация: 
 $P(LFP=1)=\Phi(\beta_0+\beta_1WA+\beta_2WA^2+\beta_3WE+\beta_4KL6+\beta_5K618+\beta_5CIT+\beta_7UN+\beta_8\log(FAMINC))$
@@ -166,8 +163,7 @@ round( coef(regr), digits = my.digits)
 
 ## labour force equation #2 (logit)
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим logit-регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
+Для датасета `TableF5-1` рассмотрим logit-регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
 
 Спецификация: 
 $P(LFP=1)=\Lambda(\beta_0+\beta_1WA+\beta_2WA^2+\beta_3WE+\beta_4KL6+\beta_5K618+\beta_5CIT+\beta_7UN+\beta_8\log(FAMINC))$
@@ -199,8 +195,7 @@ round( coef(regr), digits = my.digits)
 
 ## approve equation #1 (probit)
 
-Для датасета `loanapp`
-рассморим probit-регрессию **approve на appinc, mortno, unem, dep, male, married, yjob, self**
+Для датасета `loanapp` рассмотрим probit-регрессию **approve на appinc, mortno, unem, dep, male, married, yjob, self**
 
 Подгоните модель на данных и приведите результаты z-теста
 
@@ -241,8 +236,7 @@ print(sign.regressors)
 
 ## approve equation #2 (logit)
 
-Для датасета `loanapp`
-рассморим logit-регрессию **approve на appinc, mortno, unem, dep, male, married, yjob, self**
+Для датасета `loanapp` рассмотрим logit-регрессию **approve на appinc, mortno, unem, dep, male, married, yjob, self**
 
 Подгоните модель на данных и приведите результаты z-теста
 
@@ -281,8 +275,7 @@ print(sign.regressors)
 
 ## labour force equation #1 (probit)
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим probit-регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
+Для датасета `TableF5-1` рассмотрим probit-регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
 
 Подгоните модель на данных и приведите результаты z-теста
 
@@ -321,8 +314,7 @@ print(sign.regressors)
 
 ## labour force equation #2 (logit)
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим logit-регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
+Для датасета `TableF5-1` рассмотрим logit-регрессию **LFP на WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
 
 Подгоните модель на данных и приведите результаты z-теста
 
@@ -360,12 +352,11 @@ for(i in 1:nrow(z.test) ) {
 print(sign.regressors)
 ```
 
-# LR-тест: значимость регресии
+# LR-тест: значимость регрессии
 
 ## approve equation #1 (probit)
 
-Для датасета `loanapp`
-рассморим probit-регрессию **approve на appinc, unem, male, yjob, self**
+Для датасета `loanapp` рассмотрим probit-регрессию **approve на appinc, unem, male, yjob, self**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -381,8 +372,8 @@ my.logL.null <- round(-regr$null.deviance/2, digits = my.digits.output)
 Подгоните модель на данных и укажите: 
 
 - число наблюдений, на которых была подогнана модель
-- логарфим функции правдоподобия для модели \(\log L=\)`r my.logL`, 
-- логарфим функции правдоподобия для регрессии без объясняющих переменных (только на константу)
+- логарифм функции правдоподобия для модели \(\log L=\)`r my.logL`, 
+- логарифм функции правдоподобия для регрессии без объясняющих переменных (только на константу)
 
 **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
@@ -392,7 +383,7 @@ my.logL.null <- round(-regr$null.deviance/2, digits = my.digits.output)
 paste(nobs(regr), round(-deviance(regr)/2, digits = my.digits.output), round(-regr$null.deviance/2, digits = my.digits.output) )
 ```
 
-Тестируется значимость регресии, т.е. гипотеза
+Тестируется значимость регрессии, т.е. гипотеза
 \(H_0:\beta_{appinc}=\beta_{unem}=\beta_{male}=\beta_{yjob}=\beta_{self}=0\).
 <span style="color: blue">Уровень значимости `r 100*sign.level`%</span>.
 
@@ -432,8 +423,7 @@ print(sign.regressors)
 
 ## approve equation #2 (logit)
 
-Для датасета `loanapp`
-рассморим logit-регрессию **approve на appinc, appinc^2, mortno, unem, dep, male, married, yjob, self**
+Для датасета `loanapp` рассмотрим logit-регрессию **approve на appinc, appinc^2, mortno, unem, dep, male, married, yjob, self**
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -449,8 +439,8 @@ my.logL.null <- round(-regr$null.deviance/2, digits = my.digits.output)
 Подгоните модель на данных и укажите: 
 
 - число наблюдений, на которых была подогнана модель
-- логарфим функции правдоподобия для модели \(\log L=\)`r my.logL`, 
-- логарфим функции правдоподобия для регрессии без объясняющих переменных (только на константу)
+- логарифм функции правдоподобия для модели \(\log L=\)`r my.logL`, 
+- логарифм функции правдоподобия для регрессии без объясняющих переменных (только на константу)
 
 **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
@@ -460,7 +450,7 @@ my.logL.null <- round(-regr$null.deviance/2, digits = my.digits.output)
 paste(nobs(regr), round(-deviance(regr)/2, digits = my.digits.output), round(-regr$null.deviance/2, digits = my.digits.output) )
 ```
 
-Тестируется значимость регресии, т.е. гипотеза
+Тестируется значимость регрессии, т.е. гипотеза
 \(H_0:\beta_{appinc}=\beta_{unem}=\beta_{male}=\beta_{yjob}=\beta_{self}=0\).
 <span style="color: blue">Уровень значимости `r 100*sign.level`%</span>.
 
@@ -500,8 +490,7 @@ print(sign.regressors)
 
 ## labour force equation #1 (probit)
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим несколько probit-регрессй. Результаты оценивания
+Для датасета `TableF5-1` рассмотрим несколько probit-регрессий. Результаты оценивания
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -520,7 +509,7 @@ my.logL <- NULL
 for(i in 1:length(regr)) my.logL <- c(my.logL, -deviance(regr[[i]])/2 )
 ```
 
-Для каждой регресси вычислите LR-статистику для тестирования её значимости.
+Для каждой регрессии вычислите LR-статистику для тестирования её значимости.
 **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 Ответ
@@ -563,8 +552,7 @@ stargazer(df.sign, summary = FALSE, type='text', rownames=FALSE)
 
 ## labour force equation #2 (logit)
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим несколько logit-регрессй. Результаты оценивания
+Для датасета `TableF5-1` рассмотрим несколько logit-регрессий. Результаты оценивания
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -583,7 +571,7 @@ my.logL <- NULL
 for(i in 1:length(regr)) my.logL <- c(my.logL, -deviance(regr[[i]])/2 )
 ```
 
-Для каждой регресси вычислите LR-статистику для тестирования её значимости.
+Для каждой регрессии вычислите LR-статистику для тестирования её значимости.
 **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 Ответ
@@ -628,8 +616,7 @@ stargazer(df.sign, summary = FALSE, type='text', rownames=FALSE )
 
 ## labour force equation #1 (probit)
 
-Для датасета [mroz_Greene](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим probit-регрессию **LFP на WAб WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**.
+Для датасета `TableF5-1` рассмотрим probit-регрессию **LFP на WAб WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -656,7 +643,7 @@ for(i in 1:length(regr)) my.logL <- c(my.logL, -deviance(regr[[i]])/2 )
 Тестируется значимость влияния возраста, т.е. гипотеза
 \(H_0:\beta_{WA}=\beta_{WA^2}=0\) по LR-тесту.
 
-Вычислите соотвествующую тестовую статистику. **Ответ округлите до `r my.digits`-х десятичных знаков.**
+Вычислите соответствующую тестовую статистику. **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 ```{r, echo=FALSE, comment=''}
 ind.full <- 1; ind.restr <- 2
@@ -664,7 +651,7 @@ LR.stat <- 2*(my.logL[ind.full]-my.logL[ind.restr])
 round(LR.stat, digits = my.digits)
 ```
 
-Вычислите необходимое кртическое значение. **Ответ округлите до `r my.digits`-х десятичных знаков.**
+Вычислите необходимое критическое значение. **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 ```{r,echo=FALSE, comment=''}
 chi2.cr <- qchisq(p=1-sign.level, df=df.residual(regr[[ind.restr]])-df.residual(regr[[ind.full]]) )
@@ -830,8 +817,7 @@ if(LR.stat>chi2.cr) print('Значимо') else print('Незначимо')
 
 ## swiss labour force equation #1
 
-Для датасета `SwissLabour`
-рассморим logit-регрессию **participation на income, income^2, age, age^2, youngkids, oldkids, foreign**
+Для датасета `SwissLabour` рассморим logit-регрессию **participation на income, income^2, age, age^2, youngkids, oldkids, foreign**
 
 Результаты оценивания
 
