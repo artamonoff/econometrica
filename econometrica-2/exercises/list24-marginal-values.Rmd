@@ -37,7 +37,7 @@ library(erer)
 data(loanapp, SwissLabor, Mroz, package=c('wooldridge', 'AER', 'Ecdat'))
 # data(loanapp, package = 'wooldridge')
 # data(SwissLabor, package = 'AER')
-mroz_Greene <- read.csv('http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv')
+mroz_Greene <- read.csv('https://raw.githubusercontent.com/artamonoff/econometrica/refs/heads/main/econometrica-2/datasets/TableF5-1.csv')
 ```
 
 # Предельные значения 
@@ -71,8 +71,7 @@ $x'\beta=\beta_0+\beta_1x_1+\cdots+\beta_kx_k$
 
 # labour force equation
 
-Для датасета [mroz_Green](http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv)
-рассморим регрессию **LFP на WA, log(FAMINC), WE, KL6, K618, CIT, UN**
+Для датасета `TableF5-1` рассмотрим регрессию **LFP на WA, log(FAMINC), WE, KL6, K618, CIT, UN**
 трёх спецификаций:
 
 - LPM
@@ -124,8 +123,7 @@ maBina(regr.probit, x.mean=FALSE, digits = my.digits)
        
 # approve equation
 
-Для датасета `loanapp`
-рассморим регрессию **approve на appinc/100, mortno, unem, dep, male**
+Для датасета `loanapp` рассмотрим регрессию **approve на appinc/100, mortno, unem, dep, male**
 трёх спецификаций:
 
 - LPM
@@ -177,8 +175,7 @@ maBina(regr.probit, x.mean=FALSE, digits = my.digits)
 
 # swiss labour force equation
 
-Для датасета `SwissLabour`
-рассморим регрессию **participation на income, age, age^2, youngkids, oldkids**
+Для датасета `SwissLabour` рассмотрим регрессию **participation на income, age, age^2, youngkids, oldkids**
 трёх спецификаций:
 
 - LPM
