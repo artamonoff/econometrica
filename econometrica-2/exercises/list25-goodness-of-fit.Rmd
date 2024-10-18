@@ -3,27 +3,29 @@ title: "Задачи по Эконометрике-2: Качество подг�
 author: "Н.В. Артамонов (МГИМО МИД России)"
 output:
   pdf_document:
-    toc: yes
+    toc: true
     number_sections: true
     df_print: default
     latex_engine: xelatex
+  word_document:
+    toc: true
   html_document:
     toc: true
-    toc_float: 
-        collapsed: false
+    toc_float:
+      collapsed: false
     number_sections: true
     df_print: paged
 header-includes:
-   - \usepackage{xltxtra}
-   - \usepackage{fontspec}
-   - \setmainfont{Times New Roman}
-   - \setsansfont{Arial}
-   - \setmonofont{Courier New}
-   - \newfontfamily{\cyrillicfont}{Times New Roman}
-   - \newfontfamily{\cyrillicfonttt}{Courier New} 
-   - \newfontfamily{\cyrillicfontsf}{Arial}
-   - \usepackage{xcolor}
-   - \usepackage[english,russian]{babel}
+- \usepackage{xltxtra}
+- \usepackage{fontspec}
+- \setmainfont{Times New Roman}
+- \setsansfont{Arial}
+- \setmonofont{Courier New}
+- \newfontfamily{\cyrillicfont}{Times New Roman}
+- \newfontfamily{\cyrillicfonttt}{Courier New}
+- \newfontfamily{\cyrillicfontsf}{Arial}
+- \usepackage{xcolor}
+- \usepackage[english,russian]{babel}
 ---
 
 ```{r, message=FALSE, echo=FALSE}
@@ -36,15 +38,14 @@ library(DescTools)
 library(performance)
 data(loanapp, package = 'wooldridge')
 data(SwissLabor, package = 'AER')
-mroz_Greene <- read.csv('http://www.stern.nyu.edu/~wgreene/Text/Edition7/TableF5-1.csv')
+mroz_Greene <- read.csv('https://raw.githubusercontent.com/artamonoff/econometrica/refs/heads/main/econometrica-2/datasets/TableF5-1.csv')
 ```
 
 # Качество подгонки
 
 ## labour force equation #1 (probit)
 
-Для датасета `TableF5-1.csv`
-рассморим несколько probit-регрессй. Результаты оценивания
+Для датасета `TableF5-1.csv` рассмотрим несколько probit-регрессий. Результаты оценивания
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -103,8 +104,7 @@ stargazer(goodness.of.fit, type='text', summary=FALSE, rownames=FALSE, digits = 
 
 ## approve equation #1 (logit)
 
-Для датасета `loanapp`
-рассморим несколько logit-регрессй. Результаты оценивания
+Для датасета `loanapp` рассмотрим несколько logit-регрессий. Результаты оценивания
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -164,7 +164,7 @@ stargazer(goodness.of.fit, type='text', summary=FALSE, rownames=FALSE, digits = 
 
 ## labour force equation #1 (probit)
 
-Для датасета `TableF5-1.csv` рассморим несколько probit-регрессй. Результаты оценивания
+Для датасета `TableF5-1.csv` рассмотрим несколько probit-регрессий. Результаты оценивания
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -189,7 +189,7 @@ stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', keep
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 ```
 
-Для каждой модели вычислите показатели информационнвх критериев AIC & BIC и \(adj.R^2_{pseudo}\). **Ответ округлите до `r my.digits`-х десятичных знаков.**
+Для каждой модели вычислите показатели информационных критериев AIC & BIC и \(adj.R^2_{pseudo}\). **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 Ответ
 
@@ -222,8 +222,7 @@ stargazer(df, type='text', summary = FALSE, rownames = FALSE)
 
 ## approve equation #1 (logit)
 
-Для датасета `loanapp`
-рассморим несколько probit-регрессй. Результаты оценивания
+Для датасета `loanapp` рассмотрим несколько probit-регрессий. Результаты оценивания
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -248,7 +247,7 @@ stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', keep
           dep.var.caption = 'Зависимая переменная', df=FALSE)
 ```
 
-Для каждой модели вычислите показатели информационнвх критериев AIC & BIC и \(adj.R^2_{pseudo}\). **Ответ округлите до `r my.digits`-х десятичных знаков.**
+Для каждой модели вычислите показатели информационных критериев AIC & BIC и \(adj.R^2_{pseudo}\). **Ответ округлите до `r my.digits`-х десятичных знаков.**
 
 Ответ
 
