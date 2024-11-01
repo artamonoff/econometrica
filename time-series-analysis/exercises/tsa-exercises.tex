@@ -186,137 +186,137 @@
 \end{enumerate}
 \end{exercise}
 
-\section{Стационарные ряды. Модель ARMA}
+% \section{Стационарные ряды. Модель ARMA}
 
-Во всех задачах по умолчанию уровень значимости 5\%.
+% Во всех задачах по умолчанию уровень значимости 5\%.
 
-% \subsection{Модель ARMA (Подгонка, выбор порядка, диагностика, прогнозирование)}
+% % \subsection{Модель ARMA (Подгонка, выбор порядка, диагностика, прогнозирование)}
 
-\subsection{Модель ARMA с константой}
+% \subsection{Модель ARMA с константой}
 
-\begin{exercise}
-Пусть \(y_t\) -- логарифмическая доходность US GDP (\textbf{квартальные данные}) с 1990 по н.в.
-\begin{enumerate}
-	% \item Нарисуйте график ряда, ACF \& PACF для log-US GDP и для \(y_t\)
-	\item Подгоните модель ARMA(1,1)
-	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
-	\item Постройте прогноз на 10 периодов
-\end{enumerate}
-\end{exercise}
+% \begin{exercise}
+% Пусть \(y_t\) -- логарифмическая доходность US GDP (\textbf{квартальные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	% \item Нарисуйте график ряда, ACF \& PACF для log-US GDP и для \(y_t\)
+% 	\item Подгоните модель ARMA(1,1)
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
 
-\begin{exercise}
-Пусть \(y_t\) -- логарифмическая доходность US M2 (\textbf{месячные данные}) с 1990 по н.в.
-\begin{enumerate}
-	% \item Нарисуйте график ряда, ACF \& PACF для log-US M2 и для \(y_t\)
-	\item Подгоните модели
-	\begin{align*}
-		MA&(2) & AR&(2) & ARMA&(1,1) 
-	\end{align*} 
-	и проведите их диагностику
-	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
-	\item Постройте прогноз на 10 периодов
-\end{enumerate}
-\end{exercise}
+% \begin{exercise}
+% Пусть \(y_t\) -- логарифмическая доходность US M2 (\textbf{месячные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	% \item Нарисуйте график ряда, ACF \& PACF для log-US M2 и для \(y_t\)
+% 	\item Подгоните модели
+% 	\begin{align*}
+% 		MA&(2) & AR&(2) & ARMA&(1,1) 
+% 	\end{align*} 
+% 	и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
 
-\begin{exercise}
-Пусть \(y_t\) -- логарифмическая доходность US M2 (\textbf{недельные данные}) с 1995 по н.в.
-\begin{enumerate}
-	% \item Нарисуйте график ряда, ACF \& PACF для log-US M2 и для \(y_t\)
-	\item Подгоните модели
-	\begin{align*}
-		ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
-	\end{align*} 
-	и проведите их диагностику
-	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
-	\item Постройте прогноз на 10 периодов
-\end{enumerate}
-\end{exercise}
+% \begin{exercise}
+% Пусть \(y_t\) -- логарифмическая доходность US M2 (\textbf{недельные данные}) с 1995 по н.в.
+% \begin{enumerate}
+% 	% \item Нарисуйте график ряда, ACF \& PACF для log-US M2 и для \(y_t\)
+% 	\item Подгоните модели
+% 	\begin{align*}
+% 		ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
+% 	\end{align*} 
+% 	и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
 
-\begin{exercise}
-Пусть \(y_t\) -- первая разность of 10-летней ставки (treasury securities  with constant maturity) 
-(\textbf{квартальные данные}) с 1990 по н.в.
-\begin{enumerate}
-	% \item Нарисуйте график ряда, ACF \& PACF  для ставки и для \(y_t\)
-	\item Подгоните модели
-	\begin{align*}
-		ARMA&(1,1) & ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
-	\end{align*} 
-	и проведите их диагностику
-	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
-	\item Постройте прогноз на 10 периодов
-\end{enumerate}
-\end{exercise}
+% \begin{exercise}
+% Пусть \(y_t\) -- первая разность of 10-летней ставки (treasury securities  with constant maturity) 
+% (\textbf{квартальные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	% \item Нарисуйте график ряда, ACF \& PACF  для ставки и для \(y_t\)
+% 	\item Подгоните модели
+% 	\begin{align*}
+% 		ARMA&(1,1) & ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
+% 	\end{align*} 
+% 	и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
 
-\begin{exercise}
-Пусть \(y_t\) -- первая разность of 10-летней ставки (treasury securities  with constant maturity) 
-(\textbf{месячные данные}) с 1990 по н.в.
-\begin{enumerate}
-	% \item Нарисуйте график ряда, ACF \& PACF для ставки и для \(y_t\)
-	\item Подгоните модели
-	\begin{align*}
-		ARMA&(1,1) & ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
-	\end{align*} 
-	и проведите их диагностику
-	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
-	\item Постройте прогноз на 10 периодов
-\end{enumerate}
-\end{exercise}
+% \begin{exercise}
+% Пусть \(y_t\) -- первая разность of 10-летней ставки (treasury securities  with constant maturity) 
+% (\textbf{месячные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	% \item Нарисуйте график ряда, ACF \& PACF для ставки и для \(y_t\)
+% 	\item Подгоните модели
+% 	\begin{align*}
+% 		ARMA&(1,1) & ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
+% 	\end{align*} 
+% 	и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
 
-\begin{exercise}
-Ряд \(y_t\) -- первая разность 3-месячной ставки (treasury bill, 
-\textbf{квартальные данные}) с 1990 по н.в.
-\begin{enumerate}
-	% \item Нарисуйте график ряда, ACF \& PACF  для ставки и для \(y_t\)
-	\item Подгоните модели
-	\begin{align*}
-		ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
-	\end{align*} 
-	и проведите их диагностику
-	\item Подгоните <<оптимальную>> модель ARMA и проведите диагностику
-	\item Постройте прогноз на 10 периодов
-\end{enumerate}
-\end{exercise}
+% \begin{exercise}
+% Ряд \(y_t\) -- первая разность 3-месячной ставки (treasury bill, 
+% \textbf{квартальные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	% \item Нарисуйте график ряда, ACF \& PACF  для ставки и для \(y_t\)
+% 	\item Подгоните модели
+% 	\begin{align*}
+% 		ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
+% 	\end{align*} 
+% 	и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
 
-\begin{exercise}
-Ряд \(y_t\) -- первая разность 3-месячной ставки (treasury bill, 
-\textbf{месячные данные}) с 1990 по н.в.
-\begin{enumerate}
-	% \item Нарисуйте график ряда, ACF \& PACF для ставки и для \(y_t\)
-	\item Подгоните модели
-	\begin{align*}
-		ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
-	\end{align*} 
-	и проведите их диагностику
-	\item Подгоните <<оптимальную>> модель ARMA и проведите диагностику
-	\item Постройте прогноз на 10 периодов
-\end{enumerate}
-\end{exercise}
+% \begin{exercise}
+% Ряд \(y_t\) -- первая разность 3-месячной ставки (treasury bill, 
+% \textbf{месячные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	% \item Нарисуйте график ряда, ACF \& PACF для ставки и для \(y_t\)
+% 	\item Подгоните модели
+% 	\begin{align*}
+% 		ARMA&(2,1) & ARMA&(1,2) & ARMA&(2,2)
+% 	\end{align*} 
+% 	и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
 
-\subsection{Модель ARMA с трендом}
+% \subsection{Модель ARMA с трендом}
 
-\begin{exercise}
-Пусть \(y_t\) -- логарифм US GDP (\textbf{квартальные данные}) с 1990 по н.в.
-\begin{enumerate}
-	% \item Нарисуйте график ряда, ACF \& PACF для log-US GDP и для \(y_t\)
-	\item Подгоните модель ARMA(1,1) с трендом и проведите её диагностику
-	\item Подгоните <<оптимальную>> модель ARMA с трендом и проведите её диагностику
-	\item Постройте прогноз на 10 периодов
-\end{enumerate}
-\end{exercise}
+% \begin{exercise}
+% Пусть \(y_t\) -- логарифм US GDP (\textbf{квартальные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% 	% \item Нарисуйте график ряда, ACF \& PACF для log-US GDP и для \(y_t\)
+% 	\item Подгоните модель ARMA(1,1) с трендом и проведите её диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA с трендом и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
 
-\begin{exercise}
-Пусть \(y_t\) -- логарифм US M2 (\textbf{месячные данные}) с 1990 по н.в.
-\begin{enumerate}
-% \item Нарисуйте график ряда, ACF \& PACF для log-US M2 и для \(y_t\)
-\item Подгоните модели 
-	\begin{align*}
-		MA&(2) & AR&(2) & ARMA&(1,1) 
-	\end{align*} 
-	с трендом и проведите их диагностику
-	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
-	\item Постройте прогноз на 10 периодов
-\end{enumerate}
-\end{exercise}
+% \begin{exercise}
+% Пусть \(y_t\) -- логарифм US M2 (\textbf{месячные данные}) с 1990 по н.в.
+% \begin{enumerate}
+% % \item Нарисуйте график ряда, ACF \& PACF для log-US M2 и для \(y_t\)
+% \item Подгоните модели 
+% 	\begin{align*}
+% 		MA&(2) & AR&(2) & ARMA&(1,1) 
+% 	\end{align*} 
+% 	с трендом и проведите их диагностику
+% 	\item Подгоните <<оптимальную>> модель ARMA и проведите её диагностику
+% 	\item Постройте прогноз на 10 периодов
+% \end{enumerate}
+% \end{exercise}
 
 % \section{Модель ARMA}
 
