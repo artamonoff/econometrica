@@ -75,12 +75,6 @@ for(i in 1:length(regr)) {
   Nagelkerke <- c(Nagelkerke, PseudoR2(regr[[i]], which='Nagelkerke') )
   Efron <- c(Efron, PseudoR2(regr[[i]], which='Efron') )
   McKelvey <- c(McKelvey, PseudoR2(regr[[i]], which='McKelveyZavoina') )
-  # pseudo.R2 <- c(pseudo.R2, as.numeric(r2_mcfadden(regr[[i]])[[1]]) )
-  # adj.pseudo.R2 <- c(adj.pseudo.R2, as.numeric(r2_mcfadden(regr[[i]])[[2]]))
-  # CoxSnell <- c(CoxSnell, r2_coxsnell(regr[[i]]) )
-  # Nagelkerke <- c(Nagelkerke, r2_nagelkerke(regr[[i]]) )
-  # Efron <- c(Efron, r2_efron(regr[[i]]))
-  # McKelvey <- c(McKelvey, r2_mckelvey(regr[[i]]))
 }
 ```
 
@@ -132,12 +126,6 @@ for(i in 1:length(regr)) {
   Nagelkerke <- c(Nagelkerke, PseudoR2(regr[[i]], which='Nagelkerke') )
   Efron <- c(Efron, PseudoR2(regr[[i]], which='Efron') )
   McKelvey <- c(McKelvey, PseudoR2(regr[[i]], which='McKelveyZavoina') )
-  # pseudo.R2 <- c(pseudo.R2, as.numeric(r2_mcfadden(regr[[i]])[[1]]) )
-  # adj.pseudo.R2 <- c(adj.pseudo.R2, as.numeric(r2_mcfadden(regr[[i]])[[2]]))
-  # CoxSnell <- c(CoxSnell, r2_coxsnell(regr[[i]]) )
-  # Nagelkerke <- c(Nagelkerke, r2_nagelkerke(regr[[i]]) )
-  # Efron <- c(Efron, r2_efron(regr[[i]]))
-  # McKelvey <- c(McKelvey, r2_mckelvey(regr[[i]]))
 }
 ```
 
