@@ -2,19 +2,19 @@
 title: "Задачи по Эконометрике-2: Качество подгонки и сравнение моделей"
 author: "Н.В. Артамонов (МГИМО МИД России)"
 output:
-  pdf_document:
-    toc: true
-    number_sections: true
-    df_print: default
-    latex_engine: xelatex
-  word_document:
-    toc: true
   html_document:
     toc: true
     toc_float:
       collapsed: false
     number_sections: true
     df_print: paged
+  word_document:
+    toc: true
+  pdf_document:
+    toc: true
+    number_sections: true
+    df_print: default
+    latex_engine: xelatex
 header-includes:
 - \usepackage{xltxtra}
 - \usepackage{fontspec}
@@ -69,20 +69,19 @@ McKelvey <- NULL
 Zavoina <- NULL
 
 for(i in 1:length(regr)) {
-  n <- nobs(regr[[i]])
-  logL <- -regr[[i]]$deviance/2
-  logL.null <- -regr[[i]]$null.deviance/2
-  pseudo.R2 <- c(pseudo.R2, 1-logL/logL.null)
-  adj.pseudo.R2 <- c(adj.pseudo.R2, 1-(logL-(regr[[i]]$rank-1))/logL.null)
-  CoxSnell <- c(CoxSnell, 1-(exp(2*(logL.null-logL)/n)) )
-  Nagelkerke <- c(Nagelkerke, (1-(exp(2*(logL.null-logL)/n)))/(1-exp(2*logL.null/n)) )
-  efron <- 1-sum( (regr[[i]]$y-regr[[i]]$fitted.values)^2 )/sum( (regr[[i]]$y-mean(regr[[i]]$y))^2 )
-  mckelvey <- (var(predict(regr[[i]]))*(n-1))/(var(predict(regr[[i]]))*(n-1)+n)
-  Efron <- c(Efron, efron)
-  McKelvey <- c(McKelvey, mckelvey)
+  pseudo.R2 <- c(pseudo.R2, PseudoR2(regr[[i]], which='McFadden') )
+  adj.pseudo.R2 <- c(adj.pseudo.R2, 1-(-regr[[i]]$deviance/2-regr[[i]]$rank+1)/(-regr[[i]]$null.deviance/2) )
+  CoxSnell <- c(CoxSnell, PseudoR2(regr[[i]], which='CoxSnell') )
+  Nagelkerke <- c(Nagelkerke, PseudoR2(regr[[i]], which='Nagelkerke') )
+  Efron <- c(Efron, PseudoR2(regr[[i]], which='Efron') )
+  McKelvey <- c(McKelvey, PseudoR2(regr[[i]], which='McKelveyZavoina') )
+  # pseudo.R2 <- c(pseudo.R2, as.numeric(r2_mcfadden(regr[[i]])[[1]]) )
+  # adj.pseudo.R2 <- c(adj.pseudo.R2, as.numeric(r2_mcfadden(regr[[i]])[[2]]))
+  # CoxSnell <- c(CoxSnell, r2_coxsnell(regr[[i]]) )
+  # Nagelkerke <- c(Nagelkerke, r2_nagelkerke(regr[[i]]) )
+  # Efron <- c(Efron, r2_efron(regr[[i]]))
+  # McKelvey <- c(McKelvey, r2_mckelvey(regr[[i]]))
 }
-rm(efron, n)
-my.logL.null <- -regr[[1]]$null.deviance/2
 ```
 
 Для каждой регрессии вычислите следующие показатели качества подгонки модели: \(R^2_{pseudo}\), \(adj.R^2_{pseudo}\), 
@@ -127,20 +126,19 @@ Efron <- NULL
 McKelvey <- NULL
 
 for(i in 1:length(regr)) {
-  n <- nobs(regr[[i]])
-  logL <- -deviance(regr[[i]])/2
-  logL.null <- -regr[[i]]$null.deviance/2
-  pseudo.R2 <- c(pseudo.R2, 1-logL/logL.null)
-  adj.pseudo.R2 <- c(adj.pseudo.R2, 1-(logL-(regr[[i]]$rank-1))/logL.null)
-  CoxSnell <- c(CoxSnell, 1-(exp(2*(logL.null-logL)/n)) )
-  Nagelkerke <- c(Nagelkerke, (1-(exp(2*(logL.null-logL)/n)))/(1-exp(2*logL.null/n)) )
-  efron <- 1-sum( (regr[[i]]$y-regr[[i]]$fitted.values)^2 )/sum( (regr[[i]]$y-mean(regr[[i]]$y))^2 )
-  mckelvey <- (var(predict(regr[[i]]))*(n-1))/(var(predict(regr[[i]]))*(n-1)+n)
-  Efron <- c(Efron, efron)
-  McKelvey <- c(McKelvey, mckelvey)
+  pseudo.R2 <- c(pseudo.R2, PseudoR2(regr[[i]], which='McFadden') )
+  adj.pseudo.R2 <- c(adj.pseudo.R2, 1-(-regr[[i]]$deviance/2-regr[[i]]$rank+1)/(-regr[[i]]$null.deviance/2) )
+  CoxSnell <- c(CoxSnell, PseudoR2(regr[[i]], which='CoxSnell') )
+  Nagelkerke <- c(Nagelkerke, PseudoR2(regr[[i]], which='Nagelkerke') )
+  Efron <- c(Efron, PseudoR2(regr[[i]], which='Efron') )
+  McKelvey <- c(McKelvey, PseudoR2(regr[[i]], which='McKelveyZavoina') )
+  # pseudo.R2 <- c(pseudo.R2, as.numeric(r2_mcfadden(regr[[i]])[[1]]) )
+  # adj.pseudo.R2 <- c(adj.pseudo.R2, as.numeric(r2_mcfadden(regr[[i]])[[2]]))
+  # CoxSnell <- c(CoxSnell, r2_coxsnell(regr[[i]]) )
+  # Nagelkerke <- c(Nagelkerke, r2_nagelkerke(regr[[i]]) )
+  # Efron <- c(Efron, r2_efron(regr[[i]]))
+  # McKelvey <- c(McKelvey, r2_mckelvey(regr[[i]]))
 }
-rm(efron, n)
-my.logL.null <- -regr[[1]]$null.deviance/2
 ```
 
 Для каждой регрессии вычислите следующие показатели качества подгонки модели: \(R^2_{pseudo}\), \(adj.R^2_{pseudo}\), 
@@ -150,7 +148,7 @@ Cox & Snell, Nagelkerke/Cragg & Uhler, Efron, McKelvey & Zavoina. **Ответ �
 
 ```{r, echo=FALSE, comment=''}
 goodness.of.fit <- data.frame(Model=1:length(regr),
-                              pseudo.R2=1-pseudo.R2,
+                              pseudo.R2=pseudo.R2,
                               adj.pseudo.R2=adj.pseudo.R2,
                               CoxSnell=CoxSnell,
                               Nagelkerke=Nagelkerke,
