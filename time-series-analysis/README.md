@@ -36,3 +36,9 @@
 - `conda install -c conda-forge yfinance pandas-datareader arch-py pmdarima sktime`
 
 Альтернативно в Windows можно использовать `pip install`
+
+В Google Colab недостающие библиотеки можно установить командой в первой ячейке (это нужно делать при каждом открытии ноутбука)
+
+`%%capture --no-display`
+
+`!pip install sktime pmdarima arch `
