@@ -23,9 +23,9 @@
 
 |Задачи (ссылка)| Тема| Ссылка на PDF|
 |:-:|-|:-:|
-|[Листок 01]|Подгонка моделей|[PDF]|
-|[Листок 02]|t-тест|[PDF]|
-|[Листок 03]|F-тест|[PDF]|
-|[Листок 04]|Регрессия с лагами и с дифференцированием|[PDF]|
-|[Листок 05]|Динамическая панель|[PDF]|
-|[Листок 06]|Разное|[PDF]|
+|[Листок 01](https://nbviewer.org/github/artamonoff/econometrica/blob/main/panel-data-analysis/exercises/list1-fitting.html)|Подгонка моделей|[PDF](https://github.com/artamonoff/econometrica/blob/main/panel-data-analysis/exercises/list1-fitting.pdf)|
+|[Листок 02](https://nbviewer.org/github/artamonoff/econometrica/blob/main/panel-data-analysis/exercises/list2-t-test.html)|t-тест|[PDF](https://github.com/artamonoff/econometrica/blob/main/panel-data-analysis/exercises/list2-t-test.pdf)|
+|[Листок 03](https://nbviewer.org/github/artamonoff/econometrica/blob/main/panel-data-analysis/exercises/list3-F-test.html)|F-тест|[PDF](https://github.com/artamonoff/econometrica/blob/main/panel-data-analysis/exercises/list3-F-test.pdf)|
+|[Листок 04](https://nbviewer.org/github/artamonoff/econometrica/blob/main/panel-data-analysis/exercises/list4-lags-and-diff.html)|Регрессия с лагами и с дифференцированием|[PDF](https://github.com/artamonoff/econometrica/blob/main/panel-data-analysis/exercises/list4-lags-and-diff.pdf)|
+|[Листок 05](https://nbviewer.org/github/artamonoff/econometrica/blob/main/panel-data-analysis/exercises/list5-dynamic.html)|Динамическая панель|[PDF](https://github.com/artamonoff/econometrica/blob/main/panel-data-analysis/exercises/list5-dynamic.pdf)|
+|[Листок 06](https://nbviewer.org/github/artamonoff/econometrica/blob/main/panel-data-analysis/exercises/list6-misc.html)|Разное|[PDF](https://github.com/artamonoff/econometrica/blob/main/panel-data-analysis/exercises/list6-misc.pdf)|
