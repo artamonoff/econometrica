@@ -14,7 +14,7 @@
 \theoremstyle{remark}
 %\newtheorem{exercise}{Упражнение}
 \newtheorem{exercise}{}[subsection]
-\renewcommand{\theexercise}{\textbf{\#\arabic{exercise}}}
+\renewcommand{\theexercise}{\textbf{\textnumero\arabic{exercise}}}
 
 \input{econometrics-defs.tex}
 
@@ -416,7 +416,27 @@
 
 \section{Модель ARIMA}
 
-% \subsection{ARIMA в Python}
+\subsection{Спецификация и базовые свойства}
+
+\begin{exercise}
+Рассмотрим модель ARIMA
+\begin{align*}
+	\phi(L)(1-L)^dy_t&=\theta(L)u_t & u_t&\sim WN(0,\sigma^2)
+\end{align*}
+для следующих многочленов
+\begin{center}
+	\begin{tabular}{l|c|c}
+		\textnumero & \(\phi(z)\) & \(\theta(z)\) \\ \hline
+		1 & \(1-z+0.25z^2\) & \(1+0.8z\) \\ \hline
+		2 & \(1+0.8z-0.7z^2\) & \(1+0.5z-0.8z^2\) \\ \hline
+		3 & \(1-0.2z+0.08z^2\) & \(1-0.3z-0.88z^2\) \\ \hline
+		4 & \(1+1.9z-0.2z^2\) & \(1-1.6z-0.36z^2\) \\ \hline
+	\end{tabular}
+\end{center}
+Для каждого случая проверьте условия стационарности и обратимости
+\end{exercise}
+
+\subsection{ARIMA в Python}
 
 \begin{exercise}
 Пусть \(y_t\) -- логарифм US GDP (\textbf{квартальные данные}) с 1995 по н.в.
