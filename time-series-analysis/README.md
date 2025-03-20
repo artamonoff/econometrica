@@ -34,8 +34,7 @@
 В командной строке (Anaconda PowerShell Prompt в Windows, Terminal в MacOS) выполнить следующие команды (в дополнении в основным библиотекам)
 
 - `conda install -c conda-forge yfinance pandas-datareader arch-py pmdarima sktime`
-
-Альтернативно в Windows можно использовать `pip install`
+- `pip install yfinance pandas-datareader arch pmdarima sktime`
 
 В Google Colab недостающие библиотеки можно установить командой в первой ячейке (это нужно делать при каждом открытии ноутбука)
 
