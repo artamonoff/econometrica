@@ -1,5 +1,6 @@
 .Rhistory
 .DS_Store
+.ipynb_checkpoints
 
 *.aux
 *.toc
