@@ -472,10 +472,13 @@ country : World
 
 A panel of 595 individuals from 1976 to 1982, taken from the Panel Study of Income Dynamics (PSID).
 
-- exp years of full-time work experience. wks weeks worked.
+- exp years of full-time work experience. 
+- wks weeks worked.
 - bluecol blue collar?
-- ind works in a manufacturing industry? south resides in the south?
-- smsa resides in a standard metropolitan statistical area? married married?
+- ind works in a manufacturing industry? 
+- south resides in the south?
+- smsa resides in a standard metropolitan statistical area? 
+- married married?
 - sex a factor with levels "male" and "female"
 - union individual’s wage set by a union contract?
 - ed years of education.
