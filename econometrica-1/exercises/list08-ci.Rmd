@@ -2,17 +2,17 @@
 title: "Задачи по Эконометрике: Доверительные интервалы"
 author: "Н.В. Артамонов (МГИМО МИД России)"
 output:
-  pdf_document:
-    toc: yes
-    number_sections: true
-    df_print: default
-    latex_engine: xelatex
   html_document:
     toc: true
     toc_float: 
         collapsed: false
     number_sections: true
     df_print: paged
+  pdf_document:
+    toc: yes
+    number_sections: true
+    df_print: default
+    latex_engine: xelatex
 header-includes:
    - \usepackage{xltxtra}
    - \usepackage{fontspec}
@@ -60,7 +60,7 @@ mod <- lm(formula=spec, data=df)
 **`r format(spec)`**.
 
 Постройте `r conf.level*100`%-доверительные интервалы (неробастные и робастные) для каждого коэффициента. 
-**Ответ округлите до `r my.digits`-х десятичных знаков.**
+**Ответ округлите до `r my.digits.output`-х десятичных знаков.**
 
 Ответ (неробастные)
 
@@ -95,7 +95,7 @@ mod <- lm(formula=spec, data=df)
 **`r format(spec)`**.
 
 Постройте `r conf.level*100`%-доверительные интервалы (неробастные и робастные) для каждого коэффициента. 
-**Ответ округлите до `r my.digits`-х десятичных знаков.**
+**Ответ округлите до `r my.digits.output`-х десятичных знаков.**
 
 Ответ (неробастные)
 
@@ -130,7 +130,7 @@ mod <- lm(formula=spec, data=df)
 **`r format(spec)`**.
 
 Постройте `r conf.level*100`%-доверительные интервалы (неробастные и робастные) для каждого коэффициента. 
-**Ответ округлите до `r my.digits`-х десятичных знаков.**
+**Ответ округлите до `r my.digits.output`-х десятичных знаков.**
 
 Ответ (неробастные)
 
