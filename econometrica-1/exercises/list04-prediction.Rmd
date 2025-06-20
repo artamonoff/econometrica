@@ -2,17 +2,17 @@
 title: "Задачи по Эконометрике: Прогнозирование"
 author: "Н.В. Артамонов (МГИМО МИД России)"
 output:
-  pdf_document:
-    toc: yes
-    number_sections: true
-    df_print: default
-    latex_engine: xelatex
   html_document:
     toc: true
     toc_float: 
         collapsed: false
     number_sections: true
     df_print: paged
+  pdf_document:
+    toc: yes
+    number_sections: true
+    df_print: default
+    latex_engine: xelatex
 header-includes:
    - \usepackage{xltxtra}
    - \usepackage{fontspec}
@@ -47,8 +47,9 @@ wage1$gender <- factor(wage1$female, labels = c('male', 'female') )
 my.digits.output <- 3
 my.digits <- 2
 regr <- lm(formula=sleep~totwrk+age+south+male+smsa+yngkid+marr, data=sleep75)
-stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
-          dep.var.caption = 'Зависимая переменная', df=FALSE)
+# stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
+#           dep.var.caption = 'Зависимая переменная', df=FALSE)
+round(coef(regr), my.digits.output)
 ```
 
 Рассморим трёх людей с характеристиками
@@ -90,8 +91,9 @@ stargazer(round(data.frame(Прогноз=my.predict), digits = my.digits ),
 my.digits.output <- 3
 my.digits <- 2
 regr <- lm(formula=sleep~totwrk+age+I(age^2)+south+male, data=sleep75)
-stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
-          dep.var.caption = 'Зависимая переменная', df=FALSE)
+# stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
+#           dep.var.caption = 'Зависимая переменная', df=FALSE)
+round(coef(regr), my.digits.output)
 ```
 
 Рассморим трёх людей с характеристиками
@@ -134,8 +136,9 @@ stargazer(round(data.frame(Прогноз=my.predict), digits = my.digits ),
 my.digits.output <- 3
 my.digits <- 2
 regr <- lm(formula=log(wage)~age+IQ+south+married+urban, data=wage2)
-stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
-          dep.var.caption = 'Зависимая переменная', df=FALSE)
+# stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
+#           dep.var.caption = 'Зависимая переменная', df=FALSE)
+round(coef(regr), my.digits.output)
 ```
 
 Рассморим трёх людей с характеристиками
@@ -151,13 +154,13 @@ stargazer(new.df, summary = FALSE, type = 'text', digit.separator = '', rownames
 Ответ
 
 ```{r, echo=FALSE, comment=''}
-my.coef <- round(coef(regr), digits = my.digits.output)
-my.predict <- NULL
-for(i in 1:nrow(new.df)) {
-  x <- c(1, as.numeric(new.df[i,]))
-  my.predict <- c(my.predict, sum(my.coef*x))
-}
-rm(x)
+# my.coef <- round(coef(regr), digits = my.digits.output)
+# my.predict <- NULL
+# for(i in 1:nrow(new.df)) {
+#   x <- c(1, as.numeric(new.df[i,]))
+#   my.predict <- c(my.predict, sum(my.coef*x))
+# }
+# rm(x)
 # names(my.predict) <- 1:nrow(new.df)
 # round(my.predict, digits = my.digits )
 my.predict <- predict(regr, newdata=new.df)
@@ -176,8 +179,9 @@ stargazer(round( data.frame( Прогноз=exp(my.predict) ), digits = my.digit
 my.digits.output <- 3
 my.digits <- 2
 regr <- lm(formula=log(wage)~exper+I(exper^2)+female+married+smsa, data=wage1)
-stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
-          dep.var.caption = 'Зависимая переменная', df=FALSE)
+# stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
+#           dep.var.caption = 'Зависимая переменная', df=FALSE)
+round(coef(regr), my.digits.output)
 ```
 
 Рассморим трёх людей с характеристиками
@@ -220,8 +224,9 @@ stargazer(round( data.frame( Прогноз=exp(my.predict) ), digits = my.digit
 my.digits.output <- 3
 my.digits <- 2
 regr <- lm(formula=log(output)~log(capital)+log(labour), data=Labour)
-stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
-          dep.var.caption = 'Зависимая переменная', df=FALSE)
+# stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
+#           dep.var.caption = 'Зависимая переменная', df=FALSE)
+round(coef(regr), my.digits.output)
 ```
 
 Рассморим три фирмы с характеристиками
@@ -236,14 +241,14 @@ stargazer(new.df, summary = FALSE, type = 'text', digit.separator = '', rownames
 Ответ
 
 ```{r, echo=FALSE, comment=''}
-my.coef <- round(coef(regr), digits = my.digits.output)
-new.df.to.predict <- data.frame(log(new.df$capital), log(new.df$labour) )
-my.predict <- NULL
-for(i in 1:nrow(new.df.to.predict)) {
-  x <- c(1, as.numeric(new.df.to.predict[i,]))
-  my.predict <- c(my.predict, sum(my.coef*x))
-}
-rm(x)
+# my.coef <- round(coef(regr), digits = my.digits.output)
+# new.df.to.predict <- data.frame(log(new.df$capital), log(new.df$labour) )
+# my.predict <- NULL
+# for(i in 1:nrow(new.df.to.predict)) {
+#   x <- c(1, as.numeric(new.df.to.predict[i,]))
+#   my.predict <- c(my.predict, sum(my.coef*x))
+# }
+# rm(x)
 # names(my.predict) <- 1:nrow(new.df)
 # round(my.predict, digits = my.digits )
 my.predict <- predict(regr, newdata=new.df)
@@ -262,8 +267,9 @@ stargazer(round( data.frame( Прогноз=exp(my.predict) ), digits = my.digit
 my.digits.output <- 3
 my.digits <- 2
 regr <- lm(formula=log(output)~log(capital)+log(labour)+I(log(capital)^2)+I(log(labour)^2), data=Labour)
-stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
-          dep.var.caption = 'Зависимая переменная', df=FALSE)
+# stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
+#           dep.var.caption = 'Зависимая переменная', df=FALSE)
+round(coef(regr), my.digits.output)
 ```
 
 Рассморим три фирмы с характеристиками
@@ -278,14 +284,14 @@ stargazer(new.df, summary = FALSE, type = 'text', digit.separator = '', rownames
 Ответ
 
 ```{r, echo=FALSE, comment=''}
-my.coef <- round(coef(regr), digits = my.digits.output)
-new.df.to.predict <- data.frame(log(new.df$capital), log(new.df$labour), log(new.df$capital)^2, log(new.df$labour)^2 )
-my.predict <- NULL
-for(i in 1:nrow(new.df.to.predict)) {
-  x <- c(1, as.numeric(new.df.to.predict[i,]))
-  my.predict <- c(my.predict, sum(my.coef*x))
-}
-rm(x)
+# my.coef <- round(coef(regr), digits = my.digits.output)
+# new.df.to.predict <- data.frame(log(new.df$capital), log(new.df$labour), log(new.df$capital)^2, log(new.df$labour)^2 )
+# my.predict <- NULL
+# for(i in 1:nrow(new.df.to.predict)) {
+#   x <- c(1, as.numeric(new.df.to.predict[i,]))
+#   my.predict <- c(my.predict, sum(my.coef*x))
+# }
+# rm(x)
 # names(my.predict) <- 1:nrow(new.df)
 # round(my.predict, digits = my.digits )
 my.predict <- predict(regr, newdata=new.df)
