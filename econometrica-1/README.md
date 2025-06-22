@@ -16,9 +16,9 @@
 
 |Библиотека|Описание|
 |-|-|
-|[`pandas`](https://pandas.pydata.org)|Табличные данные|
+|[`pandas`](https://pandas.pydata.org)|Работа с табличными данными|
 |[`numpy`](https://numpy.org)|Работа с массивами данных, преобразование данных|
-|[`statsmodels`](https://www.statsmodels.org/stable/index.html)|Регрессионный анализ|
+|[`statsmodels`](https://www.statsmodels.org/stable/index.html)|Реализация эконометрических моделей|
 |[`scipy.stats`](https://docs.scipy.org/doc/scipy/reference/stats.html)|Статистические методы (распределения и проч)|
 |[`seaborn`](https://seaborn.pydata.org)|Визуализация статистических данных|
 |[`plotly`](https://plotly.com/python/)|Визуализация|

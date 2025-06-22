@@ -14,7 +14,7 @@
 |Библиотека|Описание|
 |-|-|
 |[`numpy`](https://numpy.org/)| Работа с массивами данных, преобразование данных|
-|[`pandeas`](https://pandas.pydata.org/)| Табличные данные|
+|[`pandas`](https://pandas.pydata.org/)|Работа с табличными данными|
 |[`linearmodels`](https://bashtage.github.io/linearmodels/)| Панельные регрессии|
 
 Библиотека `linearmodels` м.б. установлена командой `pip install linearmodels` или `conda install -c conda-forge linearmodels`
