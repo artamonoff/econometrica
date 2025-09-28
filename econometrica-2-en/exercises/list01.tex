@@ -1,0 +1,204 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english]{babel}
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsopn, amscd}
+\usepackage{enumerate, bm}
+\usepackage[mathscr]{eucal}
+
+\usepackage{hyperref}
+\hypersetup{unicode=true,final=true,colorlinks=true}
+
+\theoremstyle{remark}
+%\newtheorem{problem}{Упражнение}
+\newtheorem{problem}{}[section]
+\renewcommand{\theproblem}{\textbf{\#\arabic{problem}}}
+
+\input{econometrics-defs-en.tex}
+
+\title{List 01. Linear Regression Fitting}
+
+\author{Nikita V. Artamonov}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{Regression fitting}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk \& age}.
+\end{center}
+\begin{enumerate}
+	\item write down the specification
+	\item Evaluate coefficients of the fitted model via 
+	regression specification (.ols method from statsmodels)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, age\textsuperscript{2}}.
+\end{center}
+\begin{enumerate}
+	\item write down the specification
+	\item Evaluate coefficients of the fitted model via 
+	regression specification (.ols method from statsmodels)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep/60 on totwrk/60, age, smsa, south}.
+\end{center}
+\begin{enumerate}
+	\item write down the specification
+	\item Evaluate coefficients of the fitted model via 
+	regression specification (.ols method from statsmodels)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Labour} consider a regression
+\begin{center}
+\texttt{log(output) on log(capital), log(labour)}.
+\end{center}
+\begin{enumerate}
+	\item write down the specification
+	\item Evaluate coefficients of the fitted model via 
+	regression specification (.ols method from statsmodels)
+\end{enumerate}
+\end{problem}
+
+\subsection*{Data selection \& Regression fitting}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, south, male}.
+\end{center}
+Fit the regression only for city dwellers (smsa==1).
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, south, smsa}.
+\end{center}
+Fit the regression only for men (male==1).
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, south, smsa}.
+\end{center}
+Fit the regression only for women (male==0).
+\end{problem}
+
+\section{Coefficient interpretation}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+\texttt{sleep on totwrk, age}.
+\end{center}
+Fit the regression and give the interpretation of its coefficients.
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+\texttt{sleep on totwrk, age, male, smsa, south}.
+\end{center}
+Fit the regression and give the interpretation of its coefficients.
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{wage2} consider a regression
+\begin{center}
+\texttt{log(wage) on exper, IQ}.
+\end{center}
+Fit the regression and give the interpretation of its coefficients.
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{wage2} consider a regression
+\begin{center}
+\texttt{log(wage) on exper, IQ, south, urban, married}.
+\end{center}
+Fit the regression and give the interpretation of its coefficients.
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Labour} consider a regression
+\begin{center}
+\texttt{log(output) on log(capital), log(labour)}.
+\end{center}
+Fit the regression and give the interpretation of its coefficients.
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Labour} consider a regression
+\begin{center}
+\texttt{log(output) on log(capital), log(labour), log(wage)}.
+\end{center}
+Fit the regression and give the interpretation of its coefficients.
+\end{problem}
+
+\section{Goodness-of-fit, Fitted values, Residuals}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+\texttt{sleep on totwrk, age}.
+\end{center}
+Fit the regression and calculate:
+\begin{enumerate}
+	\item \(TSS, ESS, RSS\)
+	\item \(R^2, R^2_{adj}\)
+	\item Fitted values, dependent variable, residuals 
+	for observations with indices [0, 3, 78, 197, 401, 561]
+\end{enumerate}
+Give the interpretation for obtained values (if possible)
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{wage2} consider a regression
+\begin{center}
+\texttt{log(wage) on age, IQ, urban, married, south}.
+\end{center}
+Fit the regression and calculate:
+\begin{enumerate}
+	\item \(TSS, ESS, RSS\)
+	\item \(R^2, R^2_{adj}\)
+	\item Fitted values, dependent variable, residuals 
+	for observations with indices [5, 33, 82, 149, 392, 603]
+\end{enumerate}
+Give the interpretation for obtained values (if possible)
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{wage2} consider a regression
+\begin{center}
+\texttt{log(wage) on age, IQ, urban, married, south}.
+\end{center}
+Fit the regression and calculate:
+\begin{enumerate}
+	\item \(TSS, ESS, RSS\)
+	\item \(R^2, R^2_{adj}\)
+	\item Fitted values, dependent variable, residuals 
+	for observations with indices [7, 29, 43, 86, 124, 138]
+\end{enumerate}
+Give the interpretation for obtained values (if possible)
+\end{problem}
+
+\end{document}

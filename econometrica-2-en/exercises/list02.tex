@@ -1,0 +1,322 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[english]{babel}
+
+\usepackage{amsmath, amsfonts, amsthm, amssymb, amsopn, amscd}
+\usepackage{enumerate, bm}
+\usepackage[mathscr]{eucal}
+
+\usepackage{hyperref}
+\hypersetup{unicode=true,final=true,colorlinks=true}
+
+\theoremstyle{remark}
+%\newtheorem{problem}{Упражнение}
+\newtheorem{problem}{}[section]
+\renewcommand{\theproblem}{\textbf{\#\arabic{problem}}}
+
+\input{econometrics-defs-en.tex}
+
+\title{List 02. Inferences for Linear Regression}
+
+\author{Nikita V. Artamonov}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{t-test}
+
+For each text calculate related critical values.
+
+\subsection{Significance}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, male, south, smsa}.
+\end{center}
+\begin{enumerate}
+	\item Fit the regression
+	\item For each coefficient evaluate s.e., t-stat \& p-value for t-test on the significance 
+	\item Evaluate a related critical value
+	\item For each coefficient perform t-test for the significance and state a testing hypothesis. 
+	Make conclusions
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Labour} consider a regression
+\begin{center}
+	\texttt{log(output) on log(capital), log(labour), log(wage)}.
+\end{center}
+\begin{enumerate}
+	\item Fit the regression
+	\item For each coefficient evaluate s.e., t-stat \& p-value for t-test on the significance 
+	\item Evaluate a related critical value
+	\item For each coefficient perform t-test for the significance and state a testing hypothesis.
+	Make conclusions
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{wage2} consider a regression
+\begin{center}
+	\texttt{log(wage) on age, IQ, south, urban, married}.
+\end{center}
+\begin{enumerate}
+	\item Fit the regression
+	\item For each coefficient evaluate s.e., t-stat \& p-value for t-test on the significance 
+	\item Evaluate a related critical value
+	\item For each coefficient perform t-test for the significance and state a testing hypothesis.
+	Make conclusions
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Electricity} consider a regression
+\begin{center}
+	\texttt{log(cost) on log(q), log(pk), log(pl), log(pf)}.
+\end{center}
+\begin{enumerate}
+	\item Fit the regression
+	\item For each coefficient evaluate s.e., t-stat \& p-value for t-test on the significance 
+	\item Evaluate a related critical value
+	\item For each coefficient perform t-test for the significance and state a testing hypothesis.
+	Make conclusions
+\end{enumerate}
+\end{problem}
+
+\subsection{General t-test}
+
+\begin{problem}
+For the dataset \texttt{Labour} consider a regression
+\begin{center}
+	\texttt{log(output) on log(capital), log(labour)}.
+\end{center}
+Test a hypothesis \(H_0:\beta_{capital}=0.5\). How can we interpret 
+the testing hypothesis?
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Labour} consider a regression
+\begin{center}
+	\texttt{log(output) on log(capital), log(labour)}.
+\end{center}
+Test a hypothesis \(H_0:\beta_{labour}=0.7\). How can we interpret 
+the testing hypothesis?
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Electricity} consider a regression
+\begin{center}
+	\texttt{log(cost) on log(q), log(pl), log(pk), log(pf)}.
+\end{center}
+Test a hypothesis \(H_0:\beta_{q}=1\). How can we interpret 
+the testing hypothesis?
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Electricity} consider a regression
+\begin{center}
+	\texttt{log(cost) on log(q), log(pl), log(pk), log(pf)}.
+\end{center}
+Test a hypothesis \(H_0:\beta_{pf}=1\). How can we interpret 
+the testing hypothesis?
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, south, male, smsa, yngkid, marr, union}.
+\end{center}
+Test a hypothesis \(H_0:\beta_{male}=90\). How can we interpret 
+the testing hypothesis?
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, south, male, smsa, yngkid, marr, union}.
+\end{center}
+Test a hypothesis \(H_0:\beta_{south}=100\). How can we interpret 
+the testing hypothesis?
+\end{problem}
+
+\section{F-test}
+
+For each text calculate related critical values.
+
+\subsection{Overall significance}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, south, smsa}.
+\end{center}
+Test overall significance of the regression and state the testing hypothesis
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on smsa,yngkid, marr, union}.
+\end{center}
+Test overall significance of the regression and state the testing hypothesis
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on smsa,yngkid, marr, union}.
+\end{center}
+Test overall significance of the regression and state the testing hypothesis
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Electricity} consider a regression
+\begin{center}
+	\texttt{log(cost) on log(q), log(pl), log(pk), log(pf)}.
+\end{center}
+Test overall significance of the regression and state the testing hypothesis
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Electricity} consider a regression
+\begin{center}
+	\texttt{log(cost) on log(pl), log(pk), log(pf)}.
+\end{center}
+Test overall significance of the regression and state the testing hypothesis
+\end{problem}
+
+\subsection{Joint significance}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, male, south, smsa, yngkid, marr, union}.
+\end{center}
+Test joint significance of regressors \texttt{smsa, yngkid, marr, union} and 
+state the testing hypothesis
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, age\textsuperscript{2}, male, south}.
+\end{center}
+Test the significance of age and state the testing hypothesis
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, age\textsuperscript{2}, male, south, male*totwrk}.
+\end{center}
+Test the significance of gender dummy and state the testing hypothesis
+\end{problem}
+	
+\subsection{Linear restrictions}
+
+\begin{problem}
+For the dataset \texttt{Labour} consider a regression
+\begin{center}
+	\texttt{log(output) on log(capital), log(labour), log(wage)}.
+\end{center}
+\begin{enumerate}
+	\item Test a hypothesis \(H_0: \beta_{capital}+\beta_{labour}+\beta_{wage}=1\) and give its interpretation
+	\item Test a hypothesis \(H_0: \beta_{labour}=\beta_{wage}\) and give its interpretation
+	\item Test a hypothesis \(H_0: \beta_{capital}=\beta_{labour}=\beta_{wage}\) and give its interpretation
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Electricity} consider a regression
+\begin{center}
+	\texttt{log(cost) on log(q), log\textsuperscript{2}(q), log(pl), log(pk), log(pf)}.
+\end{center}
+\begin{enumerate}
+	\item Test a hypothesis \(H_0: \beta_{pf}+\beta_{pl}+\beta_{pk}=1\) and give its interpretation
+	\item Test a hypothesis \(H_0: \beta_{pl}=\beta_{pk}\) and give its interpretation
+	\item Test a hypothesis \(H_0: \beta_{pf}=\beta_{pl}=\beta_{pk}\) and give its interpretation
+\end{enumerate}
+\end{problem}
+
+\subsection{Structural breaks}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, age\textsuperscript{2}, south, smsa, marr}.
+\end{center}
+Fit the regression
+\begin{itemize}
+	\item for men $sleep=\beta_0+\beta_1totwrk+\beta_2age+\beta_3age^2+\beta_4south+\beta_5smsa+\beta_6marr+u$
+	\item for women $sleep=\gamma_0+\gamma_1totwrk+\gamma_2age+\gamma_3age^2+\gamma_4south+\gamma_5smsa+\gamma_6marr+v$
+\end{itemize}
+Perform Chow test across a gender dummy, i.e. test a hypothesis 
+\begin{align*}
+	H_0:\beta_j&=\gamma_j & j&=0,\ldots,6
+\end{align*}
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, age\textsuperscript{2}, male, smsa, marr}.
+\end{center}
+Perform Chow test across a geographical dummy (\texttt{south}).
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{wage1} consider a regression
+\begin{center}
+	\texttt{log(wage) на exper, exper\textsuperscript{2}, married, smsa}.
+\end{center}
+Perform Chow test across a gender dummy.
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{wage1} consider a regression
+\begin{center}
+	\texttt{log(wage) на exper, exper\textsuperscript{2}, female, smsa}.
+\end{center}
+Perform Chow test across a married dummy.
+\end{problem}
+
+\section{Confidence intervals}
+
+\begin{problem}
+For the dataset \texttt{sleep75} consider a regression
+\begin{center}
+	\texttt{sleep on totwrk, age, south, male, smsa, yngkid, marr}.
+\end{center}
+Evaluate 90\%-level confidence intervals for coefficients.
+
+Which are significant at 10\%-significant level?
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Labour} consider a regression
+\begin{center}
+	\texttt{log(output) on log(capital) и log(labour)}.
+\end{center}
+Evaluate 95\%-level confidence intervals for coefficients.
+
+Which are significant at 5\%-significant level?
+\end{problem}
+
+\begin{problem}
+For the dataset \texttt{Electricity} consider a regression
+\begin{center}
+	\texttt{log(cost) on log(q), log\textsuperscript{2}(q), log(pl), log(pk), log(pf)}.
+\end{center}
+Evaluate 99\%-level confidence intervals for coefficients.
+
+Which are significant at 1\%-significant level?
+\end{problem}
+
+\end{document}
