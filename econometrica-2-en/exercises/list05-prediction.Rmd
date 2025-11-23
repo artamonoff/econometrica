@@ -1,0 +1,157 @@
+---
+title: "List 10: prediction for logit/probit-regressions"
+author: "N.V. Artamonov"
+output:
+  pdf_document:
+    toc: yes
+    number_sections: true
+    df_print: default
+    latex_engine: xelatex
+  html_document:
+    toc: true
+    toc_float: 
+        collapsed: false
+    number_sections: true
+    df_print: paged
+header-includes:
+   - \usepackage{xltxtra}
+   - \usepackage{fontspec}
+   - \setmainfont{Times New Roman}
+   - \setsansfont{Arial}
+   - \setmonofont{Courier New}
+   - \newfontfamily{\cyrillicfont}{Times New Roman}
+   - \newfontfamily{\cyrillicfonttt}{Courier New} 
+   - \newfontfamily{\cyrillicfontsf}{Arial}
+   - \usepackage{xcolor}
+   - \usepackage[english,russian]{babel}
+---
+
+```{r, message=FALSE, echo=FALSE}
+library(stargazer)
+library(lmtest)
+library(car)
+library(sandwich)
+library(jtools)
+library(DescTools)
+data(loanapp, package = 'wooldridge')
+data(SwissLabor, package = 'AER')
+mroz_Greene <- read.csv('https://raw.githubusercontent.com/artamonoff/econometrica/refs/heads/main/econometrica-2/datasets/TableF5-1.csv')
+```
+
+# labour force equation
+
+For the dataset `TableF5-1` consider regression **LFP на WA, log(FAMINC), WE, KL6, K618, CIT, UN**
+of the following specifications:
+
+- logit
+- probit
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+spec <- formula(LFP~WA+log(FAMINC)+WE+KL6+K618+CIT+UN)
+my.df <- mroz_Greene
+# regr.LPM <- lm(formula=spec, data=my.df)
+regr.logit <- glm(formula=spec, data=my.df, family=binomial(link='logit'))
+regr.probit <- glm(formula=spec, data=my.df, family=binomial(link='probit'))
+rm(my.df)
+# stargazer(regr.LPM, regr.logit, regr.probit, type='text', digits=my.digits.output, digit.separator = '', 
+#           dep.var.caption = 'Зависимая переменная', df=FALSE)
+```
+
+Consider people with characteristics
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+new.df <- data.frame(WA=c(35, 40, 42), FAMINC=c(12500, 9800, 67800), WE=c(15, 12, 14), 
+                     KL6=c(2, 1, 2), K618=c(0, 2, 1), CIT=c(1, 0, 1), UN=c(5, 7.5, 3) )
+stargazer(new.df, summary = FALSE, type = 'text', digit.separator = '')
+```
+
+Evaluate prediction for each individual in the sample. **Round the answer to `r my.digits` decimal places.**
+
+Answer:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+df.predict <- data.frame( Pred.logit=predict(regr.logit, newdata = new.df, type='response') , 
+                          Pred.probit=predict(regr.probit, newdata = new.df, type='response') )
+stargazer( df.predict, type='text', summary=FALSE,  digits=my.digits )
+```
+
+# approve equation
+
+For the dataset `loanapp` consider regression **approve на appinc/100, mortno, unem, dep, male**
+of the following specifications:
+
+- logit
+- probit
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+spec <- formula(approve~I(appinc/100)+mortno+unem+dep+male)
+my.df <- loanapp
+# regr.LPM <- lm(formula=spec, data=my.df)
+regr.logit <- glm(formula=spec, data=my.df, family=binomial(link='logit'))
+regr.probit <- glm(formula=spec, data=my.df, family=binomial(link='probit'))
+rm(my.df)
+# stargazer(regr.LPM, regr.logit, regr.probit, type='text', digits=my.digits.output, digit.separator = '', 
+#           dep.var.caption = 'Зависимая переменная', df=FALSE)
+```
+
+Consider people with characteristics
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+new.df <- data.frame(appinc=c(120, 48, 82), mortno=c(1, 1, 0), unem=c(1.8, 3.2, 3.9), 
+                     dep=c(0,0,1), male=c(1, 0, 1) )
+stargazer(new.df, summary = FALSE, type = 'text', digit.separator = '')
+```
+
+Evaluate prediction for each individual in the sample. **Round the answer to `r my.digits` decimal places.**
+
+Answer:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+df.predict <- data.frame( Pred.logit=predict(regr.logit, newdata = new.df, type='response') , 
+                          Pred.probit=predict(regr.probit, newdata = new.df, type='response') )
+stargazer( df.predict, type='text', summary=FALSE,  digits=my.digits )
+```
+
+
+# swiss labour force equation
+
+For the dataset `SwissLabour` consider regression **participation на income, income^2, age, age^2, youngkids, oldkids**
+of the following specifications:
+
+- logit
+- probit
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+spec <- formula(as.numeric(participation)-1~income+I(income^2)+age+I(age^2)+youngkids+oldkids)
+my.df <- SwissLabor
+# regr.LPM <- lm(formula=spec, data=my.df)
+regr.logit <- glm(formula=spec, data=my.df, family=binomial(link='logit'))
+regr.probit <- glm(formula=spec, data=my.df, family=binomial(link='probit'))
+rm(my.df)
+# stargazer(regr.LPM, regr.logit, regr.probit, type='text', digits=my.digits.output, digit.separator = '', 
+#           dep.var.caption = 'Зависимая переменная', df=FALSE)
+```
+
+Consider people with characteristics
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+new.df <- data.frame(income=c(11.367, 9.217, 10.686), age=c(2.5, 3.7, 4.2), youngkids=c(0, 2, 2), 
+                     oldkids=c(0,0,1) )
+stargazer(new.df, summary = FALSE, type = 'text', digit.separator = '')
+```
+
+Evaluate prediction for each individual in the sample. **Round the answer to `r my.digits` decimal places.**
+
+Answer:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+df.predict <- data.frame( Pred.logit=predict(regr.logit, newdata = new.df, type='response') , 
+                          Pred.probit=predict(regr.probit, newdata = new.df, type='response') )
+stargazer( df.predict, type='text', summary=FALSE,  digits=my.digits )
+```

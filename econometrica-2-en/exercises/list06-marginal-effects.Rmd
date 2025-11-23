@@ -1,0 +1,216 @@
+---
+title: "List 11: Marginal effects"
+author: "N.V. Artamonov"
+output:
+  pdf_document:
+    toc: yes
+    number_sections: true
+    df_print: default
+    latex_engine: xelatex
+  html_document:
+    toc: true
+    toc_float: 
+        collapsed: false
+    number_sections: true
+    df_print: paged
+header-includes:
+   - \usepackage{xltxtra}
+   - \usepackage{fontspec}
+   - \setmainfont{Times New Roman}
+   - \setsansfont{Arial}
+   - \setmonofont{Courier New}
+   - \newfontfamily{\cyrillicfont}{Times New Roman}
+   - \newfontfamily{\cyrillicfonttt}{Courier New} 
+   - \newfontfamily{\cyrillicfontsf}{Arial}
+   - \usepackage{xcolor}
+   - \usepackage[english,russian]{babel}
+---
+
+```{r, message=FALSE, echo=FALSE}
+library(stargazer)
+library(lmtest)
+library(car)
+library(sandwich)
+library(jtools)
+library(DescTools)
+library(erer)
+data(loanapp, SwissLabor, Mroz, package=c('wooldridge', 'AER', 'Ecdat'))
+# data(loanapp, package = 'wooldridge')
+# data(SwissLabor, package = 'AER')
+mroz_Greene <- read.csv('https://raw.githubusercontent.com/artamonoff/econometrica/refs/heads/main/econometrica-2/datasets/TableF5-1.csv')
+```
+
+# Marginal effects 
+
+## for probit
+
+Consider a probit-regression $P(y=1)=\Phi(x'\beta)$, where
+$x'\beta=\beta_0+\beta_1x_1+\cdots+\beta_kx_k$
+
+Marginal effects $\frac{\partial P(y=1)}{\partial x_j}=\phi(x'\beta)\beta_j$,
+where $\phi(z)=\frac{1}{\sqrt{2\pi}}exp\{-z^2/2\}$
+
+## for logit
+
+Consider a logit-regression $P(y=1)=\Lambda(x'\beta)$, where
+$x'\beta=\beta_0+\beta_1x_1+\cdots+\beta_kx_k$
+
+Marginal effects $\frac{\partial P(y=1)}{\partial x_j}=\lambda(x'\beta)\beta_j$,
+where $\lambda(z)=\frac{exp(z)}{(1+exp(z))^2}$
+
+## Average marginal effects
+
+Usually we consider 
+
+- marginal effects at the mean of each regressor : 
+  * \(\phi(\bar{x}'\beta)\beta_j\) for probit 
+  * \(\lambda(\bar{x}'\beta)\beta_j\) for logit
+- The average of the marginal effects at each observation: 
+  * \(\overline{\phi(x'\beta)\beta_j}\)  for probit 
+  * \(\overline{\lambda(x'\beta)\beta_j}\) for logit
+
+# labour force equation
+
+For the dataset `TableF5-1` consider regression  **LFP на WA, log(FAMINC), WE, KL6, K618, CIT, UN**
+of the following specifications:
+
+- logit
+- probit
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+spec <- formula(LFP~WA+log(FAMINC)+WE+KL6+K618+CIT+UN)
+my.df <- mroz_Greene
+# regr.LPM <- lm(formula=spec, data=my.df)
+regr.logit <- glm(formula=spec, data=my.df, family=binomial(link='logit'), x=TRUE)
+regr.probit <- glm(formula=spec, data=my.df, family=binomial(link='probit'), x=TRUE)
+rm(my.df)
+# stargazer(regr.LPM, regr.logit, regr.probit, type='text', digits=my.digits.output, digit.separator = '', 
+#           dep.var.caption = 'Зависимая переменная', df=FALSE)
+```
+
+The marginal effects at the mean of each regressor for logit model 
+**Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.logit, x.mean=TRUE, digits = my.digits)
+```
+
+The marginal effects at the mean of each regressor for probit model. 
+**Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.probit, x.mean=TRUE, digits = my.digits)
+```
+
+The average of the marginal effects at each observation for logit модели. 
+**Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.logit, x.mean=FALSE, digits = my.digits)
+```
+
+The average of the marginal effects at each observation for probit модели. 
+**Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.probit, x.mean=FALSE, digits = my.digits)
+```
+       
+# approve equation
+
+For the dataset `loanapp` consider regression **approve на appinc/100, mortno, unem, dep, male**
+of the following specifications:
+
+- logit
+- probit
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+spec <- formula(approve~I(appinc/100)+mortno+unem+dep+male)
+my.df <- loanapp
+# regr.LPM <- lm(formula=spec, data=my.df)
+regr.logit <- glm(formula=spec, data=my.df, family=binomial(link='logit'), x=TRUE)
+regr.probit <- glm(formula=spec, data=my.df, family=binomial(link='probit'), x=TRUE)
+rm(my.df)
+# stargazer(regr.LPM, regr.logit, regr.probit, type='text', digits=my.digits.output, digit.separator = '', 
+#           dep.var.caption = 'Зависимая переменная', df=FALSE)
+```
+
+The marginal effects at the mean of each regressor for logit model 
+**Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.logit, x.mean=TRUE, digits = my.digits)
+```
+
+The marginal effects at the mean of each regressor for probit model. 
+**Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.probit, x.mean=TRUE, digits = my.digits)
+```
+
+The average of the marginal effects at each observation for logit модели. 
+**Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.logit, x.mean=FALSE, digits = my.digits)
+```
+
+The average of the marginal effects at each observation for probit модели. 
+**Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.probit, x.mean=FALSE, digits = my.digits)
+```
+
+# swiss labour force equation
+
+For the dataset `SwissLabour` consider regression **participation на income, age, age^2, youngkids, oldkids**
+of the following specification:
+
+- logit
+- probit
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+spec <- formula(as.numeric(participation)-1~income+age+I(age^2)+youngkids+oldkids)
+my.df <- SwissLabor
+# regr.LPM <- lm(formula=spec, data=my.df)
+regr.logit <- glm(formula=spec, data=my.df, family=binomial(link='logit'), x=TRUE)
+regr.probit <- glm(formula=spec, data=my.df, family=binomial(link='probit'), x=TRUE)
+rm(my.df)
+# stargazer(regr.LPM, regr.logit, regr.probit, type='text', digits=my.digits.output, digit.separator = '', 
+#           dep.var.caption = 'Зависимая переменная', df=FALSE)
+```
+
+The marginal effects at the mean of each regressor for logit model 
+**Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.logit, x.mean=TRUE, digits = my.digits)
+```
+
+The marginal effects at the mean of each regressor for probit model. 
+**Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.probit, x.mean=TRUE, digits = my.digits)
+```
+
+The average of the marginal effects at each observation for logit модели. 
+**Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.logit, x.mean=FALSE, digits = my.digits)
+```
+
+The average of the marginal effects at each observation for probit модели. 
+**Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+maBina(regr.probit, x.mean=FALSE, digits = my.digits)

@@ -1,0 +1,639 @@
+---
+title: "List 09: logit/probit-regression"
+author: "N.V. Artamonov"
+output:
+  pdf_document:
+    toc: yes
+    number_sections: true
+    df_print: default
+    latex_engine: xelatex
+  html_document:
+    toc: true
+    toc_float: 
+        collapsed: false
+    number_sections: true
+    df_print: paged
+header-includes:
+   - \usepackage{xltxtra}
+   - \usepackage{fontspec}
+   - \setmainfont{Times New Roman}
+   - \setsansfont{Arial}
+   - \setmonofont{Courier New}
+   - \newfontfamily{\cyrillicfont}{Times New Roman}
+   - \newfontfamily{\cyrillicfonttt}{Courier New} 
+   - \newfontfamily{\cyrillicfontsf}{Arial}
+   - \usepackage{xcolor}
+   - \usepackage[english,russian]{babel}
+---
+
+```{r, message=FALSE, echo=FALSE}
+library(stargazer)
+library(lmtest)
+library(car)
+library(sandwich)
+library(jtools)
+data(loanapp, package = 'wooldridge')
+data(SwissLabor, package = 'AER')
+mroz_Greene <- read.csv('https://raw.githubusercontent.com/artamonoff/econometrica/refs/heads/main/econometrica-2/datasets/TableF5-1.csv')
+```
+
+# Fitting & coefficients' interpretation
+
+## approve equation #1 (probit)
+
+For the dataset `loanapp` consider probit-regression **approve on appinc, mortno, unem, dep, male, married, yjob, self**
+
+Specification: 
+$P(approve=1)=\Phi(\beta_0+\beta_1appinc+\beta_2mortno+\beta_3unem+\beta_4dep+\beta_5male+\beta_6married+\beta_7yjob+\beta_8self)$
+
+An alternative specification:
+$probit(P(approve=1))=\beta_0+\beta_1appinc+\beta_2mortno+\beta_3unem+\beta_4dep+\beta_5male+\beta_6married+\beta_7yjob+\beta_8self$
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+# sign.level <- 0.10
+regr <- glm(formula=approve~appinc+mortno+unem+dep+male+married+yjob+self, data=loanapp, 
+            family = binomial(link='probit') )
+```
+
+Fit the model and report coefficinets. **Round the answer to `r my.digits` decimal places.**
+
+The answer:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+round( coef(regr), digits = 3)
+```
+
+Give the interpretation of coefficients.
+
+## approve equation #2 (logit)
+
+For the dataset `loanapp` consider logit-regression **approve on appinc, mortno, unem, dep, male, married, yjob, self**
+
+Specification: 
+$P(approve=1)=\Lambda(\beta_0+\beta_1appinc+\beta_2mortno+\beta_3unem+\beta_4dep+\beta_5male+\beta_6married+\beta_7yjob+\beta_8self)$
+
+An alternative specification:
+$logit(P(approve=1))=\beta_0+\beta_1appinc+\beta_2mortno+\beta_3unem+\beta_4dep+\beta_5male+\beta_6married+\beta_7yjob+\beta_8self$
+
+Здесь \(logit(P(approve=1))=\log\frac{P(approve=1)}{1-P(approve=1)}=\log\frac{P(approve=1)}{P(approve=0)}\)
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+# sign.level <- 0.10
+regr <- glm(formula=approve~appinc+mortno+unem+dep+male+married+yjob+self, data=loanapp, 
+            family = binomial(link='logit') )
+```
+
+Fit the model and report coefficients. **Round the answer to `r my.digits` decimal places.**
+
+The answer:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+round( coef(regr), digits = my.digits)
+```
+
+Give the interpretation of coefficinets..
+
+## labour force equation #1 (probit)
+
+For the dataset `TableF5-1` consider probit-regression **LFP on WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
+
+Specification: 
+$P(LFP=1)=\Phi(\beta_0+\beta_1WA+\beta_2WA^2+\beta_3WE+\beta_4KL6+\beta_5K618+\beta_5CIT+\beta_7UN+\beta_8\log(FAMINC))$
+
+An alternative specification:
+$probit(P(LFP=1))=\beta_0+\beta_1WA+\beta_2WA^2+\beta_3WE+\beta_4KL6+\beta_5K618+\beta_5CIT+\beta_7UN+\beta_8\log(FAMINC)$
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+# sign.level <- 0.10
+regr <- glm(formula=LFP~WA+I(WA^2)+WE+KL6+K618+CIT+UN+log(FAMINC), data=mroz_Greene, 
+            family = binomial(link='probit') )
+```
+
+Fit the model and report coefficinets. **Round the answer to `r my.digits` decimal places.**
+
+The answer:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+round( coef(regr), digits = my.digits)
+```
+
+Give the interpretation of coefficients.
+
+## labour force equation #2 (logit)
+
+For the dataset `TableF5-1` consider logit-regression **LFP on WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
+
+Specification: 
+$P(LFP=1)=\Lambda(\beta_0+\beta_1WA+\beta_2WA^2+\beta_3WE+\beta_4KL6+\beta_5K618+\beta_5CIT+\beta_7UN+\beta_8\log(FAMINC))$
+
+An alternative specification:
+$logit(P(LFP=1))=\beta_0+\beta_1WA+\beta_2WA^2+\beta_3WE+\beta_4KL6+\beta_5K618+\beta_5CIT+\beta_7UN+\beta_8\log(FAMINC)$
+
+Здесь \(logit(P(LFP=1))=\log\frac{P(LFP=1)}{1-P(LFP=1)}=\log\frac{P(LFP=1)}{P(LFP=0)}\)
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 3
+# sign.level <- 0.10
+regr <- glm(formula=LFP~WA+I(WA^2)+WE+KL6+K618+CIT+UN+log(FAMINC), data=mroz_Greene, 
+            family = binomial(link='logit') )
+```
+
+Fit the model and report coefficients. **Round the answer to `r my.digits` decimal places.**
+
+The answer:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+round( coef(regr), digits = my.digits)
+```
+
+Give the interpretation of coefficinets..
+
+# z-test
+
+## approve equation #1 (probit)
+
+For the dataset `loanapp` consider probit-regression **approve on appinc, mortno, unem, dep, male, married, yjob, self**
+
+Fit the model and report the output result of z-test
+
+The answer:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 4
+sign.level <- 0.10
+regr <- glm(formula=approve~appinc+mortno+unem+dep+male+married+yjob+self, data=loanapp, 
+            family = binomial(link='probit') )
+round(coeftest(regr), digits = my.digits.output)
+# z.test <- round(coeftest(regr), digits = my.digits.output)
+# z.test[,1:2]
+```
+
+<span style="color: blue">Significance level is `r 100*sign.level`%</span>
+
+Evaluate critical value. **Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+z.cr <- qnorm(p=1-sign.level/2)
+round(z.cr , digits = my.digits)
+```
+
+Which coefficiants are significant? The answer
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+z.test <- coeftest(regr)
+regressors <- row.names(z.test)
+sign.regressors <- NULL
+for(i in 1:nrow(z.test) ) {
+  if(z.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+}
+print(sign.regressors)
+```
+
+## approve equation #2 (logit)
+
+For the dataset `loanapp` consider logit-regression **approve on appinc, mortno, unem, dep, male, married, yjob, self**
+
+Fit the model and report the output result of z-test
+
+The answer:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 4
+sign.level <- 0.05
+regr <- glm(formula=approve~appinc+mortno+unem+dep+male+married+yjob+self, data=loanapp, 
+            family = binomial(link='logit') )
+round(coeftest(regr), digits = my.digits.output)
+```
+
+ 
+<span style="color: blue">Significance level is `r 100*sign.level`%</span>
+
+Evaluate critical value. **Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+z.cr <- qnorm(p=1-sign.level/2)
+round(z.cr , digits = my.digits)
+```
+
+Which coefficiants are significant? The answer
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+z.test <- coeftest(regr)
+regressors <- row.names(z.test)
+sign.regressors <- NULL
+for(i in 1:nrow(z.test) ) {
+  if(z.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+}
+print(sign.regressors)
+```
+
+## labour force equation #1 (probit)
+
+For the dataset `TableF5-1` consider probit-regression **LFP on WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
+
+Fit the model and report the output result of z-test
+
+The answer:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 4
+sign.level <- 0.10
+regr <- glm(formula=LFP~WA+I(WA^2)+WE+KL6+K618+CIT+UN+log(FAMINC), data=mroz_Greene, 
+            family = binomial(link='probit') )
+round(coeftest(regr), digits = my.digits.output)
+```
+
+<span style="color: blue">Significance level is `r 100*sign.level`%</span>
+
+Evaluate critical value. **Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+z.cr <- qnorm(p=1-sign.level/2)
+round(z.cr , digits = my.digits)
+```
+
+Which coefficiants are significant? The answer
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+z.test <- coeftest(regr)
+regressors <- row.names(z.test)
+sign.regressors <- NULL
+for(i in 1:nrow(z.test) ) {
+  if(z.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+}
+print(sign.regressors)
+```
+
+## labour force equation #2 (logit)
+
+For the dataset `TableF5-1` consider logit-regression **LFP on WA, WA^2, WE, KL6, K618, CIT, UN, log(FAMINC)**
+
+Fit the model and report the output result of z-test
+
+The answer:
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 4
+sign.level <- 0.05
+regr <- glm(formula=LFP~WA+I(WA^2)+WE+KL6+K618+CIT+UN+log(FAMINC), data=mroz_Greene, 
+            family = binomial(link='logit') )
+round(coeftest(regr), digits = my.digits.output)
+```
+
+<span style="color: blue">Significance level is `r 100*sign.level`%</span>
+
+Evaluate critical value. **Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+z.cr <- qnorm(p=1-sign.level/2)
+round(z.cr , digits = my.digits)
+```
+
+Which coefficiants are significant? The answer
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+z.test <- coeftest(regr)
+regressors <- row.names(z.test)
+sign.regressors <- NULL
+for(i in 1:nrow(z.test) ) {
+  if(z.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+}
+print(sign.regressors)
+```
+
+# LR-test: overall significance
+
+## approve equation #1 (probit)
+
+For the dataset `loanapp` consider probit-regression **approve on appinc, unem, male, yjob, self**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 4
+sign.level <- 0.10
+regr <- glm(formula=approve~appinc+unem+male+yjob+self, data=loanapp, 
+            family = binomial(link='probit') )
+# summ(regr, digits = my.digits.output)
+my.logL <- round(-deviance(regr)/2, digits = my.digits.output)
+my.logL.null <- round(-regr$null.deviance/2, digits = my.digits.output)
+```
+
+Fit the model and test overall significance.
+<span style="color: blue">Significance level is `r 100*sign.level`%</span>.
+
+Evaluate test statistics. **Round the answer to `r my.digits` decimal places.**
+
+The answer:
+
+```{r, echo=FALSE, comment=''}
+LR.stat <- regr$null.deviance-regr$deviance
+round(LR.stat, digits = my.digits)
+```
+
+Evaluate critical value. **Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, comment=''}
+chi.sq.cr <- qchisq(p=1-sign.level, df=regr$rank-1)
+round(chi.sq.cr, digits = my.digits)
+```
+
+Is the regression significant? The answer
+
+```{r, echo=FALSE, comment=''}
+if(LR.stat>chi.sq.cr) print('Significant') else print('Insignificant')
+```
+
+Which coefficinets are significante?
+
+```{r, echo=FALSE, comment=''}
+z.test <- coeftest(regr)
+regressors <- row.names(z.test)
+sign.regressors <- NULL
+for(i in 1:nrow(z.test) ) {
+  if(z.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+}
+print(sign.regressors)
+```
+
+## approve equation #2 (logit)
+
+For the dataset `loanapp` consider logit-regression **approve on appinc, appinc^2, mortno, unem, dep, male, married, yjob, self**
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 4
+sign.level <- 0.05
+regr <- glm(formula=approve~appinc+I(appinc^2)+mortno+unem+dep+male+married+yjob+self, data=loanapp, 
+            family = binomial(link='logit') )
+# summ(regr, digits = my.digits.output)
+my.logL <- round(-deviance(regr)/2, digits = my.digits.output)
+my.logL.null <- round(-regr$null.deviance/2, digits = my.digits.output)
+```
+
+Fit the model and test overall significance.
+<span style="color: blue">Significance level is `r 100*sign.level`%</span>.
+
+Evaluate test statistics. **Round the answer to `r my.digits` decimal places.**
+
+The answer:
+
+```{r, echo=FALSE, comment=''}
+LR.stat <- regr$null.deviance-regr$deviance
+round(LR.stat, digits = my.digits)
+```
+
+Evaluate critical value. **Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, comment=''}
+chi.sq.cr <- qchisq(p=1-sign.level, df=regr$rank-1)
+round(chi.sq.cr, digits = my.digits)
+```
+
+Is regression significant? The answer
+
+```{r, echo=FALSE, comment=''}
+if(LR.stat>chi.sq.cr) print('Significant') else print('Insignificant')
+```
+
+Which coefficinets are significante?
+
+```{r, echo=FALSE, comment=''}
+z.test <- coeftest(regr)
+regressors <- row.names(z.test)
+sign.regressors <- NULL
+for(i in 1:nrow(z.test) ) {
+  if(z.test[i,4]<sign.level) sign.regressors <- c(sign.regressors, regressors[i])
+}
+print(sign.regressors)
+```
+
+## labour force equation #1 (probit)
+
+For the dataset `TableF5-1` consider a collection of probit-regression. Fitting results
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 4
+sign.level <- 0.10
+regr <- NULL
+regr[[1]] <- glm(formula=LFP~WA+I(WA^2)+WE+KL6+K618+CIT+UN+log(FAMINC), data=mroz_Greene,
+                 family = binomial(link='probit') )
+regr[[2]] <- update(regr[[1]], formula. = ~.-WE-KL6-K618)
+regr[[3]] <- update(regr[[1]], formula. = ~.-WE-KL6-K618-log(FAMINC))
+regr[[4]] <- update(regr[[1]], formula. = ~.-WE-KL6-K618-log(FAMINC)-WA-I(WA^2))
+stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
+          dep.var.caption = 'Dependent variable', df=FALSE)
+my.logL.null <- -regr[[1]]$null.deviance/2
+my.logL <- NULL
+for(i in 1:length(regr)) my.logL <- c(my.logL, -deviance(regr[[i]])/2 )
+```
+
+For each regression evauate LR-statistics for overall significance.
+**Round the answer to `r my.digits` decimal places.**
+
+The answer
+
+```{r, echo=FALSE, comment=''}
+LR.stat <- NULL
+for(i in 1:length(regr)) {
+  LR.stat <- c(LR.stat, 2*(my.logL[[i]]-my.logL.null) )
+}
+df.LR <- data.frame(Regression=1:length(regr), LR.stat= LR.stat) # round(LR.stat, digits = my.digits)
+stargazer(df.LR, summary = FALSE, type='text', rownames=FALSE, digits = my.digits)
+```
+
+For each regression evaluate necessary critical value.
+<span style="color: blue">Significance level is `r 100*sign.level`%</span>.
+**Round the answer to `r my.digits` decimal places.**
+
+The answer
+
+```{r, echo=FALSE, comment=''}
+chi.sq.cr <- NULL
+for(i in 1:length(regr)) {
+  chi.sq.cr <- c(chi.sq.cr, qchisq(p=1-sign.level, df=regr[[i]]$rank-1) )
+}
+df.chi.sq <- data.frame(Regression=1:length(regr), Critical= chi.sq.cr) # round(LR.stat, digits = my.digits)
+stargazer(df.chi.sq, summary = FALSE, type='text', rownames=FALSE, digits = my.digits)
+```
+
+Which regression is significant?
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+significance <- NULL
+for(i in 1:length(regr)) {
+  if( LR.stat[i]>chi.sq.cr[i]) significance <- c(significance, 'Significant')
+  else significance <- c(significance, 'Insignificant')
+}
+df.sign <- data.frame(Regression=1:length(regr), Significance=significance)
+stargazer(df.sign, summary = FALSE, type='text', rownames=FALSE)
+```
+
+## labour force equation #2 (logit)
+
+For the dataset `TableF5-1` consider a collection of logit-regressions. fitting results
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 4
+sign.level <- 0.05
+regr <- NULL
+regr[[1]] <- glm(formula=LFP~WA+I(WA^2)+WE+KL6+K618+CIT+UN+log(FAMINC), data=mroz_Greene,
+                 family = binomial(link='logit') )
+regr[[2]] <- update(regr[[1]], formula. = ~.-WA-I(WA^2) )
+regr[[3]] <- update(regr[[1]], formula. = ~.-WA-I(WA^2)-WE )
+regr[[4]] <- update(regr[[1]], formula. = ~.-WA-I(WA^2)-WE-log(FAMINC)-KL6)
+stargazer(regr, type='text', digits=my.digits.output, digit.separator = '', 
+          dep.var.caption = 'Dependent variable', df=TRUE )
+my.logL.null <- -regr[[1]]$null.deviance/2
+my.logL <- NULL
+for(i in 1:length(regr)) my.logL <- c(my.logL, -deviance(regr[[i]])/2 )
+```
+
+For each regression evauate LR-statistics for overall significance.
+**Round the answer to `r my.digits` decimal places.**
+
+The answer
+
+```{r, echo=FALSE, comment=''}
+LR.stat <- NULL
+for(i in 1:length(regr)) {
+  LR.stat <- c(LR.stat, 2*(my.logL[[i]]-my.logL.null) )
+}
+df.LR <- data.frame(Regression=1:length(regr), LR.stat= LR.stat) # round(LR.stat, digits = my.digits)
+stargazer(df.LR, summary = FALSE, type='text', rownames=FALSE, digits = my.digits)
+```
+
+For each regression evaluate necessary critical value.
+<span style="color: blue">Significance level is `r 100*sign.level`%</span>.
+**Round the answer to `r my.digits` decimal places.**
+
+The answer
+
+```{r, echo=FALSE, comment=''}
+chi.sq.cr <- NULL
+for(i in 1:length(regr)) {
+  chi.sq.cr <- c(chi.sq.cr, qchisq(p=1-sign.level, df=regr[[i]]$rank-1) )
+}
+df.chi.sq <- data.frame(Regression=1:length(regr), Critical= chi.sq.cr) # round(LR.stat, digits = my.digits)
+stargazer(df.chi.sq, summary = FALSE, type='text', rownames=FALSE, digits = my.digits)
+```
+
+Which regression is significant?
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+significance <- NULL
+for(i in 1:length(regr)) {
+  if( LR.stat[i]>chi.sq.cr[i]) significance <- c(significance, 'Significant')
+  else significance <- c(significance, 'Insignificant')
+}
+df.sign <- data.frame(Regression=1:length(regr), Significance=significance)
+stargazer(df.sign, summary = FALSE, type='text', rownames=FALSE )
+```
+
+# Wald-test: joint significance
+
+## swiss labour force equation #1
+
+For the dataset `SwissLabour` consider logit-regression **participation on income, income^2, age, age^2, youngkids, oldkids, foreign**
+
+Fitting result
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
+my.digits <- 3
+my.digits.output <- 4
+sign.level <- 0.05
+regr <- glm(formula=as.numeric(participation)-1~income+I(income^2)+age+I(age^2)+youngkids+oldkids+foreign, 
+            data=SwissLabor, 
+            family = binomial(link='logit') )
+summ(regr, digits = my.digits.output, vifs=TRUE)
+```
+
+Fit the model and test the following hypothesis with Wlad test (use \(\chi^2\)-statistics).
+<span style="color: blue">Significance level is `r 100*sign.level`%</span>.
+
+### Hypothesis 1
+
+Test the significance of income, i.e. test the hypothesis \(H_0:\beta_{income}=\beta_{income^2}=0\).
+
+Evaluate test statistics and its P-value.
+
+```{r,echo=FALSE, comment=''}
+regr.rest <- update(regr, formula. = ~.-income-I(income^2) )
+w.test <- waldtest(regr.rest, regr, test='Chisq')
+stargazer(w.test[2,3:4], type = 'text', summary = FALSE, rownames = FALSE)
+```
+
+Evaluate critical value. **Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, comment=''}
+ch2.cr <- qchisq(p=1-sign.level, df=w.test[2,2])
+round(ch2.cr, digits = my.digits)
+```
+
+Conclusion
+
+```{r, echo=FALSE, comment=''}
+if(w.test[2,4]<sign.level) print('Significant') else print('Insignificant')
+```
+
+### Hypothesis 2
+
+Test the significence of the numter of kids, i.e. the hypothesis \(H_0:\beta_{youngkids}=\beta_{oldkids}=0\).
+
+Evaluate test statistics and its P-value.
+
+```{r,echo=FALSE, comment=''}
+regr.rest <- update(regr, formula. = ~.-youngkids-oldkids )
+w.test <- waldtest(regr.rest, regr, test='Chisq')
+stargazer(w.test[2,3:4], type = 'text', summary = FALSE, rownames = FALSE)
+```
+
+Evaluate critical value. **Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, comment=''}
+ch2.cr <- qchisq(p=1-sign.level, df=w.test[2,2])
+round(ch2.cr, digits = my.digits)
+```
+
+Conclusion
+
+```{r, echo=FALSE, comment=''}
+if(w.test[2,4]<sign.level) print('Significant') else print('Insignificant')
+```
+
+### Hypothesis 3
+
+Test the significence of age, i.e. the hypothesis \(H_0:\beta_{age}=\beta_{age^2}=0\).
+
+Evaluate test statistics and its P-value.
+
+```{r,echo=FALSE, comment=''}
+regr.rest <- update(regr, formula. = ~.-age-I(age^2) )
+w.test <- waldtest(regr.rest, regr, test='Chisq')
+stargazer(w.test[2,3:4], type = 'text', summary = FALSE, rownames = FALSE)
+```
+
+Evaluate critical value. **Round the answer to `r my.digits` decimal places.**
+
+```{r, echo=FALSE, comment=''}
+ch2.cr <- qchisq(p=1-sign.level, df=w.test[2,2])
+round(ch2.cr, digits = my.digits)
+```
+
+Conclusion
+
+```{r, echo=FALSE, comment=''}
+if(w.test[2,4]<sign.level) print('Significant') else print('Insignificant')
+```
