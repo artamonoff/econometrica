@@ -2,19 +2,19 @@
 title: "Задачи по Эконометрике-2: Качество подгонки и сравнение моделей"
 author: "Н.В. Артамонов (МГИМО МИД России)"
 output:
-  pdf_document:
-    toc: true
-    number_sections: true
-    df_print: default
-    latex_engine: xelatex
-  word_document:
-    toc: true
   html_document:
     toc: true
     toc_float:
       collapsed: false
     number_sections: true
     df_print: paged
+  word_document:
+    toc: true
+  pdf_document:
+    toc: true
+    number_sections: true
+    df_print: default
+    latex_engine: xelatex
 header-includes:
 - \usepackage{xltxtra}
 - \usepackage{fontspec}
@@ -209,7 +209,7 @@ stargazer(df, type='text', summary = FALSE, rownames = FALSE)
 
 ## approve equation #1 (logit)
 
-Для датасета `loanapp` рассмотрим несколько probit-регрессий. Результаты оценивания
+Для датасета `loanapp` рассмотрим несколько logit-регрессий. Результаты оценивания
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, comment=''}
 my.digits <- 3
@@ -217,7 +217,7 @@ my.digits.output <- 4
 sign.level <- 0.10
 regr <- NULL
 regr[[1]] <- glm(formula=approve~appinc+I(appinc^2)+mortno+unem+dep+male+married+yjob+self, data=loanapp,
-                 family = binomial(link='probit') )
+                 family = binomial(link='logit') )
 regr[[2]] <- update(regr[[1]], formula. = ~.-appinc-I(appinc^2) )
 regr[[3]] <- update(regr[[1]], formula. = ~.-male-yjob-self )
 regr[[4]] <- update(regr[[1]], formula. = ~.-male-yjob-self-unem-married )
@@ -250,7 +250,7 @@ for(i in 1:length(regr)) {
   my.k <- c(my.k, regr[[i]]$rank)
 }
 
-info.criterion <- data.frame(Модель=1:length(regr), AIC=my.AIC, BIC=my.BIC, adj.pseudo.R2=1-(my.logL-my.k)/my.logL.null)
+info.criterion <- data.frame(Модель=1:length(regr), AIC=my.AIC, BIC=my.BIC, adj.pseudo.R2=1-(my.logL-my.k-1)/my.logL.null)
 
 stargazer(info.criterion, type='text', summary = FALSE, rownames = FALSE, digit.separator = '', digits=my.digits)
 ```
