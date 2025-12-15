@@ -2,19 +2,19 @@
 title: "Задачи по Эконометрике-2: Качество подгонки и сравнение моделей"
 author: "Н.В. Артамонов (МГИМО МИД России)"
 output:
+  pdf_document:
+    toc: true
+    number_sections: true
+    df_print: default
+    latex_engine: xelatex
+  word_document:
+    toc: true
   html_document:
     toc: true
     toc_float:
       collapsed: false
     number_sections: true
     df_print: paged
-  word_document:
-    toc: true
-  pdf_document:
-    toc: true
-    number_sections: true
-    df_print: default
-    latex_engine: xelatex
 header-includes:
 - \usepackage{xltxtra}
 - \usepackage{fontspec}
@@ -37,8 +37,9 @@ library(jtools)
 library(DescTools)
 library(performance)
 data(loanapp, package = 'wooldridge')
-data(SwissLabor, package = 'AER')
-mroz_Greene <- read.csv('https://raw.githubusercontent.com/artamonoff/econometrica/refs/heads/main/econometrica-2/datasets/TableF5-1.csv')
+# data(SwissLabor, package = 'AER')
+mroz_Greene <- read.csv('../datasets/TableF5-1.csv')
+SwissLabor <- read.csv('../datasets/SwissLabor.csv')
 ```
 
 # Качество подгонки
@@ -70,7 +71,7 @@ Zavoina <- NULL
 
 for(i in 1:length(regr)) {
   pseudo.R2 <- c(pseudo.R2, PseudoR2(regr[[i]], which='McFadden') )
-  adj.pseudo.R2 <- c(adj.pseudo.R2, 1-(-regr[[i]]$deviance/2-regr[[i]]$rank+1)/(-regr[[i]]$null.deviance/2) )
+  adj.pseudo.R2 <- c(adj.pseudo.R2, 1-(-regr[[i]]$deviance/2-regr[[i]]$rank)/(-regr[[i]]$null.deviance/2) )
   CoxSnell <- c(CoxSnell, PseudoR2(regr[[i]], which='CoxSnell') )
   Nagelkerke <- c(Nagelkerke, PseudoR2(regr[[i]], which='Nagelkerke') )
   Efron <- c(Efron, PseudoR2(regr[[i]], which='Efron') )
@@ -121,7 +122,7 @@ McKelvey <- NULL
 
 for(i in 1:length(regr)) {
   pseudo.R2 <- c(pseudo.R2, PseudoR2(regr[[i]], which='McFadden') )
-  adj.pseudo.R2 <- c(adj.pseudo.R2, 1-(-regr[[i]]$deviance/2-regr[[i]]$rank+1)/(-regr[[i]]$null.deviance/2) )
+  adj.pseudo.R2 <- c(adj.pseudo.R2, 1-(-regr[[i]]$deviance/2-regr[[i]]$rank)/(-regr[[i]]$null.deviance/2) )
   CoxSnell <- c(CoxSnell, PseudoR2(regr[[i]], which='CoxSnell') )
   Nagelkerke <- c(Nagelkerke, PseudoR2(regr[[i]], which='Nagelkerke') )
   Efron <- c(Efron, PseudoR2(regr[[i]], which='Efron') )
@@ -188,7 +189,7 @@ for(i in 1:length(regr)) {
   my.AIC <- c(my.AIC, regr[[i]]$aic)
   my.BIC <- c(my.BIC, regr[[i]]$BIC)
   my.logL <- c(my.logL, -deviance(regr[[i]])/2 )
-  my.k <- c(my.k, regr[[i]]$rank-1)
+  my.k <- c(my.k, regr[[i]]$rank)
 }
 
 info.criterion <- data.frame(Модель=1:length(regr), AIC=my.AIC, BIC=my.BIC, adj.pseudo.R2=1-(my.logL-my.k)/my.logL.null)
@@ -246,7 +247,7 @@ for(i in 1:length(regr)) {
   my.AIC <- c(my.AIC, regr[[i]]$aic)
   my.BIC <- c(my.BIC, regr[[i]]$BIC)
   my.logL <- c(my.logL, -deviance(regr[[i]])/2 )
-  my.k <- c(my.k, regr[[i]]$rank-1)
+  my.k <- c(my.k, regr[[i]]$rank)
 }
 
 info.criterion <- data.frame(Модель=1:length(regr), AIC=my.AIC, BIC=my.BIC, adj.pseudo.R2=1-(my.logL-my.k)/my.logL.null)
