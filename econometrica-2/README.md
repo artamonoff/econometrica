@@ -5,11 +5,10 @@
 | Папка/Файл |Содержание|
 |-|-|
 |`README`|Этот файл|
-|`syllabus`|[План семинарских занятий](https://github.com/artamonoff/econometrica/blob/main/econometrica-2/syllabus.md)|
-|`exercises/`|Листочки с заданиями (исходные код)|
-|`datasets/`| Наборы данных в формате CSV|
-|`templates/`|Шаблоны ноутбуков для решения типовых задач|
-|`notebooks/`|Разбор примеров из листочков|
+|`syllabus`|[План семинарских занятий](https://github.com/artamonoff/econometrica/blob/2026-2027/econometrica-2/syllabus.md)|
+|`/exercises`|Листочки с заданиями (исходные код)|
+|`/datasets`| Наборы данных в формате CSV|
+|`/templates`|Шаблоны ноутбуков для решения типовых задач|
 
 ## Задачи
 
@@ -27,4 +26,3 @@
 |`scipy.stats`|Статистические методы (распределения и проч)|
 |`seaborn`|Визуализация статистических данных|
 |`matplotlib`|Визуализация статистических данных|
-|`scikit-learn`|Машинное обучение|
