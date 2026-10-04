@@ -12,9 +12,10 @@
 
 ## Задачи
 
-|Задачи (ссылка)| Тема| Ссылка на PDF|
+|Задачи (ссылка)| Тема|
 |:-:|:-:|
-[Листок 21](https://github.com/artamonoff/econometrica/blob/2026-2027/econometrica-2/exercises/list21-lpm.md)| LPM-модель|
+|[Листок 21](https://github.com/artamonoff/econometrica/blob/2026-2027/econometrica-2/exercises/list21-lpm.md)|LPM-модел|
+
 
 ## Необходимые библиотеки Python
 
