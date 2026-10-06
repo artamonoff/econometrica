@@ -12,21 +12,21 @@
 
 ### Формулы для предельных эффектов
 
-**для probit модели** $P(y=1)=\Phi(x'\beta)$ формула для предельных
+**для probit модели** $P(y=1)=\Phi(x^\top\beta)$ формула для предельных
 значений
 
 $$
 \begin{aligned}
-    \frac{\partial P(y=1)}{\partial x_j}&=\phi(x'\beta)\beta_j & \phi(z)=\frac{1}{\sqrt{2\pi}}exp\{-z^2/2\}
+    \frac{\partial P(y=1)}{\partial x_j}&=\phi(x^\top\beta)\beta_j & \phi(z)=\frac{1}{\sqrt{2\pi}}exp\left(-z^2/2\right)
 \end{aligned}
 $$
 
-**для logit модели** $P(y=1)=\Lambda(x'\beta)$ формула для предельных
-значений
+**для logit модели** $P(y=1)=\Lambda(x^\top\beta)$ формула для
+предельных значений
 
 $$
 \begin{aligned}
-    \frac{\partial P(y=1)}{\partial x_j}&=\lambda(x'\beta)\beta_j & \lambda(z)=\frac{exp(z)}{(1+exp(z))^2}
+    \frac{\partial P(y=1)}{\partial x_j}&=\lambda(x^\top\beta)\beta_j & \lambda(z)=\frac{exp(z)}{(1+exp(z))^2}
 \end{aligned}
 $$
 
@@ -35,11 +35,20 @@ $$
 Обычно рассчитываются
 
 - предельные значения для каждого регрессора в средней точке:
-  - $\phi(\bar{x}'\beta)\beta_j$ для probit
-  - $\lambda(\bar{x}'\beta)\beta_j$ для logit
+
+$$
+\begin{aligned}
+    probit:&\;\phi(\bar{x}'\beta)\beta_j & logit:&\;\lambda(\bar{x}'\beta)\beta_j
+\end{aligned}
+$$
+
 - среднее по всей выборке предельное значения для каждого регрессора:
-  - $\overline{\phi(x'\beta)\beta_j}$ для probit
-  - $\overline{\lambda(x'\beta)\beta_j}$ для logit
+
+$$
+\begin{aligned}
+    probit:&\;\overline{\phi(x'\beta)\beta_j} & logit:&\;\overline{\lambda(x'\beta)\beta_j}
+\end{aligned}
+$$
 
 ### Approve equation
 
