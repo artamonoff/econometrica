@@ -38,7 +38,7 @@ $$
 
 $$
 \begin{aligned}
-    probit:&\;\phi(\bar{x}'\beta)\beta_j & logit:&\;\lambda(\bar{x}'\beta)\beta_j
+    probit:&\ \phi(\bar{x}^\top\beta)\beta_j & logit:&\ \lambda(\bar{x}^\top\beta)\beta_j
 \end{aligned}
 $$
 
@@ -46,7 +46,7 @@ $$
 
 $$
 \begin{aligned}
-    probit:&\;\overline{\phi(x'\beta)\beta_j} & logit:&\;\overline{\lambda(x'\beta)\beta_j}
+    probit:&\ \overline{\phi(x^\top\beta)\beta_j} & logit:&\ \overline{\lambda(x^\top\beta)\beta_j}
 \end{aligned}
 $$
 
