@@ -34,11 +34,12 @@ $$
 
 Обычно рассчитываются
 
-- предельные значения для каждого регрессора в средней точке:
+- предельные значения для каждого регрессора в средней точке
+  $x_{mean}=\sum_i x_i/n$:
 
 $$
 \begin{aligned}
-    probit:&\ \phi(\bar{x}^\top\beta)\beta_j & logit:&\ \lambda(\bar{x}^\top\beta)\beta_j
+    probit:&\ \phi(x_{mean}^\top\beta)\beta_j & logit:&\ \lambda(x_{mean}^\top\beta)\beta_j
 \end{aligned}
 $$
 
@@ -46,7 +47,7 @@ $$
 
 $$
 \begin{aligned}
-    probit:&\ \overline{\phi(x^\top\beta)\beta_j} & logit:&\ \overline{\lambda(x^\top\beta)\beta_j}
+    probit:&\ \frac 1n \sum_{i}\phi(x_i^\top\beta)\beta_j & logit:&\ \frac 1n \sum_{i}\lambda(x_i^\top\beta)\beta_j
 \end{aligned}
 $$
 
