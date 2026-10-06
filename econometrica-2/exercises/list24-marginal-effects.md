@@ -17,7 +17,7 @@
 
 $$
 \begin{aligned}
-    \frac{\partial P(y=1)}{\partial x_j}&=\phi(x^\top\beta)\beta_j & \phi(z)=\frac{1}{\sqrt{2\pi}}exp\left(-z^2/2\right)
+    \frac{\partial P(y=1)}{\partial x_j}&=\phi\left(x^\top\beta\right)\beta_j & \phi(z)=\frac{1}{\sqrt{2\pi}}exp\left(-z^2/2\right)
 \end{aligned}
 $$
 
@@ -26,7 +26,7 @@ $$
 
 $$
 \begin{aligned}
-    \frac{\partial P(y=1)}{\partial x_j}&=\lambda(x^\top\beta)\beta_j & \lambda(z)=\frac{exp(z)}{(1+exp(z))^2}
+    \frac{\partial P(y=1)}{\partial x_j}&=\lambda\left(x^\top\beta\right)\beta_j & \lambda(z)=\frac{exp(z)}{(1+exp(z))^2}
 \end{aligned}
 $$
 
@@ -34,11 +34,12 @@ $$
 
 Обычно рассчитываются
 
-- предельные значения для каждого регрессора в средней точке:
+- предельные значения для каждого регрессора в средней точке
+  $x_{mean}=\sum_i x_i/n$:
 
 $$
 \begin{aligned}
-    probit:&\ \phi(\bar{x}^\top\beta)\beta_j & logit:&\ \lambda(\bar{x}^\top\beta)\beta_j
+    probit:&\ \phi\left(x_{mean}^\top\beta\right)\beta_j & logit:&\ \lambda\left(x_{mean}^\top\beta\right)\beta_j
 \end{aligned}
 $$
 
@@ -46,7 +47,7 @@ $$
 
 $$
 \begin{aligned}
-    probit:&\ \overline{\phi(x^\top\beta)\beta_j} & logit:&\ \overline{\lambda(x^\top\beta)\beta_j}
+    probit:&\ \frac 1n \sum_{i}\phi\left(x_i^\top\beta\right)\beta_j & logit:&\ \frac 1n \sum_{i}\lambda\left(x_i^\top\beta\right)\beta_j
 \end{aligned}
 $$
 
