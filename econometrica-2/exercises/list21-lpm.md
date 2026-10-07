@@ -35,7 +35,10 @@
 Линейная спецификация с бинарной зависимой переменной `y`
 
 $$
-    y=x^\top\beta+u=\beta_0+\beta_1x_1+\cdots+\beta_kx_k+u
+\begin{aligned}
+    y&=x^\top\beta+u=\beta_0+\beta_1x_1+\cdots+\beta_kx_k+u & x&=\begin{pmatrix} 1 \\ x_1 \\ \vdots \\ x_k\end{pmatrix} &
+    \beta&=\begin{pmatrix} \beta_0 \\ \beta_1 \\ \vdots \\ \beta_k\end{pmatrix}
+\end{aligned}
 $$
 
 Альтернативная спецификация
