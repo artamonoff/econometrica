@@ -29,6 +29,7 @@
 - [Прогнозирование](#прогнозирование)
   - [Approve equation](#approve-equation)
   - [labour force equation](#labour-force-equation)
+  - [Swiss labour force equation](#swiss-labour-force-equation)
 
 ## Спецификация модели
 
@@ -452,3 +453,26 @@ P-значение, критическое значение и сделайте 
 |   0.686 |
 |   0.771 |
 |   0.804 |
+
+### Swiss labour force equation
+
+Для датасет `SwissLabour` оцените **LPM** регрессию `participation` на
+`income+I(income**2)+age+education+youngkids+oldkids`. Рассмотрим новые
+данные
+
+| income | age | education | youngkids | oldkids |
+|-------:|----:|----------:|----------:|--------:|
+|   11.9 | 3.2 |         8 |         1 |       0 |
+|  10.49 |   2 |        19 |         0 |       0 |
+|  11.02 | 4.4 |        12 |         2 |       1 |
+
+Постройте прогноз для каждого наблюдения и дайте интерпретацию. **Ответ
+округлите до 3 десятичных знаков**
+
+Ответ:
+
+| Прогноз |
+|--------:|
+|   0.119 |
+|   0.731 |
+|  -0.092 |
