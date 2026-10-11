@@ -13,7 +13,11 @@
 ## Задачи
 
 |Задачи (ссылка)| Тема|
+<<<<<<< HEAD
 |:-:|-|
+=======
+|:-:|:-|
+>>>>>>> 14c09e439b0ae26ce0dc25b5249686dc5fe37557
 |[Листок 21](https://github.com/artamonoff/econometrica/blob/2026-2027/econometrica-2/exercises/list21-lpm.md)|LPM-модель|
 |[Листок 23](https://github.com/artamonoff/econometrica/blob/2026-2027/econometrica-2/exercises/list23-prediction.md)|Прогнозирование|
 |[Листок 24](https://github.com/artamonoff/econometrica/blob/2026-2027/econometrica-2/exercises/list24-marginal-effects.md)|Предельные эффекты|
