@@ -33,19 +33,36 @@
 
 ## Спецификация модели
 
-Линейная спецификация с бинарной зависимой переменной `y`
+Пусть
+
+- $y$ - бинарная зависимая переменная
+- $(x_1,\ldots,x_k)$ - объясняющие переменные или регрессоры
+
+Обозначим
 
 $$
 \begin{aligned}
-    y&=x^\top\beta+u=\beta_0+\beta_1x_1+\cdots+\beta_kx_k+u & x^\top&=\begin{pmatrix} 1 & x_1 & \cdots & x_k\end{pmatrix} &
-    \beta^\top&=\begin{pmatrix} \beta_0 & \beta_1 & \cdots & \beta_k\end{pmatrix}
+    x^\top&=\begin{pmatrix} 1 & x_1 & \cdots & x_k\end{pmatrix} &
+    \beta^\top&=\begin{pmatrix} \beta_0 & \beta_1 & \cdots & \beta_k\end{pmatrix} &
 \end{aligned}
+$$
+
+Тогда
+
+$$
+    x^\top\beta=\beta_0+\beta_1x_1+\cdots+\beta_kx_k
+$$
+
+Линейная спецификация с бинарной зависимой переменной
+
+$$
+    y=x^\top\beta+u
 $$
 
 Альтернативная спецификация
 
 $$
-    P(y=1)=x^\top\beta=\beta_0+\beta_1x_1+\cdots+\beta_kx_k
+    P(y=1)=x^\top\beta
 $$
 
 ## Подгонка модели
