@@ -36,8 +36,8 @@
 `appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self`. Вычислите
 следующие показатели качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -57,8 +57,8 @@
 `appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self`. Вычислите
 следующие показатели качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -78,8 +78,8 @@
 `mortno+unem+dep+male+married+yjob+self`. Вычислите следующие показатели
 качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -99,8 +99,8 @@
 `mortno+unem+dep+male+married+yjob+self`. Вычислите следующие показатели
 качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -120,8 +120,8 @@
 `appinc+I(appinc**2)+mortno+unem+dep`. Вычислите следующие показатели
 качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -141,8 +141,8 @@
 `appinc+I(appinc**2)+mortno+unem+dep`. Вычислите следующие показатели
 качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -162,8 +162,8 @@
 `WA+I(WA**2)+WE+KL6+K618+CIT+UN+np.log(FAMINC)`. Вычислите следующие
 показатели качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -183,8 +183,8 @@
 `WA+I(WA**2)+WE+KL6+K618+CIT+UN+np.log(FAMINC)`. Вычислите следующие
 показатели качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -204,8 +204,8 @@
 `WE+KL6+K618+CIT+UN+np.log(FAMINC)`. Вычислите следующие показатели
 качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -225,8 +225,8 @@
 `WE+KL6+K618+CIT+UN+np.log(FAMINC)`. Вычислите следующие показатели
 качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -246,8 +246,8 @@
 `WA+I(WA**2)+WE+KL6`. Вычислите следующие показатели качества подгонки
 модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -267,8 +267,8 @@
 `WA+I(WA**2)+WE+KL6`. Вычислите следующие показатели качества подгонки
 модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -288,8 +288,8 @@
 `income+I(income**2)+age+I(age**2)+youngkids+oldkids`. Вычислите
 следующие показатели качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -309,8 +309,8 @@
 на `income+I(income**2)+age+I(age**2)+youngkids+oldkids`. Вычислите
 следующие показатели качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -330,8 +330,8 @@
 `income+age+youngkids+oldkids`. Вычислите следующие показатели качества
 подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -351,8 +351,8 @@
 на `income+age+youngkids+oldkids`. Вычислите следующие показатели
 качества подгонки модели:
 
-- R<sup>2</sup><sub>pseudo</sub>
-- adjusted R<sup>2</sup><sub>pseudo</sub>
+- McFadden (R<sup>2</sup><sub>pseudo</sub>)
+- adjusted McFadden (adjusted R<sup>2</sup><sub>pseudo</sub>)
 - Cox & Snell
 - Nagelkerke/Cragg & Uhler
 - Efron
@@ -370,11 +370,12 @@
 
 ### Approve equation (logit)
 
-Для датасет `loanapp` оцените **logit** регрессии `approve` на -
-`appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self` -
-`mortno+unem+dep+male+married+yjob+self` -
-`appinc+I(appinc**2)+mortno+unem+dep+married` -
-`appinc+I(appinc**2)+mortno+unem+dep`
+Для датасет `loanapp` оцените **logit** регрессии `approve` на
+
+- `appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self`
+- `mortno+unem+dep+male+married+yjob+self`
+- `appinc+I(appinc**2)+mortno+unem+dep+married`
+- `appinc+I(appinc**2)+mortno+unem+dep`
 
 Для каждой модели вычислите показатели информационных критериев AIC и
 BIC и adjusted R<sup>2</sup><sub>pseudo</sub>. **Ответ округлите до 3-х
@@ -398,10 +399,12 @@ BIC и adjusted R<sup>2</sup><sub>pseudo</sub>. **Ответ округлите 
 
 ### labour force equation (probit)
 
-Для датасет `TableF5-1` оцените **probit** регрессии `LFP` на -
-`WA+I(WA**2)+WE+KL6+K618+CIT+UN+np.log(FAMINC)` -
-`WE+KL6+K618+CIT+UN+np.log(FAMINC)` -
-`WA+I(WA**2)+WE+KL6+np.log(FAMINC)` - `WA+I(WA**2)+WE+KL6`
+Для датасет `TableF5-1` оцените **probit** регрессии `LFP` на
+
+- `WA+I(WA**2)+WE+KL6+K618+CIT+UN+np.log(FAMINC)`
+- `WE+KL6+K618+CIT+UN+np.log(FAMINC)`
+- `WA+I(WA**2)+WE+KL6+np.log(FAMINC)`
+- `WA+I(WA**2)+WE+KL6`
 
 Для каждой модели вычислите показатели информационных критериев AIC и
 BIC и adjusted R<sup>2</sup><sub>pseudo</sub>. **Ответ округлите до 3-х
@@ -425,11 +428,12 @@ BIC и adjusted R<sup>2</sup><sub>pseudo</sub>. **Ответ округлите 
 
 ### swiss labour force equation (logit)
 
-Для датасет `SwissLabour` оцените **logit** регрессии `participation`
-на - `income+I(income**2)+age+I(age**2)+youngkids+oldkids+education` -
-`income+age+youngkids+oldkids+education` -
-`np.log(income)+age+I(age**2)+youngkids+oldkids+education` -
-`np.log(income)+age+youngkids+oldkids+education`
+Для датасет `SwissLabour` оцените **logit** регрессии `participation` на
+
+- `income+I(income**2)+age+I(age**2)+youngkids+oldkids+education`
+- `income+age+youngkids+oldkids+education`
+- `np.log(income)+age+I(age**2)+youngkids+oldkids+education`
+- `np.log(income)+age+youngkids+oldkids+education`
 
 Для каждой модели вычислите показатели информационных критериев AIC и
 BIC и adjusted R<sup>2</sup><sub>pseudo</sub>. **Ответ округлите до 3-х
