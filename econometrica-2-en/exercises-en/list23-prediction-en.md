@@ -1,4 +1,4 @@
-# Problems in Econometrics-2: Forecasting for logit/probit models
+# Problems in Econometrics-2: Prediction for logit/probit models
 N.V. Artamonov, A.N. Lata (MGIMO MFA of Russia)
 
 - [Approve equation](#approve-equation)
