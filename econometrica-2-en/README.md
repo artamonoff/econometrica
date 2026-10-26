@@ -5,7 +5,7 @@
 | Folder/File | Content |
 |-|-|
 | `README` | This file |
-| `syllabus` | [Calendar plan of seminars](https://github.com/artamonoff/econometrica/blob/2026-2027/econometrica-2/syllabus.md) |
+| `syllabus` | [Calendar plan of seminars](https://github.com/artamonoff/econometrica/blob/2026-2027/econometrica-2-en/syllabus-en.md) |
 | `exercises/` | Problem sheets (source code) |
 | `templates/` | Notebook templates for solving standard problems |
 
