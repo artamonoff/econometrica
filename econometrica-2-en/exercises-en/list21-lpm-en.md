@@ -1,40 +1,62 @@
 # Problems in Econometrics-2: LPM model
 N.V. Artamonov, A.N. Lata (MGIMO MFA of Russia)
 
-- [Model specification](#model-specification)
-- [Model fitting](#model-fitting)
-  - [Approve equation No. 1](#approve-equation-no-1)
-  - [Approve equation No. 2](#approve-equation-no-2)
-  - [Labour force equation No. 1](#labour-force-equation-no-1)
-  - [Labour force equation No. 2](#labour-force-equation-no-2)
-  - [Swiss labour force equation
-    No. 1](#swiss-labour-force-equation-no-1)
-- [t-test](#t-test)
-  - [Approve equation No. 1](#approve-equation-no-1-1)
-  - [Approve equation No. 2](#approve-equation-no-2-1)
-  - [Labour force equation No. 1](#labour-force-equation-no-1-1)
-  - [Labour force equation No. 2](#labour-force-equation-no-2-1)
-  - [Swiss labour force equation
-    No. 1](#swiss-labour-force-equation-no-1-1)
-- [F-test: Significance of
+- [<span class="toc-section-number">1</span> Model
+  specification](#model-specification)
+- [<span class="toc-section-number">2</span> Model
+  fitting](#model-fitting)
+  - [<span class="toc-section-number">2.1</span> Approve equation
+    No. 1](#approve-equation-no-1)
+  - [<span class="toc-section-number">2.2</span> Approve equation
+    No. 2](#approve-equation-no-2)
+  - [<span class="toc-section-number">2.3</span> Labour force equation
+    No. 1](#labour-force-equation-no-1)
+  - [<span class="toc-section-number">2.4</span> Labour force equation
+    No. 2](#labour-force-equation-no-2)
+  - [<span class="toc-section-number">2.5</span> Swiss labour force
+    equation No. 1](#swiss-labour-force-equation-no-1)
+- [<span class="toc-section-number">3</span> t-test](#t-test)
+  - [<span class="toc-section-number">3.1</span> Approve equation
+    No. 1](#approve-equation-no-1-1)
+  - [<span class="toc-section-number">3.2</span> Approve equation
+    No. 2](#approve-equation-no-2-1)
+  - [<span class="toc-section-number">3.3</span> Labour force equation
+    No. 1](#labour-force-equation-no-1-1)
+  - [<span class="toc-section-number">3.4</span> Labour force equation
+    No. 2](#labour-force-equation-no-2-1)
+  - [<span class="toc-section-number">3.5</span> Swiss labour force
+    equation No. 1](#swiss-labour-force-equation-no-1-1)
+- [<span class="toc-section-number">4</span> F-test: Significance of
   regression](#f-test-significance-of-regression)
-  - [Approve equation No. 1](#approve-equation-no-1-2)
-  - [Approve equation No. 2](#approve-equation-no-2-2)
-  - [Approve equation No. 3](#approve-equation-no-3)
-  - [Swiss labour force equation
-    No. 1](#swiss-labour-force-equation-no-1-2)
-- [F-test: Joint significance](#f-test-joint-significance)
-  - [Approve equation No. 1](#approve-equation-no-1-3)
-    - [Hypothesis No. 1](#hypothesis-no-1)
-    - [Hypothesis No. 2](#hypothesis-no-2)
-  - [Swiss labour force equation
-    No. 1](#swiss-labour-force-equation-no-1-3)
-    - [Hypothesis No. 1](#hypothesis-no-1-1)
-    - [Hypothesis No. 2](#hypothesis-no-2-1)
-- [Prediction](#prediction)
-  - [Approve equation](#approve-equation)
-  - [labour force equation](#labour-force-equation)
-  - [Swiss labour force equation](#swiss-labour-force-equation)
+  - [<span class="toc-section-number">4.1</span> Approve equation
+    No. 1](#approve-equation-no-1-2)
+  - [<span class="toc-section-number">4.2</span> Approve equation
+    No. 2](#approve-equation-no-2-2)
+  - [<span class="toc-section-number">4.3</span> Approve equation
+    No. 3](#approve-equation-no-3)
+  - [<span class="toc-section-number">4.4</span> Swiss labour force
+    equation No. 1](#swiss-labour-force-equation-no-1-2)
+- [<span class="toc-section-number">5</span> F-test: Joint
+  significance](#f-test-joint-significance)
+  - [<span class="toc-section-number">5.1</span> Approve equation
+    No. 1](#approve-equation-no-1-3)
+    - [<span class="toc-section-number">5.1.1</span> Hypothesis
+      No. 1](#hypothesis-no-1)
+    - [<span class="toc-section-number">5.1.2</span> Hypothesis
+      No. 2](#hypothesis-no-2)
+  - [<span class="toc-section-number">5.2</span> Swiss labour force
+    equation No. 1](#swiss-labour-force-equation-no-1-3)
+    - [<span class="toc-section-number">5.2.1</span> Hypothesis
+      No. 1](#hypothesis-no-1-1)
+    - [<span class="toc-section-number">5.2.2</span> Hypothesis
+      No. 2](#hypothesis-no-2-1)
+- [<span class="toc-section-number">6</span> Prediction](#prediction)
+  - [<span class="toc-section-number">6.1</span> Approve
+    equation](#approve-equation)
+  - [<span class="toc-section-number">6.2</span> labour force
+    equation](#labour-force-equation)
+  - [<span class="toc-section-number">6.3</span> Swiss labour force
+    equation](#swiss-labour-force-equation)
 
 ## Model specification
 

@@ -1,9 +1,12 @@
 # Задачи по Эконометрике-2: Прогнозирование для logit/probit-моделей
 Н.В. Артамонов, А. Н. Лата (МГИМО МИД России)
 
-- [Approve equation](#approve-equation)
-- [labour force equation](#labour-force-equation)
-- [swiss labour force equation](#swiss-labour-force-equation)
+- [<span class="toc-section-number">0.1</span> Approve
+  equation](#approve-equation)
+- [<span class="toc-section-number">0.2</span> labour force
+  equation](#labour-force-equation)
+- [<span class="toc-section-number">0.3</span> swiss labour force
+  equation](#swiss-labour-force-equation)
 
 ### Approve equation
 

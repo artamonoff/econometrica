@@ -1,12 +1,18 @@
 # Problems in Econometrics-2: Marginal effects
 N.V. Artamonov, A.N. Lata (MGIMO MFA of Russia)
 
-- [Marginal values/effects](#marginal-valueseffects)
-  - [Formulas for marginal effects](#formulas-for-marginal-effects)
-  - [Average marginal effects](#average-marginal-effects)
-  - [Approve equation](#approve-equation)
-  - [labour force equation](#labour-force-equation)
-  - [swiss labour force equation](#swiss-labour-force-equation)
+- [<span class="toc-section-number">1</span> Marginal
+  values/effects](#marginal-valueseffects)
+  - [<span class="toc-section-number">1.1</span> Formulas for marginal
+    effects](#formulas-for-marginal-effects)
+  - [<span class="toc-section-number">1.2</span> Average marginal
+    effects](#average-marginal-effects)
+  - [<span class="toc-section-number">1.3</span> Approve
+    equation](#approve-equation)
+  - [<span class="toc-section-number">1.4</span> labour force
+    equation](#labour-force-equation)
+  - [<span class="toc-section-number">1.5</span> swiss labour force
+    equation](#swiss-labour-force-equation)
 
 ## Marginal values/effects
 

@@ -1,51 +1,73 @@
 # Problems in Econometrics-2: logit/probit models
 N.V. Artamonov, A.N. Lata (MGIMO MFA of Russia)
 
-- [Model specification](#model-specification)
-- [Estimation and interpretation of
+- [<span class="toc-section-number">1</span> Model
+  specification](#model-specification)
+- [<span class="toc-section-number">2</span> Estimation and
+  interpretation of
   coefficients](#estimation-and-interpretation-of-coefficients)
-  - [Approve equation No. 1 (logit)](#approve-equation-no-1-logit)
-  - [Approve equation No. 2 (probit)](#approve-equation-no-2-probit)
-  - [Labour force equation No. 1
-    (logit)](#labour-force-equation-no-1-logit)
-  - [Labour force equation No. 2
-    (probit)](#labour-force-equation-no-2-probit)
-  - [Swiss labour force equation No. 1
-    (logit)](#swiss-labour-force-equation-no-1-logit)
-  - [Swiss labour force equation No. 2
-    (probit)](#swiss-labour-force-equation-no-2-probit)
-- [z-test](#z-test)
-  - [Approve equation No. 1 (logit)](#approve-equation-no-1-logit-1)
-  - [Approve equation No. 2 (probit)](#approve-equation-no-2-probit-1)
-  - [Labour force equation No. 1
-    (logit)](#labour-force-equation-no-1-logit-1)
-  - [Labour force equation No. 2
-    (probit)](#labour-force-equation-no-2-probit-1)
-  - [Swiss labour force equation No. 1
-    (logit)](#swiss-labour-force-equation-no-1-logit-1)
-- [LR test: overall significance of
+  - [<span class="toc-section-number">2.1</span> Approve equation No. 1
+    (logit)](#approve-equation-no-1-logit)
+  - [<span class="toc-section-number">2.2</span> Approve equation No. 2
+    (probit)](#approve-equation-no-2-probit)
+  - [<span class="toc-section-number">2.3</span> Labour force equation
+    No. 1 (logit)](#labour-force-equation-no-1-logit)
+  - [<span class="toc-section-number">2.4</span> Labour force equation
+    No. 2 (probit)](#labour-force-equation-no-2-probit)
+  - [<span class="toc-section-number">2.5</span> Swiss labour force
+    equation No. 1 (logit)](#swiss-labour-force-equation-no-1-logit)
+  - [<span class="toc-section-number">2.6</span> Swiss labour force
+    equation No. 2 (probit)](#swiss-labour-force-equation-no-2-probit)
+- [<span class="toc-section-number">3</span> z-test](#z-test)
+  - [<span class="toc-section-number">3.1</span> Approve equation No. 1
+    (logit)](#approve-equation-no-1-logit-1)
+  - [<span class="toc-section-number">3.2</span> Approve equation No. 2
+    (probit)](#approve-equation-no-2-probit-1)
+  - [<span class="toc-section-number">3.3</span> Labour force equation
+    No. 1 (logit)](#labour-force-equation-no-1-logit-1)
+  - [<span class="toc-section-number">3.4</span> Labour force equation
+    No. 2 (probit)](#labour-force-equation-no-2-probit-1)
+  - [<span class="toc-section-number">3.5</span> Swiss labour force
+    equation No. 1 (logit)](#swiss-labour-force-equation-no-1-logit-1)
+- [<span class="toc-section-number">4</span> LR test: overall
+  significance of
   regression](#lr-test-overall-significance-of-regression)
-  - [Approve equation No. 1](#approve-equation-no-1)
-  - [Approve equation No. 2](#approve-equation-no-2)
-  - [Labour force equation No. 1](#labour-force-equation-no-1)
-  - [Labour force equation No. 2](#labour-force-equation-no-2)
-  - [Swiss labour force equation
-    No. 1](#swiss-labour-force-equation-no-1)
-- [Wald test: joint significance](#wald-test-joint-significance)
-  - [Approve equation No. 1 (probit)](#approve-equation-no-1-probit)
-    - [Hypothesis No. 1](#hypothesis-no-1)
-    - [Hypothesis No. 2](#hypothesis-no-2)
-    - [Hypothesis No. 3](#hypothesis-no-3)
-  - [Labour force equation No. 1
-    (logit)](#labour-force-equation-no-1-logit-2)
-    - [Hypothesis No. 1](#hypothesis-no-1-1)
-    - [Hypothesis No. 2](#hypothesis-no-2-1)
-    - [Hypothesis No. 3](#hypothesis-no-3-1)
-  - [Swiss labour force equation No. 1
-    (logit)](#swiss-labour-force-equation-no-1-logit-2)
-    - [Hypothesis No. 1](#hypothesis-no-1-2)
-    - [Hypothesis No. 2](#hypothesis-no-2-2)
-    - [Hypothesis No. 3](#hypothesis-no-3-2)
+  - [<span class="toc-section-number">4.1</span> Approve equation
+    No. 1](#approve-equation-no-1)
+  - [<span class="toc-section-number">4.2</span> Approve equation
+    No. 2](#approve-equation-no-2)
+  - [<span class="toc-section-number">4.3</span> Labour force equation
+    No. 1](#labour-force-equation-no-1)
+  - [<span class="toc-section-number">4.4</span> Labour force equation
+    No. 2](#labour-force-equation-no-2)
+  - [<span class="toc-section-number">4.5</span> Swiss labour force
+    equation No. 1](#swiss-labour-force-equation-no-1)
+- [<span class="toc-section-number">5</span> Wald test: joint
+  significance](#wald-test-joint-significance)
+  - [<span class="toc-section-number">5.1</span> Approve equation No. 1
+    (probit)](#approve-equation-no-1-probit)
+    - [<span class="toc-section-number">5.1.1</span> Hypothesis
+      No. 1](#hypothesis-no-1)
+    - [<span class="toc-section-number">5.1.2</span> Hypothesis
+      No. 2](#hypothesis-no-2)
+    - [<span class="toc-section-number">5.1.3</span> Hypothesis
+      No. 3](#hypothesis-no-3)
+  - [<span class="toc-section-number">5.2</span> Labour force equation
+    No. 1 (logit)](#labour-force-equation-no-1-logit-2)
+    - [<span class="toc-section-number">5.2.1</span> Hypothesis
+      No. 1](#hypothesis-no-1-1)
+    - [<span class="toc-section-number">5.2.2</span> Hypothesis
+      No. 2](#hypothesis-no-2-1)
+    - [<span class="toc-section-number">5.2.3</span> Hypothesis
+      No. 3](#hypothesis-no-3-1)
+  - [<span class="toc-section-number">5.3</span> Swiss labour force
+    equation No. 1 (logit)](#swiss-labour-force-equation-no-1-logit-2)
+    - [<span class="toc-section-number">5.3.1</span> Hypothesis
+      No. 1](#hypothesis-no-1-2)
+    - [<span class="toc-section-number">5.3.2</span> Hypothesis
+      No. 2](#hypothesis-no-2-2)
+    - [<span class="toc-section-number">5.3.3</span> Hypothesis
+      No. 3](#hypothesis-no-3-2)
 
 ## Model specification
 

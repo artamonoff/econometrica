@@ -1,9 +1,12 @@
 # Problems in Econometrics-2: Prediction for logit/probit models
 N.V. Artamonov, A.N. Lata (MGIMO MFA of Russia)
 
-- [Approve equation](#approve-equation)
-- [labour force equation](#labour-force-equation)
-- [swiss labour force equation](#swiss-labour-force-equation)
+- [<span class="toc-section-number">0.1</span> Approve
+  equation](#approve-equation)
+- [<span class="toc-section-number">0.2</span> labour force
+  equation](#labour-force-equation)
+- [<span class="toc-section-number">0.3</span> swiss labour force
+  equation](#swiss-labour-force-equation)
 
 ### Approve equation
 

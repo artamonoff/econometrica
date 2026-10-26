@@ -1,12 +1,18 @@
 # Задачи по Эконометрике-2: Предельные эффекты
 Н.В. Артамонов, А. Н. Лата (МГИМО МИД России)
 
-- [Предельные значения/эффекты](#предельные-значенияэффекты)
-  - [Формулы для предельных эффектов](#формулы-для-предельных-эффектов)
-  - [Средние предельные эффекты](#средние-предельные-эффекты)
-  - [Approve equation](#approve-equation)
-  - [labour force equation](#labour-force-equation)
-  - [swiss labour force equation](#swiss-labour-force-equation)
+- [<span class="toc-section-number">1</span> Предельные
+  значения/эффекты](#предельные-значенияэффекты)
+  - [<span class="toc-section-number">1.1</span> Формулы для предельных
+    эффектов](#формулы-для-предельных-эффектов)
+  - [<span class="toc-section-number">1.2</span> Средние предельные
+    эффекты](#средние-предельные-эффекты)
+  - [<span class="toc-section-number">1.3</span> Approve
+    equation](#approve-equation)
+  - [<span class="toc-section-number">1.4</span> labour force
+    equation](#labour-force-equation)
+  - [<span class="toc-section-number">1.5</span> swiss labour force
+    equation](#swiss-labour-force-equation)
 
 ## Предельные значения/эффекты
 

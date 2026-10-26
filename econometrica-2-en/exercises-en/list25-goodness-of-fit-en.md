@@ -1,38 +1,48 @@
 # Problems in Econometrics-2: Goodness of fit and model comparison
 N.V. Artamonov, A.N. Lata (MGIMO MFA of Russia)
 
-- [Goodness of fit](#goodness-of-fit)
-  - [Approve equation No. 1 (logit)](#approve-equation-no-1-logit)
-  - [Approve equation No. 1 (probit)](#approve-equation-no-1-probit)
-  - [Approve equation No. 2 (logit)](#approve-equation-no-2-logit)
-  - [Approve equation No. 2 (probit)](#approve-equation-no-2-probit)
-  - [Approve equation No. 3 (logit)](#approve-equation-no-3-logit)
-  - [Approve equation No. 3 (probit)](#approve-equation-no-3-probit)
-  - [labour force equation No. 1
-    (logit)](#labour-force-equation-no-1-logit)
-  - [labour force equation No. 1
-    (probit)](#labour-force-equation-no-1-probit)
-  - [labour force equation No. 2
-    (logit)](#labour-force-equation-no-2-logit)
-  - [labour force equation No. 2
-    (probit)](#labour-force-equation-no-2-probit)
-  - [labour force equation No. 3
-    (logit)](#labour-force-equation-no-3-logit)
-  - [labour force equation No. 3
-    (probit)](#labour-force-equation-no-3-probit)
-  - [swiss labour force equation No. 1
-    (logit)](#swiss-labour-force-equation-no-1-logit)
-  - [swiss labour force equation No. 1
-    (probit)](#swiss-labour-force-equation-no-1-probit)
-  - [swiss labour force equation No. 2
-    (logit)](#swiss-labour-force-equation-no-2-logit)
-  - [swiss labour force equation No. 2
-    (probit)](#swiss-labour-force-equation-no-2-probit)
-- [Model comparison](#model-comparison)
-  - [Approve equation (logit)](#approve-equation-logit)
-  - [labour force equation (probit)](#labour-force-equation-probit)
-  - [swiss labour force equation
-    (logit)](#swiss-labour-force-equation-logit)
+- [<span class="toc-section-number">1</span> Goodness of
+  fit](#goodness-of-fit)
+  - [<span class="toc-section-number">1.1</span> Approve equation No. 1
+    (logit)](#approve-equation-no-1-logit)
+  - [<span class="toc-section-number">1.2</span> Approve equation No. 1
+    (probit)](#approve-equation-no-1-probit)
+  - [<span class="toc-section-number">1.3</span> Approve equation No. 2
+    (logit)](#approve-equation-no-2-logit)
+  - [<span class="toc-section-number">1.4</span> Approve equation No. 2
+    (probit)](#approve-equation-no-2-probit)
+  - [<span class="toc-section-number">1.5</span> Approve equation No. 3
+    (logit)](#approve-equation-no-3-logit)
+  - [<span class="toc-section-number">1.6</span> Approve equation No. 3
+    (probit)](#approve-equation-no-3-probit)
+  - [<span class="toc-section-number">1.7</span> labour force equation
+    No. 1 (logit)](#labour-force-equation-no-1-logit)
+  - [<span class="toc-section-number">1.8</span> labour force equation
+    No. 1 (probit)](#labour-force-equation-no-1-probit)
+  - [<span class="toc-section-number">1.9</span> labour force equation
+    No. 2 (logit)](#labour-force-equation-no-2-logit)
+  - [<span class="toc-section-number">1.10</span> labour force equation
+    No. 2 (probit)](#labour-force-equation-no-2-probit)
+  - [<span class="toc-section-number">1.11</span> labour force equation
+    No. 3 (logit)](#labour-force-equation-no-3-logit)
+  - [<span class="toc-section-number">1.12</span> labour force equation
+    No. 3 (probit)](#labour-force-equation-no-3-probit)
+  - [<span class="toc-section-number">1.13</span> swiss labour force
+    equation No. 1 (logit)](#swiss-labour-force-equation-no-1-logit)
+  - [<span class="toc-section-number">1.14</span> swiss labour force
+    equation No. 1 (probit)](#swiss-labour-force-equation-no-1-probit)
+  - [<span class="toc-section-number">1.15</span> swiss labour force
+    equation No. 2 (logit)](#swiss-labour-force-equation-no-2-logit)
+  - [<span class="toc-section-number">1.16</span> swiss labour force
+    equation No. 2 (probit)](#swiss-labour-force-equation-no-2-probit)
+- [<span class="toc-section-number">2</span> Model
+  comparison](#model-comparison)
+  - [<span class="toc-section-number">2.1</span> Approve equation
+    (logit)](#approve-equation-logit)
+  - [<span class="toc-section-number">2.2</span> labour force equation
+    (probit)](#labour-force-equation-probit)
+  - [<span class="toc-section-number">2.3</span> swiss labour force
+    equation (logit)](#swiss-labour-force-equation-logit)
 
 ## Goodness of fit
 

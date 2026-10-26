@@ -1,32 +1,48 @@
 # Задачи по Эконометрике-2: Качество подгонки и сравнение моделей
 Н.В. Артамонов, А. Н. Лата (МГИМО МИД России)
 
-- [Качество подгонки](#качество-подгонки)
-  - [Approve equation №1 (logit)](#approve-equation-1-logit)
-  - [Approve equation №1 (probit)](#approve-equation-1-probit)
-  - [Approve equation №2 (logit)](#approve-equation-2-logit)
-  - [Approve equation №2 (probit)](#approve-equation-2-probit)
-  - [Approve equation №3 (logit)](#approve-equation-3-logit)
-  - [Approve equation №3 (probit)](#approve-equation-3-probit)
-  - [labour force equation №1 (logit)](#labour-force-equation-1-logit)
-  - [labour force equation №1 (probit)](#labour-force-equation-1-probit)
-  - [labour force equation №2 (logit)](#labour-force-equation-2-logit)
-  - [labour force equation №2 (probit)](#labour-force-equation-2-probit)
-  - [labour force equation №3 (logit)](#labour-force-equation-3-logit)
-  - [labour force equation №3 (probit)](#labour-force-equation-3-probit)
-  - [swiss labour force equation №1
-    (logit)](#swiss-labour-force-equation-1-logit)
-  - [swiss labour force equation №1
-    (probit)](#swiss-labour-force-equation-1-probit)
-  - [swiss labour force equation №2
-    (logit)](#swiss-labour-force-equation-2-logit)
-  - [swiss labour force equation №2
-    (probit)](#swiss-labour-force-equation-2-probit)
-- [Сравнение моделей](#сравнение-моделей)
-  - [Approve equation (logit)](#approve-equation-logit)
-  - [labour force equation (probit)](#labour-force-equation-probit)
-  - [swiss labour force equation
-    (logit)](#swiss-labour-force-equation-logit)
+- [<span class="toc-section-number">1</span> Качество
+  подгонки](#качество-подгонки)
+  - [<span class="toc-section-number">1.1</span> Approve equation №1
+    (logit)](#approve-equation-1-logit)
+  - [<span class="toc-section-number">1.2</span> Approve equation №1
+    (probit)](#approve-equation-1-probit)
+  - [<span class="toc-section-number">1.3</span> Approve equation №2
+    (logit)](#approve-equation-2-logit)
+  - [<span class="toc-section-number">1.4</span> Approve equation №2
+    (probit)](#approve-equation-2-probit)
+  - [<span class="toc-section-number">1.5</span> Approve equation №3
+    (logit)](#approve-equation-3-logit)
+  - [<span class="toc-section-number">1.6</span> Approve equation №3
+    (probit)](#approve-equation-3-probit)
+  - [<span class="toc-section-number">1.7</span> labour force equation
+    №1 (logit)](#labour-force-equation-1-logit)
+  - [<span class="toc-section-number">1.8</span> labour force equation
+    №1 (probit)](#labour-force-equation-1-probit)
+  - [<span class="toc-section-number">1.9</span> labour force equation
+    №2 (logit)](#labour-force-equation-2-logit)
+  - [<span class="toc-section-number">1.10</span> labour force equation
+    №2 (probit)](#labour-force-equation-2-probit)
+  - [<span class="toc-section-number">1.11</span> labour force equation
+    №3 (logit)](#labour-force-equation-3-logit)
+  - [<span class="toc-section-number">1.12</span> labour force equation
+    №3 (probit)](#labour-force-equation-3-probit)
+  - [<span class="toc-section-number">1.13</span> swiss labour force
+    equation №1 (logit)](#swiss-labour-force-equation-1-logit)
+  - [<span class="toc-section-number">1.14</span> swiss labour force
+    equation №1 (probit)](#swiss-labour-force-equation-1-probit)
+  - [<span class="toc-section-number">1.15</span> swiss labour force
+    equation №2 (logit)](#swiss-labour-force-equation-2-logit)
+  - [<span class="toc-section-number">1.16</span> swiss labour force
+    equation №2 (probit)](#swiss-labour-force-equation-2-probit)
+- [<span class="toc-section-number">2</span> Сравнение
+  моделей](#сравнение-моделей)
+  - [<span class="toc-section-number">2.1</span> Approve equation
+    (logit)](#approve-equation-logit)
+  - [<span class="toc-section-number">2.2</span> labour force equation
+    (probit)](#labour-force-equation-probit)
+  - [<span class="toc-section-number">2.3</span> swiss labour force
+    equation (logit)](#swiss-labour-force-equation-logit)
 
 ## Качество подгонки
 

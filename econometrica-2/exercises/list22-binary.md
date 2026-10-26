@@ -1,47 +1,71 @@
 # Задачи по Эконометрике-2: logit/probit-модели
 Н.В. Артамонов, А. Н. Лата (МГИМО МИД России)
 
-- [Спецификация модели](#спецификация-модели)
-- [Оценивание и интерпретация
+- [<span class="toc-section-number">1</span> Спецификация
+  модели](#спецификация-модели)
+- [<span class="toc-section-number">2</span> Оценивание и интерпретация
   коэффициентов](#оценивание-и-интерпретация-коэффициентов)
-  - [Approve equation №1 (logit)](#approve-equation-1-logit)
-  - [Approve equation №2 (probit)](#approve-equation-2-probit)
-  - [Labour force equation №1 (logit)](#labour-force-equation-1-logit)
-  - [Labour force equation №2 (probit)](#labour-force-equation-2-probit)
-  - [Swiss labour force equation №1
-    (logit)](#swiss-labour-force-equation-1-logit)
-  - [Swiss labour force equation №2
-    (probit)](#swiss-labour-force-equation-2-probit)
-- [z-тест](#z-тест)
-  - [Approve equation №1 (logit)](#approve-equation-1-logit-1)
-  - [Approve equation №2 (probit)](#approve-equation-2-probit-1)
-  - [Labour force equation №1 (logit)](#labour-force-equation-1-logit-1)
-  - [Labour force equation №2
-    (probit)](#labour-force-equation-2-probit-1)
-  - [Swiss labour force equation №1
-    (logit)](#swiss-labour-force-equation-1-logit-1)
-- [LR-тест: значимость регрессии](#lr-тест-значимость-регрессии)
-  - [Approve equation №1](#approve-equation-1)
-  - [Approve equation №2](#approve-equation-2)
-  - [Labour force equation №1](#labour-force-equation-1)
-  - [Labour force equation №2](#labour-force-equation-2)
-  - [Swiss labour force equation №1](#swiss-labour-force-equation-1)
-- [Тест Вальда: совместная
+  - [<span class="toc-section-number">2.1</span> Approve equation №1
+    (logit)](#approve-equation-1-logit)
+  - [<span class="toc-section-number">2.2</span> Approve equation №2
+    (probit)](#approve-equation-2-probit)
+  - [<span class="toc-section-number">2.3</span> Labour force equation
+    №1 (logit)](#labour-force-equation-1-logit)
+  - [<span class="toc-section-number">2.4</span> Labour force equation
+    №2 (probit)](#labour-force-equation-2-probit)
+  - [<span class="toc-section-number">2.5</span> Swiss labour force
+    equation №1 (logit)](#swiss-labour-force-equation-1-logit)
+  - [<span class="toc-section-number">2.6</span> Swiss labour force
+    equation №2 (probit)](#swiss-labour-force-equation-2-probit)
+- [<span class="toc-section-number">3</span> z-тест](#z-тест)
+  - [<span class="toc-section-number">3.1</span> Approve equation №1
+    (logit)](#approve-equation-1-logit-1)
+  - [<span class="toc-section-number">3.2</span> Approve equation №2
+    (probit)](#approve-equation-2-probit-1)
+  - [<span class="toc-section-number">3.3</span> Labour force equation
+    №1 (logit)](#labour-force-equation-1-logit-1)
+  - [<span class="toc-section-number">3.4</span> Labour force equation
+    №2 (probit)](#labour-force-equation-2-probit-1)
+  - [<span class="toc-section-number">3.5</span> Swiss labour force
+    equation №1 (logit)](#swiss-labour-force-equation-1-logit-1)
+- [<span class="toc-section-number">4</span> LR-тест: значимость
+  регрессии](#lr-тест-значимость-регрессии)
+  - [<span class="toc-section-number">4.1</span> Approve equation
+    №1](#approve-equation-1)
+  - [<span class="toc-section-number">4.2</span> Approve equation
+    №2](#approve-equation-2)
+  - [<span class="toc-section-number">4.3</span> Labour force equation
+    №1](#labour-force-equation-1)
+  - [<span class="toc-section-number">4.4</span> Labour force equation
+    №2](#labour-force-equation-2)
+  - [<span class="toc-section-number">4.5</span> Swiss labour force
+    equation №1](#swiss-labour-force-equation-1)
+- [<span class="toc-section-number">5</span> Тест Вальда: совместная
   значимость](#тест-вальда-совместная-значимость)
-  - [Approve equation №1 (probit)](#approve-equation-1-probit)
-    - [Гипотеза №1](#гипотеза-1)
-    - [Гипотеза №2](#гипотеза-2)
-    - [Гипотеза №3](#гипотеза-3)
-  - [Labour force equation \#1
-    (logit)](#labour-force-equation-1-logit-2)
-    - [Гипотеза №1](#гипотеза-1-1)
-    - [Гипотеза №2](#гипотеза-2-1)
-    - [Гипотеза №3](#гипотеза-3-1)
-  - [Swiss labour force equation №1
-    (logit)](#swiss-labour-force-equation-1-logit-2)
-    - [Гипотеза №1](#гипотеза-1-2)
-    - [Гипотеза №2](#гипотеза-2-2)
-    - [Гипотеза №3](#гипотеза-3-2)
+  - [<span class="toc-section-number">5.1</span> Approve equation №1
+    (probit)](#approve-equation-1-probit)
+    - [<span class="toc-section-number">5.1.1</span> Гипотеза
+      №1](#гипотеза-1)
+    - [<span class="toc-section-number">5.1.2</span> Гипотеза
+      №2](#гипотеза-2)
+    - [<span class="toc-section-number">5.1.3</span> Гипотеза
+      №3](#гипотеза-3)
+  - [<span class="toc-section-number">5.2</span> Labour force equation
+    \#1 (logit)](#labour-force-equation-1-logit-2)
+    - [<span class="toc-section-number">5.2.1</span> Гипотеза
+      №1](#гипотеза-1-1)
+    - [<span class="toc-section-number">5.2.2</span> Гипотеза
+      №2](#гипотеза-2-1)
+    - [<span class="toc-section-number">5.2.3</span> Гипотеза
+      №3](#гипотеза-3-1)
+  - [<span class="toc-section-number">5.3</span> Swiss labour force
+    equation №1 (logit)](#swiss-labour-force-equation-1-logit-2)
+    - [<span class="toc-section-number">5.3.1</span> Гипотеза
+      №1](#гипотеза-1-2)
+    - [<span class="toc-section-number">5.3.2</span> Гипотеза
+      №2](#гипотеза-2-2)
+    - [<span class="toc-section-number">5.3.3</span> Гипотеза
+      №3](#гипотеза-3-2)
 
 ## Спецификация модели
 
