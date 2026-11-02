@@ -410,9 +410,9 @@ Test the joint significance of `appinc, appinc**2`. Significance level
 
 Answer:
 
-| Statistic | P-value | Critical | Joint effect |
-|----------:|--------:|---------:|:-------------|
-|     5.149 |   0.006 |    1.077 | significant  |
+| Statistic | P-value | Critical | Joint effect   |
+|----------:|--------:|---------:|:---------------|
+|     2.961 |   0.052 |    1.077 | in significant |
 
 #### Hypothesis No. 2
 
@@ -421,9 +421,9 @@ Test the joint significance of `unem, dep, married`. Significance level
 
 Answer:
 
-| Statistic | P-value | Critical | Joint effect |
-|----------:|--------:|---------:|:-------------|
-|     4.054 |   0.007 |    1.111 | significant  |
+| Statistic | P-value | Critical | Joint effect   |
+|----------:|--------:|---------:|:---------------|
+|     3.469 |   0.016 |    1.111 | in significant |
 
 ### Swiss labour force equation No. 1
 
@@ -443,7 +443,7 @@ Answer:
 
 | Statistic | P-value | Critical | Joint effect |
 |----------:|--------:|---------:|:-------------|
-|    13.974 |       0 |    1.119 | significant  |
+|    17.389 |       0 |    1.119 | significant  |
 
 #### Hypothesis No. 2
 
@@ -453,7 +453,7 @@ Answer:
 
 | Statistic | P-value | Critical | Joint effect |
 |----------:|--------:|---------:|:-------------|
-|     34.39 |       0 |    1.091 | significant  |
+|    38.954 |       0 |    1.091 | significant  |
 
 ## Prediction
 
