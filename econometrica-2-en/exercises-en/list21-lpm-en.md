@@ -412,7 +412,7 @@ Answer:
 
 | Statistic | P-value | Critical | Joint effect   |
 |----------:|--------:|---------:|:---------------|
-|     2.961 |   0.052 |    1.077 | in significant |
+|     2.961 |   0.052 |        3 | in significant |
 
 #### Hypothesis No. 2
 
@@ -423,7 +423,7 @@ Answer:
 
 | Statistic | P-value | Critical | Joint effect   |
 |----------:|--------:|---------:|:---------------|
-|     3.469 |   0.016 |    1.111 | in significant |
+|     3.469 |   0.016 |    3.792 | in significant |
 
 ### Swiss labour force equation No. 1
 
@@ -443,7 +443,7 @@ Answer:
 
 | Statistic | P-value | Critical | Joint effect |
 |----------:|--------:|---------:|:-------------|
-|    17.389 |       0 |    1.119 | significant  |
+|    17.389 |       0 |    3.006 | significant  |
 
 #### Hypothesis No. 2
 
@@ -453,7 +453,7 @@ Answer:
 
 | Statistic | P-value | Critical | Joint effect |
 |----------:|--------:|---------:|:-------------|
-|    38.954 |       0 |    1.091 | significant  |
+|    38.954 |       0 |    2.309 | significant  |
 
 ## Prediction
 
