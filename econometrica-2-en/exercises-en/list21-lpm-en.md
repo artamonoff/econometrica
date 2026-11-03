@@ -26,8 +26,9 @@ N.V. Artamonov, A.N. Lata (MGIMO MFA of Russia)
     No. 2](#labour-force-equation-no-2-1)
   - [<span class="toc-section-number">3.5</span> Swiss labour force
     equation No. 1](#swiss-labour-force-equation-no-1-1)
-- [<span class="toc-section-number">4</span> F-test: Significance of
-  regression](#f-test-significance-of-regression)
+- [<span class="toc-section-number">4</span> F-test: Overall
+  significance of
+  regression](#f-test-overall-significance-of-regression)
   - [<span class="toc-section-number">4.1</span> Approve equation
     No. 1](#approve-equation-no-1-2)
   - [<span class="toc-section-number">4.2</span> Approve equation
@@ -323,7 +324,7 @@ Answer:
 
 Critical value: 1.647
 
-## F-test: Significance of regression
+## F-test: Overall significance of regression
 
 For the regression
 
