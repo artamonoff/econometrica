@@ -29,9 +29,8 @@ N.V. Artamonov, A.N. Lata (MGIMO MFA of Russia)
     No. 2 (probit)](#labour-force-equation-no-2-probit-1)
   - [<span class="toc-section-number">3.5</span> Swiss labour force
     equation No. 1 (logit)](#swiss-labour-force-equation-no-1-logit-1)
-- [<span class="toc-section-number">4</span> LR test: overall
-  significance of
-  regression](#lr-test-overall-significance-of-regression)
+- [<span class="toc-section-number">4</span> LR-test: significance of
+  regression](#lr-test-significance-of-regression)
   - [<span class="toc-section-number">4.1</span> Approve equation
     No. 1](#approve-equation-no-1)
   - [<span class="toc-section-number">4.2</span> Approve equation
@@ -73,8 +72,8 @@ N.V. Artamonov, A.N. Lata (MGIMO MFA of Russia)
 
 Let
 
-- $y$ be a binary dependent variable
-- $(x_1,\ldots,x_k)$ be explanatory variables or regressors
+- $y$ - binary dependent variable
+- $(x_1,\ldots,x_k)$ - explanatory variables or regressors
 
 Denote
 
@@ -131,9 +130,9 @@ $$
 
 ### Approve equation No. 1 (logit)
 
-For the dataset `loanapp`, estimate the **logit** regression of
-`approve` on `mortno+unem+dep+male+married+yjob+self` and report its
-coefficients. **Round your answer to 3 decimal places**
+For dataset `loanapp` estimate the **logit** regression of `approve` on
+`mortno+unem+dep+male+married+yjob+self` and provide its coefficients.
+**Round the answer to 3 decimal places**
 
 Answer:
 
@@ -148,14 +147,13 @@ Answer:
 | yjob        |   -0.007 |
 | self        |   -0.314 |
 
-**Interpret the coefficients of the model**
+**Interpret the model coefficients**
 
 ### Approve equation No. 2 (probit)
 
-For the dataset `loanapp`, estimate the **probit** regression of
-`approve` on
-`appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self` and report
-its coefficients. **Round your answer to 3 decimal places**
+For dataset `loanapp` estimate the **probit** regression of `approve` on
+`appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self` and provide
+its coefficients. **Round the answer to 3 decimal places**
 
 Answer:
 
@@ -172,13 +170,13 @@ Answer:
 | yjob             |   -0.004 |
 | self             |   -0.196 |
 
-**Interpret the coefficients of the model**
+**Interpret the model coefficients**
 
 ### Labour force equation No. 1 (logit)
 
-For the dataset `TableF5-1`, estimate the **logit** regression of `LFP`
-on `WA+I(WA**2)+WE+KL6+K618+CIT+UN+np.log(FAMINC)` and report its
-coefficients. **Round your answer to 3 decimal places**
+For dataset `TableF5-1` estimate the **logit** regression of `LFP` on
+`WA+I(WA**2)+WE+KL6+K618+CIT+UN+np.log(FAMINC)` and provide its
+coefficients. **Round the answer to 3 decimal places**
 
 Answer:
 
@@ -194,13 +192,13 @@ Answer:
 | UN             |   -0.018 |
 | np.log(FAMINC) |    0.333 |
 
-**Interpret the coefficients of the model**
+**Interpret the model coefficients**
 
 ### Labour force equation No. 2 (probit)
 
-For the dataset `TableF5-1`, estimate the **probit** regression of `LFP`
-on `WA+WE+CIT+UN+np.log(FAMINC)` and report its coefficients. **Round
-your answer to 3 decimal places**
+For dataset `TableF5-1` estimate the **probit** regression of `LFP` on
+`WA+WE+CIT+UN+np.log(FAMINC)` and provide its coefficients. **Round the
+answer to 3 decimal places**
 
 Answer:
 
@@ -213,13 +211,13 @@ Answer:
 | UN             |   -0.013 |
 | np.log(FAMINC) |    0.244 |
 
-**Interpret the coefficients of the model**
+**Interpret the model coefficients**
 
 ### Swiss labour force equation No. 1 (logit)
 
-For the dataset `SwissLabour`, estimate the **logit** regression of
-`participation` on `income+age+education+youngkids+oldkids` and report
-its coefficients. **Round your answer to 3 decimal places**
+For dataset `SwissLabour` estimate the **logit** regression of
+`participation` on `income+age+education+youngkids+oldkids` and provide
+its coefficients. **Round the answer to 3 decimal places**
 
 Answer:
 
@@ -232,14 +230,14 @@ Answer:
 | youngkids   |   -1.221 |
 | oldkids     |   -0.016 |
 
-**Interpret the coefficients of the model**
+**Interpret the model coefficients**
 
 ### Swiss labour force equation No. 2 (probit)
 
-For the dataset `SwissLabour`, estimate the **probit** regression of
+For dataset `SwissLabour` estimate the **probit** regression of
 `participation` on
-`np.log(income)+age+I(age**2)+education+youngkids+oldkids` and report
-its coefficients. **Round your answer to 3 decimal places**
+`np.log(income)+age+I(age**2)+education+youngkids+oldkids` and provide
+its coefficients. **Round the answer to 3 decimal places**
 
 Answer:
 
@@ -253,141 +251,159 @@ Answer:
 | youngkids      |   -0.644 |
 | oldkids        |   -0.159 |
 
-**Interpret the coefficients of the model**
+**Interpret the model coefficients**
 
 ## z-test
 
 ### Approve equation No. 1 (logit)
 
-For the dataset `loanapp`, estimate the **logit** regression of
-`approve` on `mortno+unem+dep+male+married+yjob+self` and test the
-significance of its coefficients. Significance level 5.0%. For each
-coefficient, report - its test statistic, - P-value - critical value -
-and draw a conclusion.
+For dataset `loanapp` estimate the **logit** regression of `approve` on
+`mortno+unem+dep+male+married+yjob+self`and test the significance of its
+coefficients. Significance level 5.0%.For each coefficient provide
 
-**Round your answer to 3 decimal places**
+- its test statistic,
+- P-value
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**
 
 Answer:
 
-| Coefficient | Test stat | P-value | Conclusion    |
-|:------------|----------:|--------:|:--------------|
-| Intercept   |     9.646 |       0 | Significant   |
-| mortno      |     4.485 |       0 | Significant   |
-| unem        |    -1.772 |   0.076 | Insignificant |
-| dep         |     -2.61 |   0.009 | Significant   |
-| male        |     0.116 |   0.907 | Insignificant |
-| married     |      2.57 |    0.01 | Significant   |
-| yjob        |    -0.101 |    0.92 | Insignificant |
-| self        |    -1.612 |   0.107 | Insignificant |
+| Coefficient | Test stat | P-value | Conclusion      |
+|:------------|----------:|--------:|:----------------|
+| Intercept   |     9.646 |       0 | Significant     |
+| mortno      |     4.485 |       0 | Significant     |
+| unem        |    -1.772 |   0.076 | Not significant |
+| dep         |     -2.61 |   0.009 | Significant     |
+| male        |     0.116 |   0.907 | Not significant |
+| married     |      2.57 |    0.01 | Significant     |
+| yjob        |    -0.101 |    0.92 | Not significant |
+| self        |    -1.612 |   0.107 | Not significant |
 
 Critical value: 1.96
 
 ### Approve equation No. 2 (probit)
 
-For the dataset `loanapp`, estimate the **probit** regression of
-`approve` on
-`appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self` and test
-the significance of its coefficients. Significance level 5.0%. For each
-coefficient, report - its test statistic, - P-value - critical value -
-and draw a conclusion.
+For dataset `loanapp` estimate the **probit** regression of `approve` on
+`appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self`and test the
+significance of its coefficients. Significance level 5.0%.For each
+coefficient provide
 
-**Round your answer to 3 decimal places**
+- its test statistic,
+- P-value
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**
 
 Answer:
 
-| Coefficient      | Test stat | P-value | Conclusion    |
-|:-----------------|----------:|--------:|:--------------|
-| Intercept        |     8.212 |       0 | Significant   |
-| appinc           |     1.742 |   0.082 | Insignificant |
-| I(appinc \*\* 2) |    -2.268 |   0.023 | Significant   |
-| mortno           |     4.132 |       0 | Significant   |
-| unem             |    -1.729 |   0.084 | Insignificant |
-| dep              |    -2.215 |   0.027 | Significant   |
-| male             |    -0.076 |    0.94 | Insignificant |
-| married          |     2.378 |   0.017 | Significant   |
-| yjob             |    -0.113 |    0.91 | Insignificant |
-| self             |    -1.813 |    0.07 | Insignificant |
+| Coefficient      | Test stat | P-value | Conclusion      |
+|:-----------------|----------:|--------:|:----------------|
+| Intercept        |     8.212 |       0 | Significant     |
+| appinc           |     1.742 |   0.082 | Not significant |
+| I(appinc \*\* 2) |    -2.268 |   0.023 | Significant     |
+| mortno           |     4.132 |       0 | Significant     |
+| unem             |    -1.729 |   0.084 | Not significant |
+| dep              |    -2.215 |   0.027 | Significant     |
+| male             |    -0.076 |    0.94 | Not significant |
+| married          |     2.378 |   0.017 | Significant     |
+| yjob             |    -0.113 |    0.91 | Not significant |
+| self             |    -1.813 |    0.07 | Not significant |
 
 Critical value: 1.96
 
 ### Labour force equation No. 1 (logit)
 
-For the dataset `TableF5-1`, estimate the **logit** regression of `LFP`
-on `WA+I(WA**2)+WE+KL6+K618+CIT+UN+np.log(FAMINC)` and test the
-significance of its coefficients. Significance level 1.0%. For each
-coefficient, report - its test statistic, - P-value - critical value -
-and draw a conclusion.
+For dataset `TableF5-1` estimate the **logit** regression of `LFP` on
+`WA+I(WA**2)+WE+KL6+K618+CIT+UN+np.log(FAMINC)`and test the significance
+of its coefficients. Significance level 1.0%.For each coefficient
+provide
 
-**Round your answer to 3 decimal places**
+- its test statistic,
+- P-value
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**
 
 Answer:
 
-| Coefficient    | Test stat | P-value | Conclusion    |
-|:---------------|----------:|--------:|:--------------|
-| Intercept      |    -1.144 |   0.253 | Insignificant |
-| WA             |      0.06 |   0.952 | Insignificant |
-| I(WA \*\* 2)   |    -0.606 |   0.544 | Insignificant |
-| WE             |     4.453 |       0 | Significant   |
-| KL6            |    -7.115 |       0 | Significant   |
-| K618           |    -1.517 |   0.129 | Insignificant |
-| CIT            |    -1.227 |    0.22 | Insignificant |
-| UN             |    -0.681 |   0.496 | Insignificant |
-| np.log(FAMINC) |     1.927 |   0.054 | Insignificant |
+| Coefficient    | Test stat | P-value | Conclusion      |
+|:---------------|----------:|--------:|:----------------|
+| Intercept      |    -1.144 |   0.253 | Not significant |
+| WA             |      0.06 |   0.952 | Not significant |
+| I(WA \*\* 2)   |    -0.606 |   0.544 | Not significant |
+| WE             |     4.453 |       0 | Significant     |
+| KL6            |    -7.115 |       0 | Significant     |
+| K618           |    -1.517 |   0.129 | Not significant |
+| CIT            |    -1.227 |    0.22 | Not significant |
+| UN             |    -0.681 |   0.496 | Not significant |
+| np.log(FAMINC) |     1.927 |   0.054 | Not significant |
 
 Critical value: 2.576
 
 ### Labour force equation No. 2 (probit)
 
-For the dataset `TableF5-1`, estimate the **probit** regression of `LFP`
-on `WA+WE+CIT+UN+np.log(FAMINC)` and test the significance of its
-coefficients. Significance level 5.0%. For each coefficient, report -
-its test statistic, - P-value - critical value - and draw a conclusion.
+For dataset `TableF5-1` estimate the **probit** regression of `LFP` on
+`WA+WE+CIT+UN+np.log(FAMINC)`and test the significance of its
+coefficients. Significance level 5.0%.For each coefficient provide
 
-**Round your answer to 3 decimal places**
+- its test statistic,
+- P-value
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**
 
 Answer:
 
-| Coefficient    | Test stat | P-value | Conclusion    |
-|:---------------|----------:|--------:|:--------------|
-| Intercept      |    -2.875 |   0.004 | Significant   |
-| WA             |    -1.621 |   0.105 | Insignificant |
-| WE             |     3.909 |       0 | Significant   |
-| CIT            |    -1.229 |   0.219 | Insignificant |
-| UN             |    -0.876 |   0.381 | Insignificant |
-| np.log(FAMINC) |     2.426 |   0.015 | Significant   |
+| Coefficient    | Test stat | P-value | Conclusion      |
+|:---------------|----------:|--------:|:----------------|
+| Intercept      |    -2.875 |   0.004 | Significant     |
+| WA             |    -1.621 |   0.105 | Not significant |
+| WE             |     3.909 |       0 | Significant     |
+| CIT            |    -1.229 |   0.219 | Not significant |
+| UN             |    -0.876 |   0.381 | Not significant |
+| np.log(FAMINC) |     2.426 |   0.015 | Significant     |
 
 Critical value: 1.96
 
 ### Swiss labour force equation No. 1 (logit)
 
-For the dataset `SwissLabour`, estimate the **logit** regression of
+For dataset `SwissLabour` estimate the **logit** regression of
 `participation` on
-`income+I(income**2)+age+I(age**2)+education+youngkids+oldkids+foreign`
-and test the significance of its coefficients. Significance level 10.0%.
-For each coefficient, report - its test statistic, - P-value - critical
-value - and draw a conclusion.
+`income+I(income**2)+age+I(age**2)+education+youngkids+oldkids+foreign`and
+test the significance of its coefficients. Significance level 10.0%.For
+each coefficient provide
 
-**Round your answer to 3 decimal places**
+- its test statistic,
+- P-value
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**
 
 Answer:
 
-| Coefficient      | Test stat | P-value | Conclusion    |
-|:-----------------|----------:|--------:|:--------------|
-| Intercept        |    -0.731 |   0.465 | Insignificant |
-| income           |     0.753 |   0.452 | Insignificant |
-| I(income \*\* 2) |     -1.08 |    0.28 | Insignificant |
-| age              |     4.977 |       0 | Significant   |
-| I(age \*\* 2)    |    -5.684 |       0 | Significant   |
-| education        |     1.223 |   0.221 | Insignificant |
-| youngkids        |     -6.87 |       0 | Significant   |
-| oldkids          |    -2.814 |   0.005 | Significant   |
-| foreign          |     5.734 |       0 | Significant   |
+| Coefficient      | Test stat | P-value | Conclusion      |
+|:-----------------|----------:|--------:|:----------------|
+| Intercept        |    -0.731 |   0.465 | Not significant |
+| income           |     0.753 |   0.452 | Not significant |
+| I(income \*\* 2) |     -1.08 |    0.28 | Not significant |
+| age              |     4.977 |       0 | Significant     |
+| I(age \*\* 2)    |    -5.684 |       0 | Significant     |
+| education        |     1.223 |   0.221 | Not significant |
+| youngkids        |     -6.87 |       0 | Significant     |
+| oldkids          |    -2.814 |   0.005 | Significant     |
+| foreign          |     5.734 |       0 | Significant     |
 
 Critical value: 1.645
 
-## LR test: overall significance of regression
+## LR-test: significance of regression
 
-Test the hypothesis
+We test the hypothesis
 
 $$
     H_0:\beta_1=\cdots=\beta_k=0
@@ -401,20 +417,22 @@ $$
 
 ### Approve equation No. 1
 
-For the dataset `loanapp`, estimate the **probit** regression of
-`approve` on `appinc+unem+male+yjob+self`. Test overall significance of
-the regression. Significance level **10.0%**. Find - the value of the
-test statistic, - its P-value, - the critical value - and draw a
-conclusion.
+For dataset `loanapp` estimate the **probit** regression of `approve` on
+`appinc+unem+male+yjob+self`. Find
 
-**Round your answer to 3 decimal places**. Which coefficients are
+- the value of the test statistic,
+- its P-value,
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**. Which coefficients are
 significant?
 
 Answer:
 
-| Statistic | P-value | Critical | Regression    |
-|----------:|--------:|---------:|:--------------|
-|     8.573 |   0.127 |    11.07 | insignificant |
+| Statistic | P-value | Critical | Regression      |
+|----------:|--------:|---------:|:----------------|
+|     8.573 |   0.127 |    11.07 | not significant |
 
 | Coefficient | Test stat | P-value | Conclusion      |
 |:------------|----------:|--------:|:----------------|
@@ -427,14 +445,15 @@ Answer:
 
 ### Approve equation No. 2
 
-For the dataset `loanapp`, estimate the **logit** regression of
-`approve` on
-`appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self`. Test
-overall significance of the regression. Significance level **5.0%**.
-Find - the value of the test statistic, - its P-value, - the critical
-value - and draw a conclusion.
+For dataset `loanapp` estimate the **logit** regression of `approve` on
+`appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self`. Find
 
-**Round your answer to 3 decimal places**. Which coefficients are
+- the value of the test statistic,
+- its P-value,
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**. Which coefficients are
 significant?
 
 Answer:
@@ -458,19 +477,22 @@ Answer:
 
 ### Labour force equation No. 1
 
-For the dataset `TableF5-1`, estimate the **logit** regression of `LFP`
-on `K618+CIT+UN`. Test overall significance of the regression.
-Significance level **5.0%**. Find - the value of the test statistic, -
-its P-value, - the critical value - and draw a conclusion.
+For dataset `TableF5-1` estimate the **logit** regression of `LFP` on
+`K618+CIT+UN`. Find
 
-**Round your answer to 3 decimal places**. Which coefficients are
+- the value of the test statistic,
+- its P-value,
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**. Which coefficients are
 significant?
 
 Answer:
 
-| Statistic | P-value | Critical | Regression    |
-|----------:|--------:|---------:|:--------------|
-|     0.625 |   0.891 |    9.348 | insignificant |
+| Statistic | P-value | Critical | Regression      |
+|----------:|--------:|---------:|:----------------|
+|     0.625 |   0.891 |    9.348 | not significant |
 
 | Coefficient | Test stat | P-value | Conclusion      |
 |:------------|----------:|--------:|:----------------|
@@ -481,19 +503,22 @@ Answer:
 
 ### Labour force equation No. 2
 
-For the dataset `TableF5-1`, estimate the **probit** regression of `LFP`
-on `WA+I(WA**2)+K618+CIT+UN`. Test overall significance of the
-regression. Significance level **1.0%**. Find - the value of the test
-statistic, - its P-value, - the critical value - and draw a conclusion.
+For dataset `TableF5-1` estimate the **probit** regression of `LFP` on
+`WA+I(WA**2)+K618+CIT+UN`. Find
 
-**Round your answer to 3 decimal places**. Which coefficients are
+- the value of the test statistic,
+- its P-value,
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**. Which coefficients are
 significant?
 
 Answer:
 
-| Statistic | P-value | Critical | Regression    |
-|----------:|--------:|---------:|:--------------|
-|    13.179 |   0.022 |    16.75 | insignificant |
+| Statistic | P-value | Critical | Regression      |
+|----------:|--------:|---------:|:----------------|
+|    13.179 |   0.022 |    16.75 | not significant |
 
 | Coefficient  | Test stat | P-value | Conclusion      |
 |:-------------|----------:|--------:|:----------------|
@@ -506,13 +531,15 @@ Answer:
 
 ### Swiss labour force equation No. 1
 
-For the dataset `SwissLabour`, estimate the **logit** regression of
-`participation` on `income+I(income**2)+education`. Test overall
-significance of the regression. Significance level **10.0%**. Find - the
-value of the test statistic, - its P-value, - the critical value - and
-draw a conclusion.
+For dataset `SwissLabour` estimate the **logit** regression of
+`participation` on `income+I(income**2)+education`. Find
 
-**Round your answer to 3 decimal places**. Which coefficients are
+- the value of the test statistic,
+- its P-value,
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**. Which coefficients are
 significant?
 
 Answer:
@@ -532,14 +559,18 @@ Answer:
 
 ### Approve equation No. 1 (probit)
 
-For the dataset `loanapp`, estimate the **probit** regression of
+For dataset `loanapp` estimate the **mod_type\[i\]** regression of
 `approve` on
 `appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self` Test the
-hypotheses below. For each hypothesis - give an interpretation, - find
-the test statistic, - its P-value, - the critical value - and draw a
-conclusion.
+hypotheses below. For each hypothesis
 
-**Round your answer to 3 decimal places**
+- provide interpretation,
+- find the test statistic,
+- its P-value,
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**
 
 #### Hypothesis No. 1
 
@@ -548,9 +579,9 @@ Test the joint significance of `appinc, appinc**2`. Significance level
 
 Answer:
 
-| Statistic | P-value | Critical | Joint effect  |
-|----------:|--------:|---------:|:--------------|
-|     7.032 |    0.03 |     9.21 | insignificant |
+| Statistic | P-value | Critical | Joint effect    |
+|----------:|--------:|---------:|:----------------|
+|     7.032 |    0.03 |     9.21 | not significant |
 
 #### Hypothesis No. 2
 
@@ -559,9 +590,9 @@ Test the joint significance of `male, yjob, self`. Significance level
 
 Answer:
 
-| Statistic | P-value | Critical | Joint effect  |
-|----------:|--------:|---------:|:--------------|
-|     3.296 |   0.348 |    7.815 | insignificant |
+| Statistic | P-value | Critical | Joint effect    |
+|----------:|--------:|---------:|:----------------|
+|     3.296 |   0.348 |    7.815 | not significant |
 
 #### Hypothesis No. 3
 
@@ -570,18 +601,23 @@ Significance level **1.0%**
 
 Answer:
 
-| Statistic | P-value | Critical | Joint effect  |
-|----------:|--------:|---------:|:--------------|
-|    13.864 |   0.016 |   15.086 | insignificant |
+| Statistic | P-value | Critical | Joint effect    |
+|----------:|--------:|---------:|:----------------|
+|    13.864 |   0.016 |   15.086 | not significant |
 
 ### Labour force equation No. 1 (logit)
 
-For the dataset `TableF5-1`, estimate the **logit** regression of `LFP`
-on `WA+I(WA**2)+WE+KL6+K618+CIT+UN+np.log(FAMINC)` Test the hypotheses
-below. For each hypothesis - give an interpretation, - find the test
-statistic, - its P-value, - the critical value - and draw a conclusion.
+For dataset `TableF5-1` estimate the **mod_type\[i\]** regression of
+`LFP` on `WA+I(WA**2)+WE+KL6+K618+CIT+UN+np.log(FAMINC)` Test the
+hypotheses below. For each hypothesis
 
-**Round your answer to 3 decimal places**
+- provide interpretation,
+- find the test statistic,
+- its P-value,
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**
 
 #### Hypothesis No. 1
 
@@ -600,9 +636,9 @@ Test the joint significance of `K618, CIT, UN`. Significance level
 
 Answer:
 
-| Statistic | P-value | Critical | Joint effect  |
-|----------:|--------:|---------:|:--------------|
-|     4.771 |   0.189 |    6.251 | insignificant |
+| Statistic | P-value | Critical | Joint effect    |
+|----------:|--------:|---------:|:----------------|
+|     4.771 |   0.189 |    6.251 | not significant |
 
 #### Hypothesis No. 3
 
@@ -611,20 +647,24 @@ level **10.0%**
 
 Answer:
 
-| Statistic | P-value | Critical | Joint effect  |
-|----------:|--------:|---------:|:--------------|
-|     7.337 |   0.119 |    7.779 | insignificant |
+| Statistic | P-value | Critical | Joint effect    |
+|----------:|--------:|---------:|:----------------|
+|     7.337 |   0.119 |    7.779 | not significant |
 
 ### Swiss labour force equation No. 1 (logit)
 
-For the dataset `SwissLabour`, estimate the **logit** regression of
+For dataset `SwissLabour` estimate the **mod_type\[i\]** regression of
 `participation` on
 `income+I(income**2)+age+I(age**2)+education+youngkids+oldkids+foreign`
-Test the hypotheses below. For each hypothesis - give an
-interpretation, - find the test statistic, - its P-value, - the critical
-value - and draw a conclusion.
+Test the hypotheses below. For each hypothesis
 
-**Round your answer to 3 decimal places**
+- provide interpretation,
+- find the test statistic,
+- its P-value,
+- critical value
+- draw a conclusion.
+
+**Round the answer to 3 decimal places**
 
 #### Hypothesis No. 1
 
