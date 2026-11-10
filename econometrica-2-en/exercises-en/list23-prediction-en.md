@@ -1,20 +1,24 @@
 # Problems in Econometrics-2: Prediction for logit/probit models
 N.V. Artamonov, A.N. Lata (MGIMO MFA of Russia)
 
-- [<span class="toc-section-number">0.1</span> Approve
+- [<span class="toc-section-number">1</span> Approve
   equation](#approve-equation)
-- [<span class="toc-section-number">0.2</span> labour force
+- [<span class="toc-section-number">2</span> Labour force
   equation](#labour-force-equation)
-- [<span class="toc-section-number">0.3</span> swiss labour force
+- [<span class="toc-section-number">3</span> Swiss labour force
   equation](#swiss-labour-force-equation)
 
-### Approve equation
+## Approve equation
 
-For the dataset `loanapp`, estimate the **probit** and **logit**
-regressions of `approve` on `I(appinc/100)+mortno+unem+dep+male` using
-the following specifications: - LPM - logit - probit
+For dataset `loanapp`, estimate the **probit** and **logit** regressions
+of `approve` on `appinc+I(appinc**2)+mortno+unem+dep+male` for the
+following specifications:
 
-Consider the new observations:
+- LPM
+- logit
+- probit
+
+Consider new observations:
 
 | appinc | mortno | unem | dep | married | male |
 |-------:|-------:|-----:|----:|--------:|-----:|
@@ -22,24 +26,28 @@ Consider the new observations:
 |     48 |      1 |  3.2 |   0 |       0 |    0 |
 |     82 |      0 |  3.9 |   1 |       1 |    1 |
 
-Compute a prediction for each observation and give an interpretation.
-**Round your answer to 3 decimal places**
+Calculate a prediction for each observation and interpret it. **Round
+the answer to 3 decimal places**
 
 Answer:
 
 |   LPM | logit | probit |
 |------:|------:|-------:|
-| 0.953 | 0.941 |  0.943 |
-| 0.933 |  0.93 |   0.93 |
-| 0.851 | 0.853 |  0.853 |
+| 0.966 | 0.947 |  0.949 |
+| 0.921 | 0.923 |  0.923 |
+| 0.859 | 0.861 |  0.861 |
 
-### labour force equation
+## Labour force equation
 
-For the dataset `TableF5-1`, estimate the **probit** and **logit**
-regressions of `LFP` on `WA+np.log(FAMINC)+WE+KL6+K618+CIT+UN` using the
-following specifications: - LPM - logit - probit
+For dataset `TableF5-1`, estimate the **probit** and **logit**
+regressions of `LFP` on `WA+np.log(FAMINC)+WE+KL6+K618+CIT+UN` for the
+following specifications:
 
-Consider the new observations:
+- LPM
+- logit
+- probit
+
+Consider new observations:
 
 |  WA | CIT |  UN | FAMINC | KL6 | K618 |  WE |
 |----:|----:|----:|-------:|----:|-----:|----:|
@@ -47,8 +55,8 @@ Consider the new observations:
 |  36 |   0 | 7.5 |   9800 |   1 |    2 |  12 |
 |  42 |   1 |   3 |  67800 |   2 |    1 |  14 |
 
-Compute a prediction for each observation and give an interpretation.
-**Round your answer to 3 decimal places**
+Calculate a prediction for each observation and interpret it. **Round
+the answer to 3 decimal places**
 
 Answer:
 
@@ -58,14 +66,18 @@ Answer:
 | 0.382 | 0.356 |  0.362 |
 | 0.207 | 0.192 |  0.196 |
 
-### swiss labour force equation
+## Swiss labour force equation
 
-For the dataset `SwissLabour`, estimate the **probit** and **logit**
+For dataset `SwissLabour`, estimate the **probit** and **logit**
 regressions of `participation` on
-`income+I(income**2)+age+I(age**2)+youngkids+oldkids` using the
-following specifications: - LPM - logit - probit
+`income+I(income**2)+age+I(age**2)+youngkids+oldkids` for the following
+specifications:
 
-Consider the new observations:
+- LPM
+- logit
+- probit
+
+Consider new observations:
 
 | income | age | youngkids | oldkids |
 |-------:|----:|----------:|--------:|
@@ -73,8 +85,8 @@ Consider the new observations:
 |  9.217 | 3.7 |         2 |       0 |
 | 10.686 | 4.2 |         2 |       1 |
 
-Compute a prediction for each observation and give an interpretation.
-**Round your answer to 3 decimal places**
+Calculate a prediction for each observation and interpret it. **Round
+the answer to 3 decimal places**
 
 Answer:
 
