@@ -1,18 +1,21 @@
 # Задачи по Эконометрике-2: Прогнозирование для logit/probit-моделей
 Н.В. Артамонов, А. Н. Лата (МГИМО МИД России)
 
-- [<span class="toc-section-number">0.1</span> Approve
+- [<span class="toc-section-number">1</span> Approve
   equation](#approve-equation)
-- [<span class="toc-section-number">0.2</span> labour force
+- [<span class="toc-section-number">2</span> labour force
   equation](#labour-force-equation)
-- [<span class="toc-section-number">0.3</span> swiss labour force
+- [<span class="toc-section-number">3</span> swiss labour force
   equation](#swiss-labour-force-equation)
 
-### Approve equation
+## Approve equation
 
 Для датасет `loanapp` оцените **probit** и **logit** регрессии `approve`
-на `I(appinc/100)+mortno+unem+dep+male` следующих спецификаций: - LPM -
-logit - probit
+на `appinc+I(appinc**2)+mortno+unem+dep+male` следующих спецификаций:
+
+- LPM
+- logit
+- probit
 
 Рассмотрим новые наблюдения:
 
@@ -29,15 +32,18 @@ logit - probit
 
 |   LPM | logit | probit |
 |------:|------:|-------:|
-| 0.953 | 0.941 |  0.943 |
-| 0.933 |  0.93 |   0.93 |
-| 0.851 | 0.853 |  0.853 |
+| 0.966 | 0.947 |  0.949 |
+| 0.921 | 0.923 |  0.923 |
+| 0.859 | 0.861 |  0.861 |
 
-### labour force equation
+## labour force equation
 
 Для датасет `TableF5-1` оцените **probit** и **logit** регрессии `LFP`
-на `WA+np.log(FAMINC)+WE+KL6+K618+CIT+UN` следующих спецификаций: -
-LPM - logit - probit
+на `WA+np.log(FAMINC)+WE+KL6+K618+CIT+UN` следующих спецификаций:
+
+- LPM
+- logit
+- probit
 
 Рассмотрим новые наблюдения:
 
@@ -58,11 +64,15 @@ LPM - logit - probit
 | 0.382 | 0.356 |  0.362 |
 | 0.207 | 0.192 |  0.196 |
 
-### swiss labour force equation
+## swiss labour force equation
 
 Для датасет `SwissLabour` оцените **probit** и **logit** регрессии
 `participation` на `income+I(income**2)+age+I(age**2)+youngkids+oldkids`
-следующих спецификаций: - LPM - logit - probit
+следующих спецификаций:
+
+- LPM
+- logit
+- probit
 
 Рассмотрим новые наблюдения:
 
