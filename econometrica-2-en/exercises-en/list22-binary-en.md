@@ -432,7 +432,7 @@ Answer:
 
 | Statistic | P-value | Critical | Regression      |
 |----------:|--------:|---------:|:----------------|
-|     8.573 |   0.127 |    11.07 | not significant |
+|     8.573 |   0.127 |    9.236 | not significant |
 
 | Coefficient | Test stat | P-value | Conclusion      |
 |:------------|----------:|--------:|:----------------|
@@ -460,7 +460,7 @@ Answer:
 
 | Statistic | P-value | Critical | Regression  |
 |----------:|--------:|---------:|:------------|
-|    48.496 |       0 |   19.023 | significant |
+|    48.496 |       0 |   16.919 | significant |
 
 | Coefficient      | Test stat | P-value | Conclusion      |
 |:-----------------|----------:|--------:|:----------------|
@@ -492,7 +492,7 @@ Answer:
 
 | Statistic | P-value | Critical | Regression      |
 |----------:|--------:|---------:|:----------------|
-|     0.625 |   0.891 |    9.348 | not significant |
+|     0.625 |   0.891 |    7.815 | not significant |
 
 | Coefficient | Test stat | P-value | Conclusion      |
 |:------------|----------:|--------:|:----------------|
@@ -518,7 +518,7 @@ Answer:
 
 | Statistic | P-value | Critical | Regression      |
 |----------:|--------:|---------:|:----------------|
-|    13.179 |   0.022 |    16.75 | not significant |
+|    13.179 |   0.022 |   15.086 | not significant |
 
 | Coefficient  | Test stat | P-value | Conclusion      |
 |:-------------|----------:|--------:|:----------------|
@@ -546,7 +546,7 @@ Answer:
 
 | Statistic | P-value | Critical | Regression  |
 |----------:|--------:|---------:|:------------|
-|      33.2 |       0 |    7.815 | significant |
+|      33.2 |       0 |    6.251 | significant |
 
 | Coefficient      | Test stat | P-value | Conclusion      |
 |:-----------------|----------:|--------:|:----------------|
@@ -559,9 +559,8 @@ Answer:
 
 ### Approve equation No. 1 (probit)
 
-For dataset `loanapp`, estimate the **mod_type\[i\]** regression of
-`approve` on
-`appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self` Test the
+For dataset `loanapp`, estimate the **probit** regression of `approve`
+on `appinc+I(appinc**2)+mortno+unem+dep+male+married+yjob+self` Test the
 hypotheses below. For each hypothesis
 
 - give an interpretation,
@@ -607,9 +606,9 @@ Answer:
 
 ### Labour force equation No. 1 (logit)
 
-For dataset `TableF5-1`, estimate the **mod_type\[i\]** regression of
-`LFP` on `WA+I(WA**2)+WE+KL6+K618+CIT+UN+np.log(FAMINC)` Test the
-hypotheses below. For each hypothesis
+For dataset `TableF5-1`, estimate the **logit** regression of `LFP` on
+`WA+I(WA**2)+WE+KL6+K618+CIT+UN+np.log(FAMINC)` Test the hypotheses
+below. For each hypothesis
 
 - give an interpretation,
 - find the test statistic,
@@ -653,7 +652,7 @@ Answer:
 
 ### Swiss labour force equation No. 1 (logit)
 
-For dataset `SwissLabour`, estimate the **mod_type\[i\]** regression of
+For dataset `SwissLabour`, estimate the **logit** regression of
 `participation` on
 `income+I(income**2)+age+I(age**2)+education+youngkids+oldkids+foreign`
 Test the hypotheses below. For each hypothesis
